@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getNextProject, getPublishedProjectBySlug, getPublishedProjects, getRelatedProjects } from "@/lib/content/queries";
+import { getNextProject, getPublishedProjectBySlug, getRelatedProjects } from "@/lib/content/queries";
 import { getReviewsForProject } from "@/lib/content/reviews";
 import { formatArticleDate } from "@/lib/format";
 import { InlineText } from "@/components/content/InlineText";
@@ -18,10 +18,12 @@ interface ProjectPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  const projects = await getPublishedProjects();
-  return projects.map((project) => ({ slug: project.slug }));
-}
+/*
+ * Realtime by design: the page re-reads the database on every request so
+ * an admin edit (or a restored version) shows on the public page without
+ * a redeploy, matching every other public route.
+ */
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,

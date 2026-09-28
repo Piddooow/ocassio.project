@@ -5,6 +5,10 @@ import { listPublishedServices } from "@/lib/db/queries/services";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
+/* Realtime: the sitemap re-reads the database per request so newly
+   published pages appear without a redeploy. */
+export const dynamic = "force-dynamic";
+
 const STATIC_ROUTES = [
   "",
   "/work",

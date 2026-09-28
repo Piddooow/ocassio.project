@@ -1,0 +1,1911 @@
+{
+  "generatedAt": "2026-09-27T15:04:50.274Z",
+  "projects": [
+    {
+      "slug": "dean-and-deb",
+      "folder": "Dean & Deb — 26 Jul 2026",
+      "date": "2026-07-26",
+      "wedding": false,
+      "photos": [
+        {
+          "id": "fub00013",
+          "file": "FUB00013.jpg",
+          "width": 4608,
+          "height": 3072,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00013@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00013@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00013@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00015",
+          "file": "FUB00015.jpg",
+          "width": 4608,
+          "height": 3072,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00015@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00015@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00015@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00019",
+          "file": "FUB00019.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00019@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00019@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00019@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00022",
+          "file": "FUB00022.jpg",
+          "width": 4450,
+          "height": 2967,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00022@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00022@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00022@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00024",
+          "file": "FUB00024.jpg",
+          "width": 4292,
+          "height": 2861,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00024@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00024@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00024@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00038",
+          "file": "FUB00038.jpg",
+          "width": 4411,
+          "height": 2941,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00038@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00038@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00038@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00040",
+          "file": "FUB00040.jpg",
+          "width": 4608,
+          "height": 3072,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00040@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00040@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00040@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00043",
+          "file": "FUB00043.jpg",
+          "width": 4608,
+          "height": 3072,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00043@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00043@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00043@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00048",
+          "file": "FUB00048.jpg",
+          "width": 4608,
+          "height": 3072,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00048@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00048@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00048@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00051",
+          "file": "FUB00051.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00051@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00051@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00051@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00055",
+          "file": "FUB00055.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00055@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00055@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00055@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00057",
+          "file": "FUB00057.jpg",
+          "width": 4608,
+          "height": 3072,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00057@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00057@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00057@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00060",
+          "file": "FUB00060.jpg",
+          "width": 4608,
+          "height": 3072,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00060@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00060@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00060@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00063",
+          "file": "FUB00063.jpg",
+          "width": 4608,
+          "height": 3072,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00063@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00063@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00063@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00065",
+          "file": "FUB00065.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00065@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00065@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00065@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00072",
+          "file": "FUB00072.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00072@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00072@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00072@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00075",
+          "file": "FUB00075.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00075@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00075@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00075@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00077",
+          "file": "FUB00077.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00077@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00077@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00077@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00093",
+          "file": "FUB00093.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00093@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00093@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00093@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00100",
+          "file": "FUB00100.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00100@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00100@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00100@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00107",
+          "file": "FUB00107.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00107@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00107@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00107@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00142",
+          "file": "FUB00142.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00142@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00142@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00142@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00174",
+          "file": "FUB00174.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00174@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00174@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00174@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00175",
+          "file": "FUB00175.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00175@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00175@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00175@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00225",
+          "file": "FUB00225.jpg",
+          "width": 4608,
+          "height": 3072,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00225@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00225@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00225@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00240",
+          "file": "FUB00240.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00240@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00240@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00240@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00242",
+          "file": "FUB00242.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00242@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00242@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00242@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00252",
+          "file": "FUB00252.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00252@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00252@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00252@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00261",
+          "file": "FUB00261.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00261@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00261@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00261@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00263",
+          "file": "FUB00263.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00263@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00263@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00263@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00265",
+          "file": "FUB00265.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00265@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00265@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00265@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00267",
+          "file": "FUB00267.jpg",
+          "width": 2743,
+          "height": 4115,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00267@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00267@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00267@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00273",
+          "file": "FUB00273.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00273@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00273@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00273@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00295",
+          "file": "FUB00295.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00295@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00295@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00295@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00303",
+          "file": "FUB00303.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00303@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00303@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00303@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00310",
+          "file": "FUB00310.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00310@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00310@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00310@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00315",
+          "file": "FUB00315.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00315@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00315@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00315@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00318",
+          "file": "FUB00318.jpg",
+          "width": 2164,
+          "height": 3246,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00318@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00318@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00318@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00325",
+          "file": "FUB00325.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00325@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00325@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00325@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00338",
+          "file": "FUB00338.jpg",
+          "width": 2367,
+          "height": 3551,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00338@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00338@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00338@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00345",
+          "file": "FUB00345.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00345@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00345@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00345@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00349",
+          "file": "FUB00349.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00349@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00349@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00349@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00352",
+          "file": "FUB00352.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00352@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00352@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00352@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00356",
+          "file": "FUB00356.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00356@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00356@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00356@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00389",
+          "file": "FUB00389.jpg",
+          "width": 2773,
+          "height": 4159,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00389@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00389@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00389@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00609",
+          "file": "FUB00609.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00609@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00609@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00609@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00664",
+          "file": "FUB00664.jpg",
+          "width": 4141,
+          "height": 2761,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00664@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00664@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00664@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00671",
+          "file": "FUB00671.jpg",
+          "width": 4608,
+          "height": 3072,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00671@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00671@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00671@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00734",
+          "file": "FUB00734.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00734@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00734@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00734@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00753",
+          "file": "FUB00753.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00753@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00753@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00753@1920.jpg"
+          }
+        },
+        {
+          "id": "fub00949",
+          "file": "FUB00949.jpg",
+          "width": 4608,
+          "height": 3072,
+          "variants": {
+            "480": "/media/photos/dean-and-deb/fub00949@480.jpg",
+            "960": "/media/photos/dean-and-deb/fub00949@960.jpg",
+            "1920": "/media/photos/dean-and-deb/fub00949@1920.jpg"
+          }
+        }
+      ],
+      "videos": []
+    },
+    {
+      "slug": "sunday-school",
+      "folder": "Sunday School — 28 Jan 2026",
+      "date": "2026-01-28",
+      "wedding": false,
+      "photos": [
+        {
+          "id": "alfa-10",
+          "file": "alfa-10.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-10@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-10@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-10@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-11",
+          "file": "alfa-11.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-11@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-11@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-11@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-12",
+          "file": "alfa-12.jpg",
+          "width": 4608,
+          "height": 3072,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-12@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-12@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-12@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-13",
+          "file": "alfa-13.jpg",
+          "width": 4040,
+          "height": 3072,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-13@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-13@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-13@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-14",
+          "file": "alfa-14.jpg",
+          "width": 4257,
+          "height": 6341,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-14@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-14@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-14@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-15",
+          "file": "alfa-15.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-15@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-15@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-15@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-16",
+          "file": "alfa-16.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-16@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-16@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-16@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-17",
+          "file": "alfa-17.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-17@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-17@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-17@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-18",
+          "file": "alfa-18.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-18@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-18@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-18@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-19",
+          "file": "alfa-19.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-19@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-19@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-19@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-2",
+          "file": "alfa-2.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-2@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-2@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-2@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-20",
+          "file": "alfa-20.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-20@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-20@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-20@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-21",
+          "file": "alfa-21.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-21@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-21@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-21@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-22",
+          "file": "alfa-22.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-22@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-22@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-22@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-23",
+          "file": "alfa-23.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-23@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-23@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-23@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-24",
+          "file": "alfa-24.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-24@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-24@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-24@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-25",
+          "file": "alfa-25.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-25@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-25@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-25@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-26",
+          "file": "alfa-26.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-26@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-26@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-26@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-27",
+          "file": "alfa-27.jpg",
+          "width": 4001,
+          "height": 6183,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-27@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-27@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-27@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-28",
+          "file": "alfa-28.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-28@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-28@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-28@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-29",
+          "file": "alfa-29.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-29@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-29@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-29@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-3",
+          "file": "alfa-3.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-3@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-3@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-3@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-30",
+          "file": "alfa-30.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-30@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-30@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-30@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-31",
+          "file": "alfa-31.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-31@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-31@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-31@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-32",
+          "file": "alfa-32.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-32@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-32@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-32@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-33",
+          "file": "alfa-33.jpg",
+          "width": 4642,
+          "height": 6186,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-33@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-33@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-33@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-34",
+          "file": "alfa-34.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-34@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-34@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-34@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-35",
+          "file": "alfa-35.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-35@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-35@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-35@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-36",
+          "file": "alfa-36.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-36@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-36@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-36@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-37",
+          "file": "alfa-37.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-37@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-37@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-37@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-38",
+          "file": "alfa-38.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-38@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-38@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-38@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-39",
+          "file": "alfa-39.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-39@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-39@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-39@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-4",
+          "file": "alfa-4.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-4@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-4@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-4@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-40",
+          "file": "alfa-40.jpg",
+          "width": 4672,
+          "height": 6020,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-40@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-40@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-40@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-41",
+          "file": "alfa-41.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-41@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-41@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-41@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-42",
+          "file": "alfa-42.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-42@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-42@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-42@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-43",
+          "file": "alfa-43.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-43@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-43@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-43@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-44",
+          "file": "alfa-44.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-44@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-44@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-44@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-45",
+          "file": "alfa-45.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-45@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-45@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-45@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-46",
+          "file": "alfa-46.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-46@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-46@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-46@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-47",
+          "file": "alfa-47.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-47@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-47@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-47@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-48",
+          "file": "alfa-48.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-48@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-48@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-48@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-49",
+          "file": "alfa-49.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-49@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-49@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-49@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-5",
+          "file": "alfa-5.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-5@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-5@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-5@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-50",
+          "file": "alfa-50.jpg",
+          "width": 7008,
+          "height": 4672,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-50@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-50@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-50@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-51",
+          "file": "alfa-51.jpg",
+          "width": 7008,
+          "height": 4672,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-51@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-51@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-51@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-52",
+          "file": "alfa-52.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-52@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-52@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-52@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-53",
+          "file": "alfa-53.jpg",
+          "width": 7008,
+          "height": 4672,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-53@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-53@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-53@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-54",
+          "file": "alfa-54.jpg",
+          "width": 7008,
+          "height": 4672,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-54@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-54@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-54@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-55",
+          "file": "alfa-55.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-55@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-55@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-55@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-56",
+          "file": "alfa-56.jpg",
+          "width": 6281,
+          "height": 4539,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-56@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-56@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-56@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-57",
+          "file": "alfa-57.jpg",
+          "width": 6660,
+          "height": 4611,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-57@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-57@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-57@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-58",
+          "file": "alfa-58.jpg",
+          "width": 7008,
+          "height": 4672,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-58@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-58@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-58@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-59",
+          "file": "alfa-59.jpg",
+          "width": 7008,
+          "height": 4672,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-59@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-59@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-59@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-6",
+          "file": "alfa-6.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-6@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-6@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-6@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-60",
+          "file": "alfa-60.jpg",
+          "width": 7008,
+          "height": 4672,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-60@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-60@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-60@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-61",
+          "file": "alfa-61.jpg",
+          "width": 7008,
+          "height": 4672,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-61@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-61@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-61@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-62",
+          "file": "alfa-62.jpg",
+          "width": 7008,
+          "height": 4672,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-62@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-62@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-62@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-63",
+          "file": "alfa-63.jpg",
+          "width": 7008,
+          "height": 4672,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-63@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-63@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-63@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-64",
+          "file": "alfa-64.jpg",
+          "width": 7008,
+          "height": 4672,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-64@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-64@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-64@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-65",
+          "file": "alfa-65.jpg",
+          "width": 7008,
+          "height": 4672,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-65@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-65@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-65@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-66",
+          "file": "alfa-66.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-66@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-66@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-66@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-67",
+          "file": "alfa-67.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-67@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-67@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-67@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-68",
+          "file": "alfa-68.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-68@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-68@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-68@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-69",
+          "file": "alfa-69.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-69@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-69@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-69@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-7",
+          "file": "alfa-7.jpg",
+          "width": 3072,
+          "height": 3442,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-7@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-7@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-7@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-70",
+          "file": "alfa-70.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-70@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-70@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-70@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-71",
+          "file": "alfa-71.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-71@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-71@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-71@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-72",
+          "file": "alfa-72.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-72@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-72@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-72@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-73",
+          "file": "alfa-73.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-73@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-73@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-73@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-74",
+          "file": "alfa-74.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-74@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-74@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-74@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-75",
+          "file": "alfa-75.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-75@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-75@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-75@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-76",
+          "file": "alfa-76.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-76@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-76@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-76@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-77",
+          "file": "alfa-77.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-77@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-77@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-77@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-78",
+          "file": "alfa-78.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-78@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-78@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-78@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-79",
+          "file": "alfa-79.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-79@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-79@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-79@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-8",
+          "file": "alfa-8.jpg",
+          "width": 3072,
+          "height": 3255,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-8@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-8@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-8@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-80",
+          "file": "alfa-80.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-80@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-80@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-80@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-81",
+          "file": "alfa-81.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-81@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-81@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-81@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-82",
+          "file": "alfa-82.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-82@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-82@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-82@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-83",
+          "file": "alfa-83.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-83@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-83@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-83@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-84",
+          "file": "alfa-84.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-84@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-84@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-84@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-85",
+          "file": "alfa-85.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-85@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-85@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-85@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-86",
+          "file": "alfa-86.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-86@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-86@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-86@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-87",
+          "file": "alfa-87.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-87@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-87@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-87@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-88",
+          "file": "alfa-88.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-88@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-88@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-88@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-89",
+          "file": "alfa-89.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-89@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-89@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-89@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-9",
+          "file": "alfa-9.jpg",
+          "width": 3072,
+          "height": 4608,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-9@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-9@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-9@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-90",
+          "file": "alfa-90.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-90@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-90@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-90@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-91",
+          "file": "alfa-91.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-91@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-91@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-91@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-92",
+          "file": "alfa-92.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-92@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-92@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-92@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-93",
+          "file": "alfa-93.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-93@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-93@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-93@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-94",
+          "file": "alfa-94.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-94@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-94@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-94@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-95",
+          "file": "alfa-95.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-95@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-95@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-95@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-96",
+          "file": "alfa-96.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-96@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-96@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-96@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-97",
+          "file": "alfa-97.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-97@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-97@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-97@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa-98",
+          "file": "alfa-98.jpg",
+          "width": 4672,
+          "height": 7008,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa-98@480.jpg",
+            "960": "/media/photos/sunday-school/alfa-98@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa-98@1920.jpg"
+          }
+        },
+        {
+          "id": "alfa",
+          "file": "alfa.jpg",
+          "width": 2655,
+          "height": 4054,
+          "variants": {
+            "480": "/media/photos/sunday-school/alfa@480.jpg",
+            "960": "/media/photos/sunday-school/alfa@960.jpg",
+            "1920": "/media/photos/sunday-school/alfa@1920.jpg"
+          }
+        }
+      ],
+      "videos": []
+    },
+    {
+      "slug": "tere-and-chris",
+      "folder": "The Wedding of Tere & Chris — 16 Jun 2025 : 28 Okt 2025",
+      "date": "2025-10-28",
+      "wedding": true,
+      "photos": [],
+      "videos": [
+        {
+          "id": "tere-chris-1-min",
+          "title": "Tere & Chris (1 min)",
+          "src": "/media/videos/tere-and-chris/tere-chris-1-min.mp4",
+          "poster": "/media/videos/tere-and-chris/tere-chris-1-min-poster.jpg",
+          "durationSeconds": 64.4,
+          "sourceBytes": 95900970,
+          "webBytes": 55695601,
+          "wedding": true
+        },
+        {
+          "id": "tere-chris-portrait",
+          "title": "Tere & Chris (Portrait)",
+          "src": "/media/videos/tere-and-chris/tere-chris-portrait.mp4",
+          "poster": "/media/videos/tere-and-chris/tere-chris-portrait-poster.jpg",
+          "durationSeconds": 40,
+          "sourceBytes": 54613221,
+          "webBytes": 31980236,
+          "wedding": true
+        },
+        {
+          "id": "tere-chris-teaser",
+          "title": "Tere & Chris (teaser)",
+          "src": "/media/videos/tere-and-chris/tere-chris-teaser.mp4",
+          "poster": "/media/videos/tere-and-chris/tere-chris-teaser-poster.jpg",
+          "durationSeconds": 65.4,
+          "sourceBytes": 94978310,
+          "webBytes": 55213811,
+          "wedding": true
+        },
+        {
+          "id": "the-wedding-of-tere-chris-full",
+          "title": "The Wedding of Tere & Chris (Full)",
+          "src": "/media/videos/tere-and-chris/the-wedding-of-tere-chris-full.mp4",
+          "poster": "/media/videos/tere-and-chris/the-wedding-of-tere-chris-full-poster.jpg",
+          "durationSeconds": 183.9,
+          "sourceBytes": 272793226,
+          "webBytes": 103975167,
+          "wedding": true
+        },
+        {
+          "id": "the-wedding-of-tere-chris-teaser",
+          "title": "The Wedding of Tere & Chris (Teaser)",
+          "src": "/media/videos/tere-and-chris/the-wedding-of-tere-chris-teaser.mp4",
+          "poster": "/media/videos/tere-and-chris/the-wedding-of-tere-chris-teaser-poster.jpg",
+          "durationSeconds": 38.3,
+          "sourceBytes": 56376063,
+          "webBytes": 32910861,
+          "wedding": true
+        }
+      ]
+    },
+    {
+      "slug": "nisa-and-taffy",
+      "folder": "The Engagement of Nisa & Taffy — 3 Jul 2023",
+      "date": "2023-07-03",
+      "wedding": false,
+      "photos": [],
+      "videos": [
+        {
+          "id": "story",
+          "title": "Story",
+          "src": "/media/videos/nisa-and-taffy/story.mp4",
+          "poster": "/media/videos/nisa-and-taffy/story-poster.jpg",
+          "durationSeconds": 24.1,
+          "sourceBytes": 30818703,
+          "webBytes": 30602001,
+          "wedding": false
+        },
+        {
+          "id": "the-engagement-of-nisa-taffy-1-menit",
+          "title": "The Engagement of Nisa & Taffy (1 menit)",
+          "src": "/media/videos/nisa-and-taffy/the-engagement-of-nisa-taffy-1-menit.mp4",
+          "poster": "/media/videos/nisa-and-taffy/the-engagement-of-nisa-taffy-1-menit-poster.jpg",
+          "durationSeconds": 84.7,
+          "sourceBytes": 124120491,
+          "webBytes": 47588356,
+          "wedding": false
+        },
+        {
+          "id": "the-engagement-of-nisa-taffy-3-menit",
+          "title": "The Engagement of Nisa & Taffy (3 menit)",
+          "src": "/media/videos/nisa-and-taffy/the-engagement-of-nisa-taffy-3-menit.mp4",
+          "poster": "/media/videos/nisa-and-taffy/the-engagement-of-nisa-taffy-3-menit-poster.jpg",
+          "durationSeconds": 215,
+          "sourceBytes": 318054864,
+          "webBytes": 121098434,
+          "wedding": false
+        }
+      ]
+    },
+    {
+      "slug": "adifa-and-adila",
+      "folder": "Adifa & Adila Birthday — 23 Jun 2023",
+      "date": "2023-06-23",
+      "wedding": false,
+      "photos": [],
+      "videos": [
+        {
+          "id": "1-adifa-adila-birthday",
+          "title": "1. Adifa & Adila Birthday",
+          "src": "/media/videos/adifa-and-adila/1-adifa-adila-birthday.mp4",
+          "poster": "/media/videos/adifa-and-adila/1-adifa-adila-birthday-poster.jpg",
+          "durationSeconds": 148.6,
+          "sourceBytes": 218922321,
+          "webBytes": 83546989,
+          "wedding": false
+        }
+      ]
+    }
+  ],
+  "studio": [
+    {
+      "id": "hero-1",
+      "file": "photo-hero-section-1.jpg",
+      "width": 954,
+      "height": 990,
+      "variants": {
+        "480": "/media/studio/hero-1@480.jpg",
+        "960": "/media/studio/hero-1@960.jpg"
+      }
+    },
+    {
+      "id": "yehuda-alfa",
+      "file": "yehuda-alfa-photographer.jpg",
+      "width": 1080,
+      "height": 1440,
+      "variants": {
+        "480": "/media/studio/yehuda-alfa@480.jpg",
+        "960": "/media/studio/yehuda-alfa@960.jpg"
+      }
+    },
+    {
+      "id": "about-hero-1",
+      "file": "about-us-hero-sectio-001.jpg",
+      "width": 1170,
+      "height": 1560,
+      "variants": {
+        "480": "/media/studio/about-hero-1@480.jpg",
+        "960": "/media/studio/about-hero-1@960.jpg"
+      }
+    }
+  ],
+  "journal": [
+    {
+      "id": "article-01",
+      "file": "journal:article-01.jpg",
+      "width": 1080,
+      "height": 1440,
+      "variants": {
+        "480": "/media/journal/article-01@480.jpg",
+        "960": "/media/journal/article-01@960.jpg"
+      }
+    },
+    {
+      "id": "article-02",
+      "file": "journal:article-02.jpg",
+      "width": 954,
+      "height": 990,
+      "variants": {
+        "480": "/media/journal/article-02@480.jpg",
+        "960": "/media/journal/article-02@960.jpg"
+      }
+    },
+    {
+      "id": "article-03",
+      "file": "journal:article-03.jpg",
+      "width": 1080,
+      "height": 1440,
+      "variants": {
+        "480": "/media/journal/article-03@480.jpg",
+        "960": "/media/journal/article-03@960.jpg"
+      }
+    },
+    {
+      "id": "article-04",
+      "file": "journal:article-04.jpg",
+      "width": 1170,
+      "height": 1170,
+      "variants": {
+        "480": "/media/journal/article-04@480.jpg",
+        "960": "/media/journal/article-04@960.jpg"
+      }
+    }
+  ],
+  "footerAvatars": [
+    {
+      "id": "daniel-caesar",
+      "file": "daniel-caesar.png",
+      "width": 500,
+      "height": 500,
+      "variants": {
+        "480": "/media/footer/daniel-caesar@480.jpg"
+      }
+    },
+    {
+      "id": "pasted-2026-09-27-at-9-43-33-pm",
+      "file": "Pasted 2026-09-27 at 9.43.33 PM.png",
+      "width": 964,
+      "height": 1200,
+      "variants": {
+        "480": "/media/footer/pasted-2026-09-27-at-9-43-33-pm@480.jpg",
+        "960": "/media/footer/pasted-2026-09-27-at-9-43-33-pm@960.jpg"
+      }
+    },
+    {
+      "id": "pict-1",
+      "file": "pict-1.png",
+      "width": 734,
+      "height": 712,
+      "variants": {
+        "480": "/media/footer/pict-1@480.jpg"
+      }
+    },
+    {
+      "id": "taylor-the-creator",
+      "file": "taylor-the-creator.png",
+      "width": 736,
+      "height": 946,
+      "variants": {
+        "480": "/media/footer/taylor-the-creator@480.jpg"
+      }
+    },
+    {
+      "id": "the-1975",
+      "file": "the-1975.png",
+      "width": 640,
+      "height": 640,
+      "variants": {
+        "480": "/media/footer/the-1975@480.jpg"
+      }
+    },
+    {
+      "id": "the-weekend",
+      "file": "the-weekend.png",
+      "width": 1200,
+      "height": 1500,
+      "variants": {
+        "480": "/media/footer/the-weekend@480.jpg",
+        "960": "/media/footer/the-weekend@960.jpg"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+ALTER TABLE `legal_pages` ADD `publish_at` text;

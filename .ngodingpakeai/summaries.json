@@ -1,0 +1,1055 @@
+{
+  ".gitignore": {
+    "summary": "Daftar berkas dan folder yang diabaikan Git: build, dependency, database lokal, dan media hasil pipeline."
+  },
+  ".ngodingpakeaiignore": {
+    "summary": "Daftar berkas dan folder yang tidak diindeks NgodingPakeAI: media biner, database, dan aset besar."
+  },
+  "AGENTS.md": {
+    "summary": "Instruksi agen untuk repo ini: alur kerja NgodingPakeAI, aturan verifikasi baterai 4 suite, house rules, dan panduan kerja bertahap."
+  },
+  "architecture-hierarchy-of-ocassio-project-final.md": {
+    "summary": "Spesifikasi arsitektur Ocassio.Project: IA situs publik, CMS admin, alur publishing, peran, dan sistem visual terkunci; sumber kebenaran tunggal untuk implementasi."
+  },
+  "drizzle/0000_overconfident_magma.sql": {
+    "summary": "Migrasi drizzle 0000_overconfident_magma.sql: membuat tabel article_blocks, articles, journal_categories; 5 indeks. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0001_peaceful_bulldozer.sql": {
+    "summary": "Migrasi drizzle 0001_peaceful_bulldozer.sql: membuat tabel upcoming_projects; 1 indeks. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0002_magical_puma.sql": {
+    "summary": "Migrasi drizzle 0002_magical_puma.sql: membuat tabel media_assets, media_variants; 2 indeks. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0003_unknown_omega_sentinel.sql": {
+    "summary": "Migrasi drizzle 0003_unknown_omega_sentinel.sql: membuat tabel inquiries; 2 indeks. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0004_elite_corsair.sql": {
+    "summary": "Migrasi drizzle 0004_elite_corsair.sql: membuat tabel legal_pages; 1 indeks. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0005_curious_rocket_racer.sql": {
+    "summary": "Migrasi drizzle 0005_curious_rocket_racer.sql: mengubah tabel legal_pages. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0006_aspiring_jamie_braddock.sql": {
+    "summary": "Migrasi drizzle 0006_aspiring_jamie_braddock.sql: membuat tabel clients, recognition, studio_about, team_members; 3 indeks. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0007_harsh_harpoon.sql": {
+    "summary": "Migrasi drizzle 0007_harsh_harpoon.sql: membuat tabel pricing, service_details, services; 5 indeks. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0008_nebulous_prowler.sql": {
+    "summary": "Migrasi drizzle 0008_nebulous_prowler.sql: membuat tabel faq, process_steps; 1 indeks. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0009_powerful_black_queen.sql": {
+    "summary": "Migrasi drizzle 0009_powerful_black_queen.sql: membuat tabel service_faq_relations, service_project_relations; 4 indeks. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0010_open_sugar_man.sql": {
+    "summary": "Migrasi drizzle 0010_open_sugar_man.sql: membuat tabel site_settings. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0011_tense_thor_girl.sql": {
+    "summary": "Migrasi drizzle 0011_tense_thor_girl.sql: membuat tabel version_history; 2 indeks. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0012_striped_dakota_north.sql": {
+    "summary": "Migrasi drizzle 0012_striped_dakota_north.sql: membuat tabel likes; 2 indeks. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0013_special_justice.sql": {
+    "summary": "Migrasi drizzle 0013_special_justice.sql: membuat tabel sessions, users; 4 indeks. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0014_absent_blacklash.sql": {
+    "summary": "Migrasi drizzle 0014_absent_blacklash.sql: mengubah tabel articles. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0015_yellow_james_howlett.sql": {
+    "summary": "Migrasi drizzle 0015_yellow_james_howlett.sql: membuat tabel navigation_items; 1 indeks. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0016_dizzy_mandroid.sql": {
+    "summary": "Migrasi drizzle 0016_dizzy_mandroid.sql: membuat tabel homepage_sections; 1 indeks. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0017_abandoned_earthquake.sql": {
+    "summary": "Migrasi drizzle 0017_abandoned_earthquake.sql: membuat tabel activity_log; 1 indeks. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/0018_loving_shocker.sql": {
+    "summary": "Migrasi drizzle 0018_loving_shocker.sql: membuat tabel project_media, projects; 3 indeks. Dijalankan oleh scripts/db-migrate.mjs."
+  },
+  "drizzle/meta/0000_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0001_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0002_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0003_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0004_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0005_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0006_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0007_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0008_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0009_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0010_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0011_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0012_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0013_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0014_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0015_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0016_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0017_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/0018_snapshot.json": {
+    "summary": "Snapshot drizzle meta: catatan skema lengkap untuk satu migrasi, dipakai generator drizzle-kit (jangan disunting manual)."
+  },
+  "drizzle/meta/_journal.json": {
+    "summary": "Jurnal migrasi drizzle: daftar berurutan seluruh migrasi yang sudah diterapkan ke database."
+  },
+  "drizzle.config.ts": {
+    "summary": "Konfigurasi drizzle-kit: menunjuk schema src/lib/db/schema.ts dan folder migrasi drizzle/."
+  },
+  "next.config.ts": {
+    "summary": "Konfigurasi Next.js untuk Ocassio.Project: opsi build, gambar, dan pengaturan runtime."
+  },
+  "ocassio-project-PRD.md": {
+    "summary": "PRD Ocassio.Project: tujuan produk, sitemap, modul CMS, aturan konten, dan standar desain yang menjadi acuan pembangunan situs dan admin."
+  },
+  "package.json": {
+    "summary": "Manifest proyek Ocassio.Project: skrip dev/build/verify/seed/db dan dependency utama Next.js, React, Drizzle, Motion, GSAP."
+  },
+  "postcss.config.mjs": {
+    "summary": "Konfigurasi PostCSS untuk Tailwind CSS 4 di proyek Next.js."
+  },
+  "scripts/build-media.mjs": {
+    "summary": "Pipeline media: memindai ocassio-list-projects/, journal/, logo-ocassio-project/, dan avatar-footer/ menjadi varian foto 480/960/1920, video web, dan poster; menulis src/lib/content/media-manifest.json."
+  },
+  "scripts/db-migrate.mjs": {
+    "summary": "Skrip migrasi database: menerapkan seluruh migrasi drizzle ke data/ocassio.db dan melaporkan statusnya."
+  },
+  "scripts/screenshot-pages.mjs": {
+    "summary": "Skrip QA screenshot: mengambil tangkapan desktop/mobile per rute (hero, grid masonry, hover reveal, viewer, footer) ke folder output untuk review desain."
+  },
+  "scripts/seed-admin.mjs": {
+    "summary": "Skrip seed seed-admin.mjs: mengisi users secara idempoten."
+  },
+  "scripts/seed-journal.mjs": {
+    "summary": "Skrip seed seed-journal.mjs: mengisi journal_categories, articles, article_blocks secara idempoten; mengekspor seedJournal untuk dipakai suite verifikasi."
+  },
+  "scripts/seed-legal.mjs": {
+    "summary": "Skrip seed seed-legal.mjs: mengisi legal_pages secara idempoten; mengekspor seedLegal untuk dipakai suite verifikasi."
+  },
+  "scripts/seed-projects.mjs": {
+    "summary": "Skrip seed seed-projects.mjs: mengisi projects secara idempoten; mengekspor seedProjects untuk dipakai suite verifikasi."
+  },
+  "scripts/seed-services.mjs": {
+    "summary": "Skrip seed seed-services.mjs: mengisi services, service_details, service_project_relations, pricing, process_steps secara idempoten; mengekspor seedServices untuk dipakai suite verifikasi."
+  },
+  "scripts/seed-settings.mjs": {
+    "summary": "Seed Global Settings: mengisi contactEmail studio (ocassio.project@gmail.com) saat masih kosong, idempoten; mengekspor STUDIO_CONTACT_EMAIL dan seedSettings."
+  },
+  "scripts/seed-studio.mjs": {
+    "summary": "Skrip seed seed-studio.mjs: mengisi studio_about secara idempoten; mengekspor seedStudio untuk dipakai suite verifikasi."
+  },
+  "scripts/seed-team.mjs": {
+    "summary": "Seed roster tim placeholder dari src/lib/content/studio.ts ke tabel team_members (published + public), idempoten per nama; mengekspor seedTeam."
+  },
+  "scripts/verify-frontend.mjs": {
+    "summary": "Suite verifikasi verify-frontend: menjalankan sekitar 264 pemeriksaan (journal, admin CMS, responsif, galeri masonry, navbar) terhadap server produksi dan database dev; bagian dari baterai 4 suite."
+  },
+  "scripts/verify-responsive.mjs": {
+    "summary": "Suite verifikasi verify-responsive: menjalankan sekitar 2 pemeriksaan (journal, responsif) terhadap server produksi dan database dev; bagian dari baterai 4 suite."
+  },
+  "src/app/(editorial)/about/page.tsx": {
+    "summary": "Halaman publik /about: About (§6.8), light, editorial, full documented structure. Studio content comes from the CMS; the founder carries the studio-supplied portrait, the team renders the owner-approved placeholder roster with hover cards, and sections without real data render labeled placeholders instead of invented clients or awards (R-38). Mengekspor metadata, dynamic, AboutPage."
+  },
+  "src/app/(editorial)/contact/page.tsx": {
+    "summary": "Halaman publik /contact: Contact (§6.12), general communication only; project requests route to Start a Project. Channel values are served from Global Settings (§10.3); unconnected channels stay labeled \"Coming soon\". Mengekspor metadata, dynamic, ContactPage."
+  },
+  "src/app/(editorial)/journal/[slug]/page.tsx": {
+    "summary": "Halaman publik /journal/:slug: Article Detail (§6.10), light, editorial, served from the CMS: title → category + date → cover → article → related project → related articles → start a project. Mengekspor dynamic, generateMetadata, ArticleDetailPage."
+  },
+  "src/app/(editorial)/journal/not-found.tsx": {
+    "summary": "Halaman 404 khusus artikel jurnal dengan pesan unavailable."
+  },
+  "src/app/(editorial)/journal/page.tsx": {
+    "summary": "Halaman publik /journal: Journal feed (§6.9), light, editorial, served from the CMS. Mengekspor metadata, dynamic, JournalPage."
+  },
+  "src/app/(editorial)/layout.tsx": {
+    "summary": "Halaman publik /layout.tsx: Information pages follow the global theme (dark by default), visitor-toggleable from the top navigation. Mengekspor EditorialLayout."
+  },
+  "src/app/(editorial)/pricing/page.tsx": {
+    "summary": "Halaman publik /pricing: Pricing (§6.6): editorial rows, not SaaS tiers, served from the CMS. Entries without a published number quote on request (R-17). Mengekspor metadata, dynamic, PricingPage."
+  },
+  "src/app/(editorial)/privacy/not-found.tsx": {
+    "summary": "Halaman 404 khusus halaman privacy."
+  },
+  "src/app/(editorial)/privacy/page.tsx": {
+    "summary": "Halaman publik /privacy: Privacy Policy (§6.14), light, editorial legal page, served from the CMS. Mengekspor metadata, dynamic, PrivacyPage."
+  },
+  "src/app/(editorial)/process/page.tsx": {
+    "summary": "Halaman publik /process: Process (§6.7): nine steps, number, title, short explanation, from the CMS. Mengekspor metadata, dynamic, ProcessPage."
+  },
+  "src/app/(editorial)/services/[slug]/page.tsx": {
+    "summary": "Halaman publik /services/:slug: Service Detail (§6.5), light, editorial, one service per page, from the CMS. Mengekspor dynamic, generateMetadata, ServiceDetailPage."
+  },
+  "src/app/(editorial)/services/page.tsx": {
+    "summary": "Halaman publik /services: Services (§6.4), light, structured, editorial, served from the CMS. Mengekspor metadata, dynamic, ServicesPage."
+  },
+  "src/app/(editorial)/start-project/page.tsx": {
+    "summary": "Halaman publik /start-project: Start a Project (§6.13), the primary conversion page (light, editorial). Mengekspor metadata, StartProjectPage."
+  },
+  "src/app/(editorial)/terms/not-found.tsx": {
+    "summary": "Halaman 404 khusus halaman terms."
+  },
+  "src/app/(editorial)/terms/page.tsx": {
+    "summary": "Halaman publik /terms: Terms of Use (§6.14), light, editorial legal page, served from the CMS. Mengekspor metadata, dynamic, TermsPage."
+  },
+  "src/app/(home)/layout.tsx": {
+    "summary": "Halaman publik /layout.tsx: Home follows the global theme now (dark by default, visitor-toggleable); the sections no longer force their own art direction. Mengekspor HomeLayout."
+  },
+  "src/app/(home)/page.tsx": {
+    "summary": "Homepage: menyusun 11 section sesuai registry homepage_sections, menggabungkan konten CMS (services, journal, clients, recognition, now) dan menempatkan StartCTA dengan confetti."
+  },
+  "src/app/(portfolio)/layout.tsx": {
+    "summary": "Halaman publik /layout.tsx: Portfolio pages follow the global theme (dark by default), visitor-toggleable from the top navigation. Mengekspor PortfolioLayout."
+  },
+  "src/app/(portfolio)/now/page.tsx": {
+    "summary": "Halaman publik /now: Now (§6.11), dark, selected studio activity in progress, from the CMS. Mengekspor metadata, dynamic, NowPage."
+  },
+  "src/app/(portfolio)/work/[slug]/page.tsx": {
+    "summary": "Halaman publik /work/:slug: Project Detail (§6.3), dark, visual case study. Photo projects carry their full photo wall; film projects carry every cut of the film. Nothing is hidden behind third parties. Mengekspor generateStaticParams, generateMetadata, ProjectDetailPage."
+  },
+  "src/app/(portfolio)/work/page.tsx": {
+    "summary": "Halaman Work: membaca searchParams.filter (deep link dropdown) dan meneruskannya sebagai initialFilter ke WorkBrowser."
+  },
+  "src/app/admin/(dashboard)/account/page.tsx": {
+    "summary": "Halaman admin CMS /admin/account: Admin → Account: self-service password (§27). Mengekspor metadata, AdminAccountPage."
+  },
+  "src/app/admin/(dashboard)/activity/page.tsx": {
+    "summary": "Halaman admin CMS /admin/activity: Admin → Activity Log (§9): append-only record of admin changes. Mengekspor metadata, AdminActivityPage."
+  },
+  "src/app/admin/(dashboard)/business/inquiries/page.tsx": {
+    "summary": "Halaman admin CMS /admin/business/inquiries: Admin → Business → Project Inquiries (§17, §31.31-32). Server-rendered table with stage filter; brief details arrive with the inquiry detail task. Mengekspor metadata, AdminInquiriesPage."
+  },
+  "src/app/admin/(dashboard)/journal/articles/page.tsx": {
+    "summary": "Halaman admin CMS /admin/journal/articles: Admin → Journal → Articles (§17). Mengekspor metadata, AdminArticlesPage."
+  },
+  "src/app/admin/(dashboard)/layout.tsx": {
+    "summary": "Halaman admin CMS /admin/layout.tsx: Every Admin CMS screen requires a signed-in user (§27). Module-level role enforcement stays on the backend APIs; this gate only keeps signed-out visitors on the sign-in screen. Mengekspor AdminDashboardLayout."
+  },
+  "src/app/admin/(dashboard)/media/page.tsx": {
+    "summary": "Halaman admin CMS /admin/media: Admin → Media → Library (§20). Mengekspor metadata, AdminMediaPage."
+  },
+  "src/app/admin/(dashboard)/page.tsx": {
+    "summary": "Halaman admin CMS /admin: The Dashboard screen arrives with its own task; start at Homepage. Mengekspor AdminIndexPage."
+  },
+  "src/app/admin/(dashboard)/portfolio/projects/page.tsx": {
+    "summary": "Halaman admin CMS /admin/portfolio/projects: Admin → Portfolio → Projects (§11, §12). Mengekspor metadata, AdminProjectsPage."
+  },
+  "src/app/admin/(dashboard)/publishing/page.tsx": {
+    "summary": "Halaman admin CMS /admin/publishing: Admin → Publishing (§8): Drafts, Scheduled, Published. Mengekspor metadata, AdminPublishingPage."
+  },
+  "src/app/admin/(dashboard)/publishing/versions/page.tsx": {
+    "summary": "Halaman admin CMS /admin/publishing/versions: Admin → Publishing → Versions (§25). Mengekspor metadata, AdminVersionsPage."
+  },
+  "src/app/admin/(dashboard)/seo/page.tsx": {
+    "summary": "Halaman admin CMS /admin/seo: Admin → SEO (§8, §12): global defaults plus per-content coverage. Mengekspor metadata, AdminSeoPage."
+  },
+  "src/app/admin/(dashboard)/services/faq/page.tsx": {
+    "summary": "Halaman admin CMS /admin/services/faq: Admin → Services → FAQ (§12.4). Mengekspor metadata, AdminFaqPage."
+  },
+  "src/app/admin/(dashboard)/services/page.tsx": {
+    "summary": "Halaman admin CMS /admin/services: Admin → Services → Services (§14). Mengekspor metadata, AdminServicesPage."
+  },
+  "src/app/admin/(dashboard)/services/pricing/page.tsx": {
+    "summary": "Halaman admin CMS /admin/services/pricing: Admin → Services → Pricing (§15). Mengekspor metadata, AdminPricingPage."
+  },
+  "src/app/admin/(dashboard)/services/process/page.tsx": {
+    "summary": "Halaman admin CMS /admin/services/process: Admin → Services → Process (§16). Mengekspor metadata, AdminProcessPage."
+  },
+  "src/app/admin/(dashboard)/studio/about/page.tsx": {
+    "summary": "Halaman admin CMS /admin/studio/about: Admin → Studio → About (§18, §6.8). Mengekspor metadata, AdminAboutPage."
+  },
+  "src/app/admin/(dashboard)/studio/clients/page.tsx": {
+    "summary": "Halaman admin CMS /admin/studio/clients: Admin → Studio → Clients (§18). Mengekspor metadata, AdminClientsPage."
+  },
+  "src/app/admin/(dashboard)/studio/recognition/page.tsx": {
+    "summary": "Halaman admin CMS /admin/studio/recognition: Admin → Studio → Recognition (§18). Mengekspor metadata, AdminRecognitionPage."
+  },
+  "src/app/admin/(dashboard)/studio/team/page.tsx": {
+    "summary": "Halaman admin CMS /admin/studio/team: Admin → Studio → Team (§18). Mengekspor metadata, AdminTeamPage."
+  },
+  "src/app/admin/(dashboard)/users/page.tsx": {
+    "summary": "Halaman admin CMS /admin/users: Users & Roles (§8, §27): owner-only screen. The backend enforces the same rule, so a redirect here is only about clarity. Mengekspor metadata, AdminUsersPage."
+  },
+  "src/app/admin/(dashboard)/website/homepage/page.tsx": {
+    "summary": "Halaman admin CMS /admin/website/homepage: Admin → Website → Homepage (§10.1). Mengekspor metadata, AdminHomepagePage."
+  },
+  "src/app/admin/(dashboard)/website/legal/page.tsx": {
+    "summary": "Halaman admin CMS /admin/website/legal: Admin → Website → Legal (§9.4). Mengekspor metadata, AdminLegalPage."
+  },
+  "src/app/admin/(dashboard)/website/navigation/page.tsx": {
+    "summary": "Halaman admin CMS /admin/website/navigation: Admin → Website → Navigation (§10.2). Mengekspor metadata, AdminNavigationPage."
+  },
+  "src/app/admin/(dashboard)/website/settings/page.tsx": {
+    "summary": "Halaman admin CMS /admin/website/settings: Admin → Website → Global Settings (§10.3). Mengekspor metadata, AdminSettingsPage."
+  },
+  "src/app/admin/layout.tsx": {
+    "summary": "Halaman admin CMS /admin/layout.tsx: Admin CMS surface (§31.29-§31.30), light-first, compact, predictable. Session enforcement lives in the (dashboard) layout so the sign-in screen can share this theme wrapper without the shell. Mengekspor metadata, AdminLayout."
+  },
+  "src/app/admin/sign-in/page.tsx": {
+    "summary": "Halaman admin CMS /admin/sign-in: Admin sign-in (§27). Signed-in visitors skip straight to the CMS. Mengekspor metadata, AdminSignInPage."
+  },
+  "src/app/api/admin/account/password/route.ts": {
+    "summary": "Route API /api/admin/account/password [POST]: Self-service password change (§27): only a real session can change its own password; other sessions of the same user are revoked. POST /api/admin/account/password body: { currentPassword, newPassword } Mengakses tabel users."
+  },
+  "src/app/api/admin/activity/route.ts": {
+    "summary": "Route API /api/admin/activity [GET]: Recent admin activity (§9). GET /api/admin/activity?limit=10"
+  },
+  "src/app/api/admin/articles/[id]/actions/route.ts": {
+    "summary": "Route API /api/admin/articles/:id/actions [POST]: Article publish workflow (§24). POST /api/admin/articles/[id]/actions body: { action, publishAt? } publish / unpublish / schedule / archive / save_draft, with the §11 gate: title, category, excerpt, publish date and at least one block."
+  },
+  "src/app/api/admin/articles/[id]/route.ts": {
+    "summary": "Route API /api/admin/articles/:id [GET, PATCH, DELETE]: Admin article by id (§17). GET /api/admin/articles/[id] -> article plus category and blocks PATCH /api/admin/articles/[id] -> partial update (blocks replace whole set) DELETE /api/admin/articles/[id] -> archive-guarded permanent delete (§26)"
+  },
+  "src/app/api/admin/articles/route.ts": {
+    "summary": "Route API /api/admin/articles [GET, POST]: Journal articles collection (§17). GET /api/admin/articles -> every article state plus category options POST /api/admin/articles -> create as draft (validation §11)"
+  },
+  "src/app/api/admin/faq/[id]/actions/route.ts": {
+    "summary": "Route API /api/admin/faq/:id/actions [POST]: FAQ publish workflow (§24, §38). POST /api/admin/faq/[id]/actions body: { action }"
+  },
+  "src/app/api/admin/faq/[id]/route.ts": {
+    "summary": "Route API /api/admin/faq/:id [PATCH, DELETE]: Admin FAQ entry by id. PATCH /api/admin/faq/[id] -> partial update DELETE /api/admin/faq/[id] -> remove"
+  },
+  "src/app/api/admin/faq/route.ts": {
+    "summary": "Route API /api/admin/faq [GET, POST]: Admin FAQ collection. GET /api/admin/faq -> every entry (any status) POST /api/admin/faq -> create one entry"
+  },
+  "src/app/api/admin/homepage-sections/route.ts": {
+    "summary": "Route API /api/admin/homepage-sections [GET, PUT]: Homepage sections (§10.1). GET /api/admin/homepage-sections -> registry with current order/visibility PUT /api/admin/homepage-sections -> persist order + visibility (Hero and the final CTA stay required)"
+  },
+  "src/app/api/admin/inquiries/[id]/route.ts": {
+    "summary": "Route API /api/admin/inquiries/:id [PATCH]: Admin inquiry stage update (§17). PATCH /api/admin/inquiries/[id] body: { status }"
+  },
+  "src/app/api/admin/inquiries/route.ts": {
+    "summary": "Route API /api/admin/inquiries [GET]: Admin business queue (§17): project inquiries, newest first. GET /api/admin/inquiries?status=<stage>&limit=<1..50>&offset=<n>"
+  },
+  "src/app/api/admin/legal/[slug]/actions/route.ts": {
+    "summary": "Route API /api/admin/legal/:slug/actions [POST]: Legal publish workflow (§24). POST /api/admin/legal/[slug]/actions body: { action, publishAt? } publish / unpublish / schedule / save_draft, with the §11 gate: publishing requires title, updated date, and at least one paragraph block."
+  },
+  "src/app/api/admin/legal/[slug]/route.ts": {
+    "summary": "Route API /api/admin/legal/:slug [PATCH]: Admin legal page update. PATCH /api/admin/legal/[slug] body: { title?, body?, updatedDate?, status? }"
+  },
+  "src/app/api/admin/legal/route.ts": {
+    "summary": "Route API /api/admin/legal [GET]: Admin legal pages list. GET /api/admin/legal -> every page with status and body blocks."
+  },
+  "src/app/api/admin/media/[id]/route.ts": {
+    "summary": "Route API /api/admin/media/:id [GET, PATCH, DELETE]: Media asset by id (§20). GET /api/admin/media/[id] -> asset, variants, and \"Used in\" labels PATCH /api/admin/media/[id] -> alt text, credit, usage state DELETE /api/admin/media/[id] -> guarded by the Used-in audit"
+  },
+  "src/app/api/admin/media/route.ts": {
+    "summary": "Route API /api/admin/media [GET]: Media Library collection (§20). GET /api/admin/media?type=image|video&search=name -> filtered assets"
+  },
+  "src/app/api/admin/navigation/[id]/move/route.ts": {
+    "summary": "Route API /api/admin/navigation/:id/move [POST]: Navigation ordering (§10.2). POST /api/admin/navigation/[id]/move body: { direction: \"up\" | \"down\" }"
+  },
+  "src/app/api/admin/navigation/[id]/route.ts": {
+    "summary": "Route API /api/admin/navigation/:id [PATCH, DELETE]: Navigation item by id (§10.2). PATCH /api/admin/navigation/[id] -> label, href, visibility DELETE /api/admin/navigation/[id] -> remove the item"
+  },
+  "src/app/api/admin/navigation/route.ts": {
+    "summary": "Route API /api/admin/navigation [GET, POST]: Navigation collection (§10.2). GET /api/admin/navigation -> every item (including hidden) in order POST /api/admin/navigation -> append a new item"
+  },
+  "src/app/api/admin/now/[id]/image/route.ts": {
+    "summary": "Route API /api/admin/now/:id/image [POST, DELETE]: Teaser image for a Now entry. POST /api/admin/now/[id]/image -> upload, optimize, link (replace) DELETE /api/admin/now/[id]/image -> unlink, delete rows and files The uploaded original is stored storage-only; only optimized variants are served publicly (PRD §21)."
+  },
+  "src/app/api/admin/now/[id]/route.ts": {
+    "summary": "Route API /api/admin/now/:id [PATCH, DELETE]: Admin Now entry by id. PATCH /api/admin/now/[id] -> partial update DELETE /api/admin/now/[id] -> remove"
+  },
+  "src/app/api/admin/now/route.ts": {
+    "summary": "Route API /api/admin/now [GET, POST]: Admin Now entries collection. GET /api/admin/now -> every entry (any visibility/status) POST /api/admin/now -> create one entry"
+  },
+  "src/app/api/admin/pricing/[id]/actions/route.ts": {
+    "summary": "Route API /api/admin/pricing/:id/actions [POST]: Pricing publish workflow (§24, §38). POST /api/admin/pricing/[id]/actions body: { action }"
+  },
+  "src/app/api/admin/pricing/[id]/route.ts": {
+    "summary": "Route API /api/admin/pricing/:id [PATCH, DELETE]: Admin pricing entry by id. PATCH /api/admin/pricing/[id] -> partial update DELETE /api/admin/pricing/[id] -> remove"
+  },
+  "src/app/api/admin/pricing/route.ts": {
+    "summary": "Route API /api/admin/pricing [GET, POST]: Admin Pricing collection. GET /api/admin/pricing -> every entry (any status) POST /api/admin/pricing -> create one entry"
+  },
+  "src/app/api/admin/process/[id]/route.ts": {
+    "summary": "Route API /api/admin/process/:id [PATCH, DELETE]: Admin process step by id. PATCH /api/admin/process/[id] -> partial update (Hide/Show included) DELETE /api/admin/process/[id] -> remove"
+  },
+  "src/app/api/admin/process/route.ts": {
+    "summary": "Route API /api/admin/process [GET, POST]: Admin Process collection. GET /api/admin/process -> every step (visible and hidden) POST /api/admin/process -> create one step"
+  },
+  "src/app/api/admin/projects/[id]/actions/route.ts": {
+    "summary": "Route API /api/admin/projects/:id/actions [POST]: Project publish workflow (§24). POST /api/admin/projects/[id]/actions body: { action, publishAt? }"
+  },
+  "src/app/api/admin/projects/[id]/route.ts": {
+    "summary": "Route API /api/admin/projects/:id [GET, PATCH, DELETE]: Admin project by id (§12). GET /api/admin/projects/[id] -> project plus attached media rows PATCH /api/admin/projects/[id] -> partial update (mediaIds replaces set) DELETE /api/admin/projects/[id] -> archive-guarded permanent delete (§26)"
+  },
+  "src/app/api/admin/projects/route.ts": {
+    "summary": "Route API /api/admin/projects [GET, POST]: Portfolio projects collection (§11, §12). GET /api/admin/projects -> every state plus category options POST /api/admin/projects -> create as draft (validation §11)"
+  },
+  "src/app/api/admin/publishing/route.ts": {
+    "summary": "Route API /api/admin/publishing [GET]: Publishing queues (§8). GET /api/admin/publishing?queue=drafts|scheduled|published"
+  },
+  "src/app/api/admin/services/[id]/actions/route.ts": {
+    "summary": "Route API /api/admin/services/:id/actions [POST]: Service publish workflow (§24, §38): SAVE DRAFT → VALIDATE → PREVIEW → PUBLISH. POST /api/admin/services/[id]/actions body: { action } Preview is served by GET /api/admin/services/[id]; the public API only ever sees published services."
+  },
+  "src/app/api/admin/services/[id]/relations/route.ts": {
+    "summary": "Route API /api/admin/services/:id/relations [GET, PUT]: Admin Service Detail relations (§6.5): selected work + related FAQ. GET /api/admin/services/[id]/relations -> current relation sets PUT /api/admin/services/[id]/relations -> replace provided sets Pricing is already scoped by pricing.serviceId through the pricing CRUD endpoints; this route covers projects and FAQ only."
+  },
+  "src/app/api/admin/services/[id]/route.ts": {
+    "summary": "Route API /api/admin/services/:id [GET, PATCH, DELETE]: Admin service by id. GET /api/admin/services/[id] -> service plus its detail row PATCH /api/admin/services/[id] -> partial update (optional details) DELETE /api/admin/services/[id] -> remove (cascades to details/pricing)"
+  },
+  "src/app/api/admin/services/route.ts": {
+    "summary": "Route API /api/admin/services [GET, POST]: Admin Services collection. GET /api/admin/services -> every service (any status) POST /api/admin/services -> create one service (optional details)"
+  },
+  "src/app/api/admin/settings/route.ts": {
+    "summary": "Route API /api/admin/settings [GET, PATCH]: Admin Global Settings (§10.3): contact fields. GET /api/admin/settings -> current settings (or null) PATCH /api/admin/settings -> create on first write, then patch"
+  },
+  "src/app/api/admin/studio/about/route.ts": {
+    "summary": "Route API /api/admin/studio/about [GET, PATCH]: Admin Studio About singleton. GET /api/admin/studio/about -> current content (or null) PATCH /api/admin/studio/about -> create on first write, then patch"
+  },
+  "src/app/api/admin/studio/clients/[id]/actions/route.ts": {
+    "summary": "Route API /api/admin/studio/clients/:id/actions [POST]: Client publish workflow (§24, §38). POST /api/admin/studio/clients/[id]/actions body: { action }"
+  },
+  "src/app/api/admin/studio/clients/[id]/route.ts": {
+    "summary": "Route API /api/admin/studio/clients/:id [PATCH, DELETE]: Admin Studio client by id. PATCH /api/admin/studio/clients/[id] -> partial update DELETE /api/admin/studio/clients/[id] -> remove"
+  },
+  "src/app/api/admin/studio/clients/route.ts": {
+    "summary": "Route API /api/admin/studio/clients [GET, POST]: Admin Studio clients collection. GET /api/admin/studio/clients -> every client (any status) POST /api/admin/studio/clients -> create one client"
+  },
+  "src/app/api/admin/studio/recognition/[id]/actions/route.ts": {
+    "summary": "Route API /api/admin/studio/recognition/:id/actions [POST]: Recognition publish workflow (§24, §38). POST /api/admin/studio/recognition/[id]/actions body: { action }"
+  },
+  "src/app/api/admin/studio/recognition/[id]/route.ts": {
+    "summary": "Route API /api/admin/studio/recognition/:id [PATCH, DELETE]: Admin Studio recognition entry by id. PATCH /api/admin/studio/recognition/[id] -> partial update DELETE /api/admin/studio/recognition/[id] -> remove"
+  },
+  "src/app/api/admin/studio/recognition/route.ts": {
+    "summary": "Route API /api/admin/studio/recognition [GET, POST]: Admin Studio recognition collection. GET /api/admin/studio/recognition -> every entry (any status) POST /api/admin/studio/recognition -> create one entry"
+  },
+  "src/app/api/admin/studio/team/[id]/actions/route.ts": {
+    "summary": "Route API /api/admin/studio/team/:id/actions [POST]: Team member publish workflow (§24, §38). POST /api/admin/studio/team/[id]/actions body: { action }"
+  },
+  "src/app/api/admin/studio/team/[id]/route.ts": {
+    "summary": "Route API /api/admin/studio/team/:id [PATCH, DELETE]: Admin Studio team member by id. PATCH /api/admin/studio/team/[id] -> partial update DELETE /api/admin/studio/team/[id] -> remove"
+  },
+  "src/app/api/admin/studio/team/route.ts": {
+    "summary": "Route API /api/admin/studio/team [GET, POST]: Admin Studio team collection. GET /api/admin/studio/team -> every member (any status/visibility) POST /api/admin/studio/team -> create one member"
+  },
+  "src/app/api/admin/users/[id]/route.ts": {
+    "summary": "Route API /api/admin/users/:id [PATCH]: Admin Users & Roles, one user (§27): owner-only. PATCH /api/admin/users/[id] Owner-lockout protection: the last active owner cannot be demoted or disabled. Role changes are destructive actions and should be confirmed in the UI (§31.35)."
+  },
+  "src/app/api/admin/users/route.ts": {
+    "summary": "Route API /api/admin/users [GET, POST]: Admin Users & Roles (§8, §27): owner-only. GET /api/admin/users -> every user (never a password hash) POST /api/admin/users -> create one user"
+  },
+  "src/app/api/admin/versions/[id]/compare/route.ts": {
+    "summary": "Route API /api/admin/versions/:id/compare [GET]: Compare two versions of the same entity (§25 Compare). GET /api/admin/versions/[id]/compare?with=<otherId> Both snapshots are returned; the admin UI renders the field diff."
+  },
+  "src/app/api/admin/versions/[id]/restore/route.ts": {
+    "summary": "Route API /api/admin/versions/:id/restore [POST]: Restore a version (§25 Restore). POST /api/admin/versions/[id]/restore Writes the snapshot's content back and appends a new version, so the history stays append-only."
+  },
+  "src/app/api/admin/versions/[id]/route.ts": {
+    "summary": "Route API /api/admin/versions/:id [GET]: Single version snapshot (§25 View). GET /api/admin/versions/[id]"
+  },
+  "src/app/api/admin/versions/route.ts": {
+    "summary": "Route API /api/admin/versions [GET]: Version history list (§25). GET /api/admin/versions?entityType=<type>&entityId=<id> Newest first; snapshots stay on the single-version endpoint."
+  },
+  "src/app/api/articles/[slug]/related/route.ts": {
+    "summary": "Route API /api/articles/:slug/related [GET]: Related articles for a public article. GET /api/articles/[slug]/related?limit=<1..6> Same category first (newest), filled with the latest other public articles. Drafts, scheduled, and private rows never appear."
+  },
+  "src/app/api/articles/[slug]/route.ts": {
+    "summary": "Route API /api/articles/:slug [GET]: Public single article API. GET /api/articles/[slug] Returns the article with its ordered body blocks; drafts, private entries, and unknown slugs are a 404 (PRD §13)."
+  },
+  "src/app/api/articles/route.ts": {
+    "summary": "Route API /api/articles [GET]: Public journal list API. GET /api/articles?category=<slug>&limit=<1..50>&offset=<n> Reads only published + public articles; drafts and private entries never appear here (PRD §13)."
+  },
+  "src/app/api/auth/session/route.ts": {
+    "summary": "Route API /api/auth/session [GET]: Current admin session (§27). GET /api/auth/session -> { data: { user } } or { data: { user: null } }"
+  },
+  "src/app/api/auth/sign-in/route.ts": {
+    "summary": "Route API /api/auth/sign-in [POST]: Admin sign-in (§27). POST /api/auth/sign-in body: { email, password } Creates a server-side session and sets the httpOnly cookie. The cookie is Secure only when the request itself is https, so local development and CI over http keep working."
+  },
+  "src/app/api/auth/sign-out/route.ts": {
+    "summary": "Route API /api/auth/sign-out [POST]: Admin sign-out (§27). POST /api/auth/sign-out Deletes the session row and clears the cookie."
+  },
+  "src/app/api/faq/route.ts": {
+    "summary": "Route API /api/faq [GET]: Public FAQ API. GET /api/faq Published FAQ entries in display order (§12.4)."
+  },
+  "src/app/api/homepage-sections/route.ts": {
+    "summary": "Route API /api/homepage-sections [GET]: Public homepage sections (§10.1): visible sections in display order. GET /api/homepage-sections"
+  },
+  "src/app/api/inquiries/route.ts": {
+    "summary": "Route API /api/inquiries [POST]: Public project brief submission (PRD §6.13). POST /api/inquiries Accepts multipart form data (with an optional single attachment) or JSON (no attachment). Validates server-side, stores the brief with pipeline stage NEW, and never echoes the brief back."
+  },
+  "src/app/api/legal/[slug]/route.ts": {
+    "summary": "Route API /api/legal/:slug [GET]: Public legal page content. GET /api/legal/[slug] (privacy, terms) Unpublished and unknown pages are a 404 (PRD §6.14, §13)."
+  },
+  "src/app/api/likes/route.ts": {
+    "summary": "Route API /api/likes [GET, POST]: Likes API (studio request). GET /api/likes?entity=project&slug=<slug>&visitor=<id> POST /api/likes body: { entity, slug, visitor } (toggles) Likes are persisted per visitor; counts are public."
+  },
+  "src/app/api/now/route.ts": {
+    "summary": "Route API /api/now [GET]: Public Now entries API. GET /api/now Returns public, due teasers ordered for display. Private and future-scheduled entries never appear (PRD §6.11)."
+  },
+  "src/app/api/pricing/route.ts": {
+    "summary": "Route API /api/pricing [GET]: Public Pricing list API. GET /api/pricing?service=<slug> Published pricing entries of published services, in display order (§6.6). The optional service filter scopes one service."
+  },
+  "src/app/api/process/route.ts": {
+    "summary": "Route API /api/process [GET]: Public Process API. GET /api/process Visible process steps in display order (§6.7)."
+  },
+  "src/app/api/projects/[slug]/route.ts": {
+    "summary": "Route API /api/projects/:slug [GET]: Public project lookup by slug. GET /api/projects/[slug] Reads the current content layer (media manifest + project seeds) until the portfolio schema task moves projects into SQLite; the API shape stays the same when the backing store swaps."
+  },
+  "src/app/api/services/[slug]/related/route.ts": {
+    "summary": "Route API /api/services/:slug/related [GET]: Public Service Detail relations API (§6.5). GET /api/services/[slug]/related Selected work slugs plus the related FAQ entries of a published service. Draft services are a 404 (PRD §13)."
+  },
+  "src/app/api/services/[slug]/route.ts": {
+    "summary": "Route API /api/services/:slug [GET]: Public Service Detail API. GET /api/services/[slug] A published service with its 1:1 details and published pricing entries (§6.5). Draft services are a 404 here (PRD §13)."
+  },
+  "src/app/api/services/route.ts": {
+    "summary": "Route API /api/services [GET]: Public Services list API. GET /api/services Published services in display order (§6.4)."
+  },
+  "src/app/api/settings/route.ts": {
+    "summary": "Route API /api/settings [GET]: Public Global Settings API (§10.3, §6.12). GET /api/settings Contact channels and social links, or null while the studio is still connecting them."
+  },
+  "src/app/api/studio/about/route.ts": {
+    "summary": "Route API /api/studio/about [GET]: Public Studio About API. GET /api/studio/about Returns the About singleton, or null while the studio is still writing the content (§18)."
+  },
+  "src/app/api/studio/clients/route.ts": {
+    "summary": "Route API /api/studio/clients [GET]: Public Studio clients API. GET /api/studio/clients?featured=true Published clients in display order (§18). The optional featured filter narrows the list for Home and About highlights."
+  },
+  "src/app/api/studio/recognition/route.ts": {
+    "summary": "Route API /api/studio/recognition [GET]: Public Studio recognition API. GET /api/studio/recognition Published recognition entries, newest first (§18)."
+  },
+  "src/app/api/studio/team/route.ts": {
+    "summary": "Route API /api/studio/team [GET]: Public Studio team API. GET /api/studio/team Published + public members only, in display order (§18)."
+  },
+  "src/app/error.tsx": {
+    "summary": "Boundary error tingkat aplikasi yang menampilkan fallback dan tombol pulih."
+  },
+  "src/app/global-error.tsx": {
+    "summary": "Boundary error global terakhir untuk kegagalan di root layout."
+  },
+  "src/app/globals.css": {
+    "summary": "Token desain dan utilitas global: palet terang/gelap terkunci, skala tipografi, media-fade, skeleton shimmer, color reveal (grayscale ke warna), floating paths, dan aturan reduced motion."
+  },
+  "src/app/layout.tsx": {
+    "summary": "Halaman publik /layout.tsx: Default SEO reads Global Settings (§10.3) with the static fallback. Mengekspor generateMetadata, RootLayout."
+  },
+  "src/app/media/uploads/[...path]/route.ts": {
+    "summary": "Route API /media/uploads/:...path [GET]: menangani permintaan HTTP untuk modul terkait."
+  },
+  "src/app/not-found.tsx": {
+    "summary": "Halaman 404 publik dengan pesan dan jalan kembali ke konten utama."
+  },
+  "src/app/robots.ts": {
+    "summary": "Route robots.txt: mengizinkan halaman publik dan menutup /admin dan /api dari crawler."
+  },
+  "src/app/sitemap.ts": {
+    "summary": "Sitemap dinamis: halaman statis, proyek, dan artikel yang sudah published + public, dipakai crawler."
+  },
+  "src/components/admin/AboutPanel.tsx": {
+    "summary": "Komponen interaktif (client) AboutPanel: Studio About singleton panel (§18, §6.8): heading, prose, philosophy. Every save records a version (§25) on the backend. Mengekspor AboutPanel."
+  },
+  "src/components/admin/AccountPanel.tsx": {
+    "summary": "Komponen interaktif (client) AccountPanel: Self-service password change (§27): any signed-in admin can rotate their own password; other sessions are revoked server-side. Mengekspor AccountPanel."
+  },
+  "src/components/admin/AdminListSkeleton.tsx": {
+    "summary": "Komponen AdminListSkeleton: Loading placeholder for admin collections (studio request): quiet skeleton rows in the same rhythm as the real list items, so the panel does not jump when data arrives. Mengekspor AdminListSkeleton."
+  },
+  "src/components/admin/AdminShell.tsx": {
+    "summary": "Komponen interaktif (client) AdminShell: Admin CMS shell (§31.30): persistent sidebar on desktop, drawer on small screens, header with breadcrumb, the signed-in user, sign out, and a way back to the public site. Light-first, compact, text labels mandatory. Mengekspor AdminShell."
+  },
+  "src/components/admin/ArticlesPanel.tsx": {
+    "summary": "Komponen interaktif (client) ArticlesPanel: Journal Articles panel (§17): list every state, compose the editorial fields plus the documented content blocks, and run the publish workflow. Saved versions are recorded on the backend (§25). Mengekspor ArticlesPanel."
+  },
+  "src/components/admin/ClientsPanel.tsx": {
+    "summary": "Komponen interaktif (client) ClientsPanel: Studio Clients panel (§18): names, links, and the featured flag. Mengekspor ClientsPanel."
+  },
+  "src/components/admin/FaqPanel.tsx": {
+    "summary": "Komponen interaktif (client) FaqPanel: FAQ module panel (§12.4): entries surface on Service Detail pages once related to a service. Publish workflow included. Mengekspor FaqPanel."
+  },
+  "src/components/admin/HomepagePanel.tsx": {
+    "summary": "Komponen interaktif (client) HomepagePanel: Admin → Website → Homepage (§10.1): section order and visibility with Show/Hide, Reorder, Preview, and a Publish that persists to the CMS. Hero and the final CTA are required and cannot be hidden. Mengekspor HomepagePanel."
+  },
+  "src/components/admin/LegalEditor.tsx": {
+    "summary": "Komponen interaktif (client) LegalEditor: Admin → Website → Legal (§6.14, §9.4, §31.33). One editor for both documents with Save Draft / Preview / Publish. Frontend-only stage: changes live in local state until the CMS backend. Mengekspor LegalEditor."
+  },
+  "src/components/admin/MediaPanel.tsx": {
+    "summary": "Komponen interaktif (client) MediaPanel: Media Library panel (§20): filter and search assets, edit alt text and credit, mark usage state, and delete safely (the backend refuses while an asset is referenced and lists exactly where it is used). Mengekspor MediaPanel."
+  },
+  "src/components/admin/NavigationPanel.tsx": {
+    "summary": "Komponen interaktif (client) NavigationPanel: Navigation panel (§10.2): edit labels and destinations, reorder, and show/hide items. With no rows saved the public site uses the built-in documented menu, so the list is honest about being empty. Mengekspor NavigationPanel."
+  },
+  "src/components/admin/PricingPanel.tsx": {
+    "summary": "Komponen interaktif (client) PricingPanel: Pricing module panel (§15, §6.6): per-service packages and amounts. Mengekspor PricingPanel."
+  },
+  "src/components/admin/ProcessPanel.tsx": {
+    "summary": "Komponen interaktif (client) ProcessPanel: Process module panel (§16, §6.7): the nine steps, Hide/Show instead of a draft/archived lifecycle. Mengekspor ProcessPanel."
+  },
+  "src/components/admin/ProjectsPanel.tsx": {
+    "summary": "Komponen interaktif (client) ProjectsPanel: Portfolio Projects panel (§11, §12): list every state, edit the basic fields, credits, relations, attached uploads, SEO, and publishing. Mengekspor ProjectsPanel."
+  },
+  "src/components/admin/PublishingPanel.tsx": {
+    "summary": "Komponen interaktif (client) PublishingPanel: Publishing queues (§8): Drafts, Scheduled, and Published aggregated across every content type. Read-only; each item publishes from its own module. Mengekspor PublishingPanel."
+  },
+  "src/components/admin/RecognitionPanel.tsx": {
+    "summary": "Komponen interaktif (client) RecognitionPanel: Studio Recognition panel (§18): publications, awards, features. Mengekspor RecognitionPanel."
+  },
+  "src/components/admin/ServicesPanel.tsx": {
+    "summary": "Komponen interaktif (client) ServicesPanel: Services module panel (§14): list, create, edit core + details + selected work, and run the publish workflow. Backend enforces the owner/editor roles (§27). Mengekspor ServicesPanel."
+  },
+  "src/components/admin/SettingsPanel.tsx": {
+    "summary": "Komponen interaktif (client) SettingsPanel: Global Settings panel (§10.3): studio identity, contact channels, socials, the default CTA, copyright, social image, and default SEO. Values are the single public source once saved. Mengekspor SettingsPanel."
+  },
+  "src/components/admin/SignInForm.tsx": {
+    "summary": "Komponen interaktif (client) SignInForm: Admin sign-in form (§27, §31.21): specific errors, pending state, submit on Enter, and a redirect into the CMS on success. Mengekspor SignInForm."
+  },
+  "src/components/admin/TeamPanel.tsx": {
+    "summary": "Komponen interaktif (client) TeamPanel: Studio Team panel (§18): people and collaborators with visibility. Mengekspor TeamPanel."
+  },
+  "src/components/admin/UsersPanel.tsx": {
+    "summary": "Komponen interaktif (client) UsersPanel: Users & Roles (§8, §27), owner-only: team list with role and status controls, password reset, and a create form. Destructive changes (role, disable) ask for confirmation with the affected account named (§31.35). Mengekspor UsersPanel."
+  },
+  "src/components/admin/VersionsPanel.tsx": {
+    "summary": "Komponen interaktif (client) VersionsPanel: Version history (§25): View, Compare, and Restore for any versioned entity. Restores write the old content back and append a new version. Mengekspor VersionsPanel."
+  },
+  "src/components/admin/useAdminCollection.ts": {
+    "summary": "Komponen interaktif (client) UseAdminCollection: Shared list/CRUD/action state for the admin module panels. Endpoints follow the REST pattern: collection for list+create, /[id] for update+delete, /[id]/actions for the publish workflow. Mengekspor useAdminCollection, statusIssuesForPublish."
+  },
+  "src/components/content/InlineText.tsx": {
+    "summary": "Komponen InlineText: Renders CMS prose with inline highlight links (`[kata](/tujuan)`). Paragraphs without markup render as the plain string they were. Mengekspor InlineText."
+  },
+  "src/components/forms/AttachmentInput.tsx": {
+    "summary": "Komponen interaktif (client) AttachmentInput: Attachment control with a selected-file row and an explicit remove action. Mengekspor AttachmentInput."
+  },
+  "src/components/forms/FormField.tsx": {
+    "summary": "Komponen FormField: Shared form primitives (§31.21): 44-48px controls, 8px radius, theme surfaces, specific error messaging with keyboard focus support. Mengekspor INPUT_CLASS, TEXTAREA_CLASS, SELECT_CLASS, FormField, TextInput, TextAreaInput, SelectInput."
+  },
+  "src/components/forms/StartProjectForm.tsx": {
+    "summary": "Komponen interaktif (client) StartProjectForm: Start a Project form (§6.13, §31.22), one coherent workflow with four grouped sections. Frontend-only stage: validation runs locally and the submit lands on the documented success state; the backend arrives later. Mengekspor StartProjectForm."
+  },
+  "src/components/home/ClientsSection.tsx": {
+    "summary": "Komponen ClientsSection: 08 Clients / Recognition, light, quiet trust section (§31.14). Mengekspor ClientsSection."
+  },
+  "src/components/home/CurrentlySection.tsx": {
+    "summary": "Komponen CurrentlySection: 09 Currently / Coming Soon, dark by default (§31.14, §6.11). Mengekspor CurrentlySection."
+  },
+  "src/components/home/FeaturedProjectSection.tsx": {
+    "summary": "Komponen FeaturedProjectSection: 04 Featured Project, dark, one project with strong visual emphasis. Mengekspor FeaturedProjectSection."
+  },
+  "src/components/home/HeroSection.tsx": {
+    "summary": "Komponen interaktif (client) HeroSection: 01 Hero, dark, cinematic, media-first (§31.14). Lines rise from a mask; copy fades in; the media drifts with scroll. Mengekspor HeroSection."
+  },
+  "src/components/home/IntroductionSection.tsx": {
+    "summary": "Komponen IntroductionSection: 03 Introduction, light editorial reset (§31.14). Mengekspor IntroductionSection."
+  },
+  "src/components/home/JournalSection.tsx": {
+    "summary": "Komponen JournalSection: 10 Journal, light, editorial (§31.14). Up to 3 latest articles (§6.1). Mengekspor JournalSection."
+  },
+  "src/components/home/ProcessSection.tsx": {
+    "summary": "Komponen ProcessSection: 07 How We Work, light, editorial (§31.14). Concise workflow preview. Mengekspor ProcessSection."
+  },
+  "src/components/home/ReviewsSection.tsx": {
+    "summary": "Komponen ReviewsSection: Reviews on Home (studio request): four client notes, quiet and editorial. Renders nothing while no reviews exist. Mengekspor ReviewsSection."
+  },
+  "src/components/home/SelectedWorkGrid.tsx": {
+    "summary": "Komponen interaktif (client) SelectedWorkGrid: Client wrapper so the Home page (server) can use the masonry grid. Mengekspor SelectedWorkGrid."
+  },
+  "src/components/home/SelectedWorkSection.tsx": {
+    "summary": "Komponen SelectedWorkSection: 02 Selected Work, dark, immersive (§31.14). 4-6 projects (§6.1). Mengekspor SelectedWorkSection."
+  },
+  "src/components/home/ServicesSection.tsx": {
+    "summary": "Komponen interaktif (client) ServicesSection: 05 Services, light, structured (§31.14). The editorial list echoes the reference language: index numerals, hairline rules, quiet metadata. Mengekspor ServicesSection."
+  },
+  "src/components/home/ShowreelSection.tsx": {
+    "summary": "Komponen ShowreelSection: 06 Showreel, dark, film-first (§31.14). One selected film (§6.1). Mengekspor ShowreelSection."
+  },
+  "src/components/info/InfoPageLayout.tsx": {
+    "summary": "Komponen InfoPageLayout: Shared editorial layout for informational pages (§31.15: light theme). Establishes the section rhythm every info page reuses: header eyebrow, display title, lede, content sections, closing conversion band, with the same reveal choreography everywhere. Mengekspor InfoPageLayout."
+  },
+  "src/components/journal/ArticleBody.tsx": {
+    "summary": "Komponen ArticleBody: Article body (§6.10 allowed blocks): paragraph, heading, image, gallery, quote, video, project reference. Reading width stays constrained; media may be wider than the text measure. Mengekspor ArticleBody."
+  },
+  "src/components/journal/JournalBrowser.tsx": {
+    "summary": "Komponen interaktif (client) JournalBrowser: Journal feed with category filters and progressive paging (§6.9), packed into the masonry grid. Filters never create separate pages, they reflow the same feed; new covers enter with the masonry reveal. Mengekspor JournalBrowser."
+  },
+  "src/components/journal/JournalCard.tsx": {
+    "summary": "Kartu jurnal: cover asli (RealImage) atau placeholder, kategori, judul, tanggal, reading time, dan color reveal pada media."
+  },
+  "src/components/legal/LegalPageView.tsx": {
+    "summary": "Komponen LegalPageView: Shared legal page layout (§6.14): title, updated date, structured body. Mengekspor LegalPageView."
+  },
+  "src/components/legal/LegalUnavailable.tsx": {
+    "summary": "Komponen LegalUnavailable: Legal empty state: rendered when a legal page is unpublished or missing. Unpublished wording is never shown (§13), the visitor gets a clear, dated-safe status with real next actions instead of a bare 404. Mengekspor LegalUnavailable."
+  },
+  "src/components/media/FilmPlayer.tsx": {
+    "summary": "Komponen interaktif (client) FilmPlayer: Full-screen film theater: poster-first, plays on open, Esc to close. Mengekspor WeddingMark, FilmTheater, FilmPoster, FilmList."
+  },
+  "src/components/media/MediaHoverPreview.tsx": {
+    "summary": "Komponen MediaHoverPreview: Hover/focus preview over media (studio request): eyebrow, project name and date slide up over the frame gradient. Pure CSS transition, so it costs nothing while idle and respects reduced motion. Mengekspor MediaHoverPreview."
+  },
+  "src/components/media/MediaSkeleton.tsx": {
+    "summary": "Komponen interaktif (client) MediaSkeleton: Loading placeholder for media frames (studio request): a full-frame bone with a slow shimmer sweep, shown only while a photo, poster or film is still loading. The sweep is a composited transform and the global reduced-motion rules freeze it for users who ask. Mengekspor MediaSkeleton."
+  },
+  "src/components/media/PhotoViewer.tsx": {
+    "summary": "Komponen interaktif (client) PhotoViewer: Full-screen photo viewer (§31.17, §16): opens the largest variant at its original ratio, GSAP open/close choreography, keyboard navigation (Esc / arrows), focus restore, adjacent preloading, reduced-motion support, and the studio's copy deterrents. Mengekspor PhotoViewer."
+  },
+  "src/components/media/ProjectMedia.tsx": {
+    "summary": "Galeri media proyek: masonry foto + poster film, klik membuka PhotoViewer atau FilmTheater, media monokrom dengan color reveal."
+  },
+  "src/components/media/RealImage.tsx": {
+    "summary": "Komponen interaktif (client) RealImage: Plain image (video posters, brand art) with the same fade-in discipline. Mengekspor FadeImg, RealImage."
+  },
+  "src/components/media/media-masonry.tsx": {
+    "summary": "MediaMasonry: grid kolom CSS untuk frame berbagai rasio dengan entrance stagger blur-to-focus via GSAP, hanya animasi item baru, hormat reduced motion."
+  },
+  "src/components/motion/Reveal.tsx": {
+    "summary": "Komponen interaktif (client) Reveal: Scroll-triggered entrance: opacity + short rise. Content stays visible without JS; the tween only runs when motion is allowed. Mengekspor Reveal."
+  },
+  "src/components/now/NowSpiral.tsx": {
+    "summary": "Komponen interaktif (client) NowSpiral: Currently-in-production spiral (studio request): entry stills drift through a helix. Renders only when at least three entries carry real images, so the honest empty state stays untouched. Mengekspor NowSpiral."
+  },
+  "src/components/now/UpcomingCard.tsx": {
+    "summary": "Komponen UpcomingCard: Now / Coming Soon entry (§6.11): media, quiet metadata, and, when a published relation exists, a single hover affordance to the project. Mengekspor UpcomingCard."
+  },
+  "src/components/services/CategoryList.tsx": {
+    "summary": "Komponen interaktif (client) CategoryList: Services category index (studio request): an interactive, theme-adaptive list that navigates through the services. Hover or keyboard focus expands a row, reveals corner brackets, and lifts the arrow; the description stays readable on touch devices. Mengekspor CategoryList."
+  },
+  "src/components/services/ServiceCard.tsx": {
+    "summary": "Komponen ServiceCard: Service card (§31.18): name, short description, optional cover, quote cue. Mengekspor ServiceCard."
+  },
+  "src/components/site/BrandLogo.tsx": {
+    "summary": "Komponen BrandLogo: Theme-aware brand art: the black variant on light surfaces, the white variant on dark surfaces, switching purely via [data-theme] CSS so it is correct on first paint (no JS, no flash). \"lockup\" carries the lettering next to the mark. Mengekspor BrandLogo."
+  },
+  "src/components/site/Footer.tsx": {
+    "summary": "Footer situs (server component): kolom brand + CTA, Explore/More/Legal dari CMS, baris kontak dengan CopyEmail, strip AvatarStack dari avatar-footer, sosial dari Global Settings, dan ThemeToggle di bottom bar."
+  },
+  "src/components/site/KineticMenu.tsx": {
+    "summary": "Drawer menu kinetik: timeline buka/tutup GSAP (items, fade, scrim blur), daftar 6 nav dengan nomor, sub-list Work (All Work/Photography/Film), kontak + sosial dari settings."
+  },
+  "src/components/site/NavDropdown.tsx": {
+    "summary": "Komponen interaktif (client) NavDropdown: Primary navigation dropdown (studio request): the Work entry opens a small editorial panel with the sitemap children (All Work, Photography, Film). Pointer intent opens it, focus opens it for keyboard users, Escape and outside clicks close it, and the trigger itself still navigates to /work. Reduced motion swaps the slide for an instant panel. Only one dropdown exists today; the id stays stable for tests. Mengekspor NavDropdown."
+  },
+  "src/components/site/NavigationLoader.tsx": {
+    "summary": "Komponen interaktif (client) NavigationLoader: Page transition loader (studio request, adapted from the SquareSnake reference): a diagonal wave of squares with the brand lockup above it, in the locked Ocassio palette. It appears on internal navigation and on theme switches, and only clears once the new page has actually committed (URL changed) and painted, never before the minimum 1.4s moment. Mengekspor NavigationLoader."
+  },
+  "src/components/site/PageTrail.tsx": {
+    "summary": "Komponen interaktif (client) PageTrail: Page trail (§ studio request, adapted from the provided Breadcrumbs): detail pages record where the reader has been this session and offer the quiet crumb path back, so deep navigation never feels like a dead end. The crumb bar now also takes the place of the old per-page back links, so detail heroes stay clean. Mengekspor PageTrail."
+  },
+  "src/components/site/SiteShell.tsx": {
+    "summary": "Komponen SiteShell: Wraps every public page with the global theme, the floating paths backdrop, the top navigation (§31.13) and the footer. The theme lives on <html> (dark by default, visitor-toggleable); viewer and admin surfaces keep their own nested [data-theme]. Real contact channels from Global Settings feed the menu info block. Mengekspor SiteShell."
+  },
+  "src/components/site/StartCTA.tsx": {
+    "summary": "Komponen StartCTA: Consistent conversion band, every public page offers a next action (§7). Mengekspor StartCTA."
+  },
+  "src/components/site/ThemeProvider.tsx": {
+    "summary": "Komponen interaktif (client) ThemeProvider: Global theme provider: dark is the default for every public page, light is one toggle away, and the choice persists per visitor. The theme lands as [data-theme] on <html> before first paint. Mengekspor ThemeProvider."
+  },
+  "src/components/site/ThemeToggle.tsx": {
+    "summary": "Komponen interaktif (client) ThemeToggle: Theme toggle (§28.15, studio request): flips the global [data-theme] between dark (default) and light. The switch cross-fades through the View Transitions API where supported, covered by the shared page transition loader; reduced motion (or no API) swaps instantly. Mengekspor ThemeToggle."
+  },
+  "src/components/site/TopNav.tsx": {
+    "summary": "Navbar utama: nav inline desktop (Work memakai NavDropdown, lima tautan lain), ThemeToggle, CTA Start a Project, dan trigger KineticMenu untuk drawer; transparan lalu solid saat scroll."
+  },
+  "src/components/site/confetti-button.tsx": {
+    "summary": "Komponen interaktif (client) Confetti Button: Confetti button (studio request): a quiet celebration control. Clicking fires a short canvas burst in the studio palette (ink, muted, one red marker piece) from the button itself, flips the label to \"Celebrated\" for a moment, and removes the canvas when the pieces land. Pure client-side, no dependency, skipped under reduced motion. Mengekspor ConfettiButton."
+  },
+  "src/components/ui/Button.tsx": {
+    "summary": "Komponen Button: Action button, matching ButtonLink geometry (40-44px, pill, Inter 15/500). Mengekspor Button."
+  },
+  "src/components/ui/ButtonLink.tsx": {
+    "summary": "Komponen ButtonLink: bagian antarmuka src/components/ui/ButtonLink.tsx. Mengekspor ButtonLink."
+  },
+  "src/components/ui/LikeButton.tsx": {
+    "summary": "Komponen interaktif (client) LikeButton: Realtime like button (studio request): optimistic on click, saved immediately through /api/likes, one like per visitor. Motion is decorative: reduced-motion visitors get an instant swap without the heart spring or the particle burst. Mengekspor LikeButton."
+  },
+  "src/components/ui/MediaPlaceholder.tsx": {
+    "summary": "Komponen MediaPlaceholder: Media aspect token -> CSS aspect-ratio value (shared with real covers). Mengekspor ASPECT_RATIO, MediaPlaceholder."
+  },
+  "src/components/ui/RevealGroup.tsx": {
+    "summary": "Komponen interaktif (client) RevealGroup: Staggers a set of items into view once, on scroll (§31.25). Content stays visible without JS; motion only when allowed. Mengekspor RevealGroup."
+  },
+  "src/components/ui/SectionHeader.tsx": {
+    "summary": "Komponen SectionHeader: Shared editorial section heading: label, display title, tertiary action. Mengekspor SectionHeader."
+  },
+  "src/components/ui/Showreel.tsx": {
+    "summary": "Komponen Showreel: Video & showreel (§31.23): poster first, play on interaction, never autoplay with sound. Renders as a poster-only frame until a real source exists. Mengekspor Showreel."
+  },
+  "src/components/ui/StatusChip.tsx": {
+    "summary": "Komponen StatusChip: Status chip (§31.34): neutral by default for lifecycle states. Semantic tones only when urgency truly exists. Mengekspor StatusChip."
+  },
+  "src/components/ui/Toast.tsx": {
+    "summary": "Komponen interaktif (client) Toast: System feedback (§31.37): concise, specific, auto-dismissing. Announced politely for assistive tech. Mengekspor Toast."
+  },
+  "src/components/ui/avatar-stack.tsx": {
+    "summary": "Komponen interaktif (client) Avatar Stack: Footer photo strip (studio request): at most four portraits, taking turns as a queue. On each beat the front portrait fades away, the queue slides one step forward, and the next portrait rises from behind the stack. Hovering or focusing the strip fans it open and pauses the rotation; reduced motion stops both. Mengekspor AvatarStack."
+  },
+  "src/components/ui/copy-email.tsx": {
+    "summary": "CopyEmail: tombol salin alamat dengan animasi letter-flip, status copied/failed + aria-live, tooltip Click to copy, dan tautan mailto."
+  },
+  "src/components/ui/directional-link.tsx": {
+    "summary": "DirectionalLink: underline clip-path yang menggambar dari sisi kursor masuk dan keluar, mendukung prop rest untuk prose, fokus keyboard, dan reduced motion."
+  },
+  "src/components/ui/flip-card.tsx": {
+    "summary": "Komponen interaktif (client) Flip Card: Flip card (studio request, adapted from the provided FlipCard): a two-faced card that turns over on click with a pointer lean, used on the About founder portrait. Reduced motion swaps faces with a short fade. Mengekspor FlipCard, FlipHint."
+  },
+  "src/components/ui/floating-paths.tsx": {
+    "summary": "Komponen Floating Paths: Floating line paths behind the whole public site (studio request): fixed, non-interactive, theme-aware through currentColor, and held at 66% opacity. Paths paint once; the layer drifts through a composited CSS transform, so scrolling never triggers per-frame SVG repaints. The global prefers-reduced-motion rules stop the drift. Mengekspor FloatingPathsBackground."
+  },
+  "src/components/ui/hover-card.tsx": {
+    "summary": "Komponen interaktif (client) Hover Card: Team hover card (studio request): the roster row stays a quiet list item, and hovering (or focusing) the name opens a small card with the initials avatar, role, and bio. Pointer, keyboard, and tap all work; Escape closes. No fabricated portraits, initials only. Mengekspor HoverCard."
+  },
+  "src/components/ui/infinite-spiral.tsx": {
+    "summary": "Komponen interaktif (client) Infinite Spiral: Infinite spiral gallery (adapted from the studio's InfiniteSpiral reference): a vertical helix of media cards that drifts while visible, pauses on hover, and can be dragged. The render loop skips DOM writes whenever nothing moved, so an idle spiral costs nothing, and card images carry the shared copy deterrents. Mengekspor InfiniteSpiral."
+  },
+  "src/components/work/ProjectCard.tsx": {
+    "summary": "Kartu proyek: cover foto/poster film, kategori + jumlah media, nomor editorial, hover preview + indicator View Project, dan color reveal monokrom."
+  },
+  "src/components/work/ProjectGrid.tsx": {
+    "summary": "Komponen interaktif (client) ProjectGrid: Editorial project grid (2-up on desktop) with a batched entrance reveal. Mengekspor ProjectGrid."
+  },
+  "src/components/work/ReviewCard.tsx": {
+    "summary": "Komponen ReviewCard: Client note card (studio request): initials chip, name, context, and the message. No fabricated portraits, quiet editorial framing. Mengekspor ReviewCard."
+  },
+  "src/components/work/WorkBrowser.tsx": {
+    "summary": "Work listing: 8 filter kategori yang reflow satu grid masonry, sinkron URL (?filter=), state kosong, dan hitungan per kategori."
+  },
+  "src/hooks/useFilterBarKeyboard.ts": {
+    "summary": "Hook UseFilterBarKeyboard: Roving arrow-key navigation for horizontal filter bars (§31.28: keyboard operable). Returns a ref for the toolbar container and its keydown handler; buttons must carry `data-filter-tab`.. Mengekspor useFilterBarKeyboard."
+  },
+  "src/lib/admin-client.ts": {
+    "summary": "Modul Admin Client (src/lib/admin-client.ts): Small same-origin JSON client for the admin panels (cookies included). Mengekspor adminRequest, jsonInit, issuesText, toLines, fromLines."
+  },
+  "src/lib/admin.ts": {
+    "summary": "Modul Admin (src/lib/admin.ts): Admin CMS navigation tree (§8). Items without an href are documented modules whose screens arrive with their own tasks, rendered muted instead of linking to a dead route. Mengekspor ADMIN_NAV."
+  },
+  "src/lib/api/admin-auth.ts": {
+    "summary": "Modul Admin Auth (src/lib/api/admin-auth.ts): Admin auth (§27): every admin API accepts either a signed-in user session (cookie) or the automation service token. Permissions are enforced here, on the backend; hiding buttons in the UI is not authorization. The service token (OCASSIO_ADMIN_TOKEN) stays as the machine path used by seeds, CI, and the verification suites; it carries owner authority. The token path still fails CLOSED when unconfigured. Mengekspor OWNER_ROLES, EDITOR_ROLES, SALES_ROLES, MEDIA_ROLES, readSessionCookie, getSessionUser, requireAdminToken, requireAdmin."
+  },
+  "src/lib/api/inquiry-validation.ts": {
+    "summary": "Modul Inquiry Validation (src/lib/api/inquiry-validation.ts): Server-side validation for the public project brief (§6.13, §31.21). Messages identify the field, explain what is wrong, and say how to fix it, mirroring the frontend copy so both layers agree. Mengekspor validateInquiryBody."
+  },
+  "src/lib/auth/roles.ts": {
+    "summary": "Modul Roles (src/lib/auth/roles.ts): Role vocabulary (§27), safe to import from client components: no database imports live here. Mengekspor USER_ROLES, USER_STATUSES, USER_ROLE_LABEL, USER_ROLE_SCOPE."
+  },
+  "src/lib/auth/server-session.ts": {
+    "summary": "Modul Server Session (src/lib/auth/server-session.ts): Session read for server components (the admin layouts): validates the httpOnly cookie against the sessions table. Mengekspor getServerSessionUser."
+  },
+  "src/lib/auth/sessions.ts": {
+    "summary": "Modul Sessions (src/lib/auth/sessions.ts): Server-side admin sessions (§27). The database stores only the SHA-256 hash of the raw cookie token; the raw token exists once, in the visitor's httpOnly cookie. Mengekspor SESSION_COOKIE, SESSION_TTL_MS, hashSessionToken, createSession, getSessionUserByToken, deleteSessionByToken, pruneExpiredSessions. Mengakses tabel token, sessions."
+  },
+  "src/lib/auth/user-validation.ts": {
+    "summary": "Modul User Validation (src/lib/auth/user-validation.ts): Validation for the Users & Roles admin (§27). Messages say exactly what is wrong and how to fix it, mirroring the other modules. Mengekspor validateUserCreate, validateUserUpdate."
+  },
+  "src/lib/auth/users.ts": {
+    "summary": "Modul Users (src/lib/auth/users.ts): User records for the Admin CMS (§27, PRD §26.2). Passwords are hashed with Bun.password (argon2id) and never leave this module. Mengekspor MIN_PASSWORD_LENGTH, hashPassword, verifyPassword, toPublicUser, findUserByEmail, findUserById, listUsers, createUser. Mengakses tabel users."
+  },
+  "src/lib/cn.ts": {
+    "summary": "Modul Cn (src/lib/cn.ts): logika bersama aplikasi."
+  },
+  "src/lib/content/home.ts": {
+    "summary": "Modul Home (src/lib/content/home.ts): Homepage copy (§6.1), owned later by Admin → Website → Homepage. Section order and themes are fixed by the architecture (§31.14). Mengekspor HOME_HERO, HOME_INTRO, HOME_SHOWREEL, HOME_SECTIONS."
+  },
+  "src/lib/content/inline-text.ts": {
+    "summary": "Modul Inline Text (src/lib/content/inline-text.ts): Inline highlight markup for CMS prose (studio request): the studio can mark a word or phrase with `[kata](/tujuan)` inside a paragraph, and the site renders it as a directional underline link. Only internal paths and https destinations survive; anything else stays plain text, so no stored text can smuggle script or unsafe URLs into a page. Mengekspor parseInlineText, hasInlineLinks."
+  },
+  "src/lib/content/journal.ts": {
+    "summary": "Konten jurnal: kategori, tipe blok artikel, 4 artikel studio dengan cover journal (article-01..04), peta ARTICLE_COVER_PHOTOS, dan hitungan reading time."
+  },
+  "src/lib/content/legal.ts": {
+    "summary": "Modul Legal (src/lib/content/legal.ts): Structured legal body blocks, headings and paragraphs only (§6.14). Mengekspor LEGAL_PAGES."
+  },
+  "src/lib/content/live.ts": {
+    "summary": "Modul Live (src/lib/content/live.ts): Published articles, newest first, in the shape the feed consumes. Mengekspor getWiredArticles, getWiredArticleBySlug, getWiredRelatedArticles, getWiredServices, getWiredServiceBySlug, getWiredProcessSteps, getWiredStudioAbout, getWiredClients."
+  },
+  "src/lib/content/media-manifest.json": {
+    "summary": "Manifest media hasil scripts/build-media.mjs: foto dan video per proyek, foto studio, cover journal, dan avatar footer; dikonsumsi src/lib/content/media.ts."
+  },
+  "src/lib/content/media.ts": {
+    "summary": "Akses bertipe ke media-manifest.json: foto/video proyek, foto studio, cover journal, dan avatar footer, plus helper largestVariant, photoSrcSet, thumbnailVariant, formatDuration."
+  },
+  "src/lib/content/pricing.ts": {
+    "summary": "Modul Pricing (src/lib/content/pricing.ts): Pricing entries. The three documented price types (Fixed, Starting From, Custom Quote) live in the data model; public numbers arrive from the studio later, so every entry currently quotes on request. Mengekspor PRICING, getPricingForService, PRICE_TYPE_LABEL, PRICING_FACTORS, validatePricingEntry."
+  },
+  "src/lib/content/process.ts": {
+    "summary": "Modul Process (src/lib/content/process.ts): Process steps (§6.7), each step carries only number, title, explanation. Owned later by Admin → Services → Process. Mengekspor PROCESS_STEPS."
+  },
+  "src/lib/content/projects.ts": {
+    "summary": "Modul Projects (src/lib/content/projects.ts): Featured film for the homepage, the latest project that carries video. Mengekspor PROJECTS, getFeaturedFilm."
+  },
+  "src/lib/content/queries.ts": {
+    "summary": "Modul Queries (src/lib/content/queries.ts): Published + public projects, newest first (§6.2). Mengekspor getPublishedProjects, getPublishedProjectBySlug, getRelatedProjects, getNextProject, getPublishedServices, getPublishedServiceBySlug, getPublishedPricing, getPublishedArticles."
+  },
+  "src/lib/content/reviews.ts": {
+    "summary": "Catatan klien per proyek: pesan sunday-school verbatim plus 9 catatan placeholder Inggris; FEATURED_REVIEW_SLUGS (4) dipakai Home."
+  },
+  "src/lib/content/services.ts": {
+    "summary": "Modul Services (src/lib/content/services.ts): Service types (§6.4), separate taxonomy from Work filters (§5.2). Mengekspor SERVICE_TYPES, SERVICES, getServiceByName, getServiceBySlug."
+  },
+  "src/lib/content/start-project.ts": {
+    "summary": "Modul Start Project (src/lib/content/start-project.ts): Start a Project form options (§6.13). Content-owned later by the services taxonomy + admin settings. Mengekspor SERVICE_OPTIONS, PROJECT_TYPE_OPTIONS, ATTACHMENT."
+  },
+  "src/lib/content/studio.ts": {
+    "summary": "Modul Studio (src/lib/content/studio.ts): Studio identity content (Admin → Studio → About / Team / Clients / Recognition). Client names, team members, and recognition entries are withheld until the studio provides the real lists (R-38: no invented brands or awards). Mengekspor CLIENTS, RECOGNITION_TYPES, RECOGNITION, STUDIO_ABOUT, TEAM_MEMBERS, ABOUT_PLACEHOLDERS, FOUNDER."
+  },
+  "src/lib/content/types.ts": {
+    "summary": "Modul Types (src/lib/content/types.ts): Lifecycle status (PRD §26.1), the public site reads `published` only. Mengekspor CONTENT_STATUSES, PUBLISH_VISIBILITIES, WORK_CATEGORIES, WORK_FILTERS."
+  },
+  "src/lib/content/upcoming.ts": {
+    "summary": "Modul Upcoming (src/lib/content/upcoming.ts): Public status for upcoming work (§6.11), `private` lives on visibility. Mengekspor UPCOMING_STATUSES, UPCOMING_PROJECTS."
+  },
+  "src/lib/db/client.ts": {
+    "summary": "Modul Client (src/lib/db/client.ts): logika bersama aplikasi. Mengekspor db."
+  },
+  "src/lib/db/queries/activity.ts": {
+    "summary": "Modul Activity (src/lib/db/queries/activity.ts): Activity log (§9): one append-only line per admin change. Writes are best-effort and never block the mutation that triggered them. Mengekspor recordActivity, listRecentActivity. Mengakses tabel activityLog."
+  },
+  "src/lib/db/queries/articles-admin.ts": {
+    "summary": "Modul Articles Admin (src/lib/db/queries/articles-admin.ts): Admin CRUD for Journal articles (§17). Transport-agnostic: routes own authentication and HTTP statuses. Content saves append a version snapshot through the routes (§25), never from inside these helpers. Mengekspor validateArticleInput, listAllArticles, listJournalCategoryOptions, getArticleRowById, findArticleBySlug, getArticleBlocks, getArticleDetail, createArticle. Mengakses tabel articles, journalCategories, articleBlocks."
+  },
+  "src/lib/db/queries/articles.ts": {
+    "summary": "Modul Articles (src/lib/db/queries/articles.ts): Public journal queries (SQLite via Drizzle). The public API and pages read only published + public articles (PRD §13: draft content never appears on the public website). Mengekspor publicArticleConditions, findJournalCategoryBySlug, listPublicArticles, listRelatedArticles, getPublicArticleBySlug. Mengakses tabel journalCategories, articleBlocks, articles."
+  },
+  "src/lib/db/queries/faq-admin.ts": {
+    "summary": "Modul Faq Admin (src/lib/db/queries/faq-admin.ts): Admin CRUD for FAQ entries (§12.4). Transport-agnostic; the admin routes own authentication and HTTP statuses. Mengekspor validateFaqInput, listFaqByIds, listAllFaq, getFaqById, createFaq, updateFaq, deleteFaq. Mengakses tabel faq."
+  },
+  "src/lib/db/queries/faq.ts": {
+    "summary": "Modul Faq (src/lib/db/queries/faq.ts): Single enforcement point for public FAQ reads (§12.4): published entries only. Mengekspor publicFaqConditions, listPublishedFaq. Mengakses tabel faq."
+  },
+  "src/lib/db/queries/homepage-admin.ts": {
+    "summary": "Modul Homepage Admin (src/lib/db/queries/homepage-admin.ts): Homepage sections (§10.1): the registry is fixed by the architecture (Hero and the final CTA are mandatory), while order and visibility are CMS-managed. With no rows saved the documented default order applies. Mengekspor validateHomepageSections, listHomepageSections, listPublicHomepageSections, applyHomepageSections. Mengakses tabel homepageSections."
+  },
+  "src/lib/db/queries/inquiries.ts": {
+    "summary": "Modul Inquiries (src/lib/db/queries/inquiries.ts): Inquiry persistence for the public project brief (§6.13) and the admin pipeline (§17). Creates rows with the NEW pipeline stage. Mengekspor INQUIRY_STATUS_LABEL, INQUIRY_STATUS_TONE, createInquiry, listInquiryQueue, updateInquiryStatus, getInquiryById. Mengakses tabel inquiries."
+  },
+  "src/lib/db/queries/legal-admin.ts": {
+    "summary": "Modul Legal Admin (src/lib/db/queries/legal-admin.ts): Admin CRUD for legal pages (§9.4). Transport-agnostic: routes own authentication and HTTP statuses. Mengekspor validateLegalUpdate, listAllLegalPages, getLegalPageRow, updateLegalPage, LEGAL_ACTIONS, validateLegalAction, legalPublishIssues, applyLegalAction. Mengakses tabel legalPages."
+  },
+  "src/lib/db/queries/legal.ts": {
+    "summary": "Modul Legal (src/lib/db/queries/legal.ts): Public legal content (privacy, terms). Only published pages leave this module (PRD §6.14, §13). Scheduled pages auto-publish lazily: the first public read after publish_at flips them to published. Mengekspor getPublicLegalPage. Mengakses tabel legalPages."
+  },
+  "src/lib/db/queries/likes.ts": {
+    "summary": "Modul Likes (src/lib/db/queries/likes.ts): Likes (studio request): one row per visitor per entity, persisted immediately. The count is COUNT(*); a visitor toggles their own like on and off. Mengekspor isLikeEntity, getLikeState, toggleLike. Mengakses tabel likes."
+  },
+  "src/lib/db/queries/media-admin.ts": {
+    "summary": "Modul Media Admin (src/lib/db/queries/media-admin.ts): Admin Media Library (§20): list and filter assets, edit metadata, and guard deletion with the documented \"Used in\" check. Files on disk stay untouched; the database is the catalog of record. Mengekspor listMediaAssets, getMediaAssetDetail, updateMediaAsset, mediaUsageLabels, deleteMediaAssetGuarded, createAssetWithVariants, getAssetWithVariants, deleteAssetRow. Mengakses tabel mediaAssets, mediaVariants, services, articles, upcomingProjects, teamMembers."
+  },
+  "src/lib/db/queries/navigation-admin.ts": {
+    "summary": "Modul Navigation Admin (src/lib/db/queries/navigation-admin.ts): Admin Navigation (§10.2): manage the primary menu labels, destinations, order, and visibility. When no rows exist the public site falls back to the documented default menu, so the table starts empty and honest. Mengekspor validateNavigationInput, listAllNavigation, listPublicNavigation, getNavigationRowById, createNavigationItem, updateNavigationItem, moveNavigationItem, deleteNavigationItem. Mengakses tabel navigationItems."
+  },
+  "src/lib/db/queries/process-admin.ts": {
+    "summary": "Modul Process Admin (src/lib/db/queries/process-admin.ts): Admin CRUD for Process steps (§16). Transport-agnostic; the admin routes own authentication and HTTP statuses. Mengekspor validateProcessStepInput, listAllProcessSteps, getProcessStepById, createProcessStep, updateProcessStep, deleteProcessStep. Mengakses tabel processSteps."
+  },
+  "src/lib/db/queries/process.ts": {
+    "summary": "Modul Process (src/lib/db/queries/process.ts): Single enforcement point for public Process reads (§6.7): visible steps only. Hidden steps stay out of the public flow (§16 Hide). Mengekspor publicProcessConditions, listPublicProcessSteps. Mengakses tabel processSteps."
+  },
+  "src/lib/db/queries/projects-admin.ts": {
+    "summary": "Modul Projects Admin (src/lib/db/queries/projects-admin.ts): Admin CRUD for portfolio projects (§11, §12). Transport-agnostic: routes own authentication, HTTP statuses, version snapshots, and the activity log. Mengekspor validateProjectInput, listAllProjects, getProjectRowById, findProjectBySlug, getProjectMediaRows, getProjectAdminDetail, createProject, updateProject. Mengakses tabel projects, projectMedia."
+  },
+  "src/lib/db/queries/projects.ts": {
+    "summary": "Modul Projects (src/lib/db/queries/projects.ts): Published + public projects, newest first (§6.2). Mengekspor listPublishedProjects, getPublishedProjectBySlug, getRelatedProjects, getNextProject. Mengakses tabel projectMedia, mediaAssets, mediaVariants, projects."
+  },
+  "src/lib/db/queries/publishing-queues.ts": {
+    "summary": "Modul Publishing Queues (src/lib/db/queries/publishing-queues.ts): Publishing queues (§8): one aggregated view across every publishable content type for the Drafts, Scheduled, and Published screens. Read only; each item still publishes from its own module. Mengekspor PUBLISHING_QUEUES, isPublishingQueue, listPublishingQueue, publishingQueueCounts. Mengakses tabel articles, legalPages, services, pricing, faq, teamMembers."
+  },
+  "src/lib/db/queries/publishing.ts": {
+    "summary": "Modul Publishing (src/lib/db/queries/publishing.ts): Shared publish workflow (§24, §38): every publishable content type follows SAVE DRAFT → VALIDATE → PREVIEW → PUBLISH. Preview is served by the admin read endpoints (they may return drafts); the public read paths only ever return published rows. Publish gates return specific issues so an attempted publish explains exactly what must be fixed (§11, §13). Mengekspor PUBLISH_ACTIONS, validatePublishAction, statusForAction, deleteProtectionIssues, servicePublishIssues, pricingPublishIssues, faqPublishIssues, teamPublishIssues."
+  },
+  "src/lib/db/queries/scheduling.ts": {
+    "summary": "Modul Scheduling (src/lib/db/queries/scheduling.ts): Lazy auto-publish (§24): the scheduled path DRAFT → SCHEDULE → AUTO PUBLISH runs on the first public read after publish_at, so no background worker is required. Scheduled rows without a publish_at stay parked until an editor schedules them. Upcoming (Now) entries use filter-based scheduling instead: publicNowConditions hides future publish_at values until they arrive without flipping any status. Mengekspor publishDueScheduledContent. Mengakses tabel articles, legalPages."
+  },
+  "src/lib/db/queries/seo.ts": {
+    "summary": "Modul Seo (src/lib/db/queries/seo.ts): Largest variant URL for a social image asset, or null. Mengekspor ogImageUrl, getArticleSeo, getServiceSeo, listSeoOverview. Mengakses tabel articles, services."
+  },
+  "src/lib/db/queries/services-admin.ts": {
+    "summary": "Modul Services Admin (src/lib/db/queries/services-admin.ts): Admin CRUD for Services and Pricing (§14, §15). Transport-agnostic; the admin routes own authentication and HTTP statuses. Pricing follows the §6.6 rule: custom quotes keep the amount empty, fixed and starting-from entries require a numeric amount. Mengekspor SERVICE_TYPE_VALUES, validateServiceInput, listAllServices, getServiceById, findServiceBySlug, getServiceDetailsRow, getServiceWithDetails, createService. Mengakses tabel services, serviceDetails, pricing, serviceProjectRelations, serviceFaqRelations."
+  },
+  "src/lib/db/queries/services.ts": {
+    "summary": "Modul Services (src/lib/db/queries/services.ts): Public Services and Pricing queries (§6.4-§6.6). Reads published services only, and never exposes a draft service through its pricing entries (PRD §13, §24). Mengekspor publicServiceConditions, publicPricingConditions, listPublishedServices, getPublishedServiceBySlug, listPublishedPricing. Mengakses tabel mediaVariants, services, serviceDetails, pricing, serviceProjectRelations, serviceFaqRelations."
+  },
+  "src/lib/db/queries/settings-admin.ts": {
+    "summary": "Modul Settings Admin (src/lib/db/queries/settings-admin.ts): Admin Global Settings (§10.3). Transport-agnostic; the admin route owns authentication and HTTP statuses. Covers the contact channels plus the studio identity fields (studio name, tagline, CTA, copyright, social image, default SEO). Mengekspor validateSiteSettingsInput, getSiteSettingsRow, upsertSiteSettings. Mengakses tabel siteSettings."
+  },
+  "src/lib/db/queries/settings.ts": {
+    "summary": "Modul Settings (src/lib/db/queries/settings.ts): Public Global Settings (Contact / Social, §10.3, §6.12). Settings carry no draft state; every field is optional until the studio connects the real value, so pages fall back to labeled placeholders. Mengekspor getPublicSiteSettings. Mengakses tabel siteSettings."
+  },
+  "src/lib/db/queries/studio-admin.ts": {
+    "summary": "Modul Studio Admin (src/lib/db/queries/studio-admin.ts): Admin CRUD for Studio content (§18): the About singleton, team members, clients, and recognition. Transport-agnostic; the admin routes own authentication and HTTP statuses. Mengekspor validateStudioAboutInput, getStudioAboutRow, upsertStudioAbout, validateTeamMemberInput, listAllTeamMembers, getTeamMemberById, createTeamMember, updateTeamMember. Mengakses tabel studioAbout, teamMembers, clients, recognition."
+  },
+  "src/lib/db/queries/studio.ts": {
+    "summary": "Modul Studio (src/lib/db/queries/studio.ts): Public Studio queries (§6.8): the About singleton plus the team, clients, and recognition lists. Reads published content only (PRD §24); team entries also honor the public/private flag (§18). Mengekspor publicTeamConditions, publicClientConditions, publicRecognitionConditions, getPublicStudioAbout, listPublicTeamMembers, listPublishedClients, listPublishedRecognition. Mengakses tabel mediaVariants, studioAbout, teamMembers, clients, recognition."
+  },
+  "src/lib/db/queries/upcoming-admin.ts": {
+    "summary": "Modul Upcoming Admin (src/lib/db/queries/upcoming-admin.ts): Admin CRUD for Now (upcoming) entries. These functions are transport agnostic; the admin API routes own authentication and HTTP statuses. Mengekspor validateUpcomingInput, listAllUpcomingEntries, createUpcomingEntry, updateUpcomingEntry, deleteUpcomingEntry, getUpcomingEntryById. Mengakses tabel upcomingProjects."
+  },
+  "src/lib/db/queries/upcoming.ts": {
+    "summary": "Modul Upcoming (src/lib/db/queries/upcoming.ts): Public Now (current / upcoming) queries. Reads only entries where visibility = public and the optional publish_at has arrived (PRD §6.11, §24). Mengekspor publicNowConditions, listPublicNowEntries. Mengakses tabel upcomingProjects, mediaVariants."
+  },
+  "src/lib/db/queries/version-history.ts": {
+    "summary": "Modul Version History (src/lib/db/queries/version-history.ts): Version history (§25): every content save appends a snapshot. Actions: View (list + single version), Compare (two snapshots of the same entity), Restore (writes the old content back and appends a new version, so the log stays append-only). Restore applies content fields only; identity and publishing state (slug, status, relations) are preserved. Mengekspor VERSION_META_COLUMNS, isVersionedEntity, buildVersionSnapshot, recordVersion, listVersions, getVersionById, restoreVersion. Mengakses tabel versionHistory."
+  },
+  "src/lib/db/schema.ts": {
+    "summary": "Modul Schema (src/lib/db/schema.ts): Inquiry pipeline (PRD §17): stages plus the DECLINED terminal state. Mengekspor CONTENT_STATUSES, PUBLISH_VISIBILITIES, ARTICLE_BLOCK_TYPES, UPCOMING_STATUSES, MEDIA_TYPES, MEDIA_VARIANT_FORMATS, MEDIA_USAGE_STATES, INQUIRY_STATUSES."
+  },
+  "src/lib/format.ts": {
+    "summary": "Modul Format (src/lib/format.ts): logika bersama aplikasi. Mengekspor formatArticleDate."
+  },
+  "src/lib/gsap.ts": {
+    "summary": "Modul Gsap (src/lib/gsap.ts): logika bersama aplikasi."
+  },
+  "src/lib/media/attachments.ts": {
+    "summary": "Modul Attachments (src/lib/media/attachments.ts): Inquiry attachment pipeline (§6.13): PDF, JPG, JPEG, or PNG up to 10 MB per file. Attachments are reference material for the studio, so they are stored storage-only and never served publicly. Mengekspor INQUIRY_ATTACHMENT_MIME_TYPES, MAX_INQUIRY_ATTACHMENT_BYTES, ATTACHMENT_STORAGE_DIR, AttachmentValidationError, storeInquiryAttachment, removeInquiryAttachment."
+  },
+  "src/lib/media/optimize.ts": {
+    "summary": "Modul Optimize (src/lib/media/optimize.ts): Upload image pipeline (PRD §21): the original is stored storage-only and never served; delivery variants are generated with the built-in sips tool and written under public/media/uploads/<token>/. Mengekspor VARIANT_WIDTHS, ACCEPTED_IMAGE_MIME_TYPES, MAX_UPLOAD_BYTES, optimizeImageUpload, removeOptimizedImage."
+  },
+  "src/lib/motion.ts": {
+    "summary": "Modul Motion (src/lib/motion.ts): Shared motion tokens (§31.25): slow enough to feel premium, fast enough to remain responsive, purposeful, subtle, interruptible. Mengekspor EASE, DURATION, REVEAL, prefersReducedMotion."
+  },
+  "src/lib/site.ts": {
+    "summary": "Identitas dan navigasi situs: GLOBAL_SETTINGS, NAV_ITEMS, WORK_MENU (dropdown), FOOTER_MORE/LEGAL, PRIMARY_CTA, dan buildContactChannels dari Global Settings."
+  },
+  "src/lib/transition-bus.ts": {
+    "summary": "Modul Transition Bus (src/lib/transition-bus.ts): Tiny pub/sub so any UI affordance (navigation links, the theme toggle) can play the shared page transition. Listeners live in the same client bundle, so no DOM events or globals leak into the app. Mengekspor onTransitionRequest, requestTransition."
+  },
+  "src/lib/use-in-view.ts": {
+    "summary": "Modul Use In View (src/lib/use-in-view.ts): True once the element has come near the viewport (rootMargin matches the browser's lazy-loading reach, so placeholders only animate for frames whose media is actually being fetched). Mengekspor useInViewOnce."
+  },
+  "src/lib/use-reduced-motion.ts": {
+    "summary": "Modul Use Reduced Motion (src/lib/use-reduced-motion.ts): React form of the prefers-reduced-motion preference (§31.25), for interactive components that animate outside GSAP. Mengekspor useReducedMotion."
+  },
+  "src/lib/use-visitor-id.ts": {
+    "summary": "Modul Use Visitor Id (src/lib/use-visitor-id.ts): Anonymous visitor identity for likes: a random id kept in localStorage so one visitor counts once per entity. Mengekspor useVisitorId."
+  },
+  "src/lib/utils.ts": {
+    "summary": "Modul Utils (src/lib/utils.ts): Tailwind-aware class combiner used by interactive components. Mengekspor cn, slugify."
+  },
+  "tsconfig.json": {
+    "summary": "Konfigurasi TypeScript proyek: target, path alias @/* ke src/*, dan opsi strict."
+  }
+}

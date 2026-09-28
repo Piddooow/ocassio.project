@@ -1,0 +1,335 @@
+@import "tailwindcss";
+
+/* Theme is a global dark-default with a visitor toggle (§28.15 letter
+   and the studio's later explicit request); [data-theme] lives on
+   <html> and every surface consumes the tokens below. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ==========================================================================
+   Ocassio.Project: Design tokens (architecture doc §31.1–§31.10)
+   Locked palette. No additional UI brand colors may be introduced.
+   Theme is art direction per page (§31.15), applied via [data-theme].
+   ========================================================================== */
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Light mode surfaces */
+  --bg: #fafafa;
+  --bg-alt: #f5f5f5;
+  --bg-deep: #fafafa;
+  --surface: #ffffff;
+  --surface-hover: #f2f2f2;
+  --text-primary: #171717;
+  --text-secondary: #525252;
+  --text-muted: #737373;
+  --border: #e5e5e5;
+  --border-strong: #d4d4d4;
+
+  /* Primary CTA: light */
+  --cta-bg: #171717;
+  --cta-bg-hover: #000000;
+  --cta-text: #fafafa;
+
+  /* Semantic: functional feedback only, never decorative (§31.1) */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Dark mode surfaces */
+  --bg: #171717;
+  --bg-alt: #0a0a0a;
+  --bg-deep: #0a0a0a;
+  --surface: #202020;
+  --surface-hover: #2a2a2a;
+  --text-primary: #f5f5f5;
+  --text-secondary: #d4d4d4;
+  --text-muted: #a3a3a3;
+  --border: #333333;
+  --border-strong: #525252;
+
+  /* Primary CTA: dark */
+  --cta-bg: #f5f5f5;
+  --cta-bg-hover: #ffffff;
+  --cta-text: #171717;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-background-alt: var(--bg-alt);
+  --color-background-deep: var(--bg-deep);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-cta: var(--cta-bg);
+  --color-cta-hover: var(--cta-bg-hover);
+  --color-cta-foreground: var(--cta-text);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-garamond), "EB Garamond", Georgia, "Times New Roman", serif;
+
+  /* Typography scale (§31.4) with responsive clamps (§31.5) */
+  --text-display-mega: clamp(2rem, 5.2vw, 4rem);
+  --text-display-mega--line-height: 1.05;
+  --text-display-mega--letter-spacing: -0.03em;
+  --text-display-xl: clamp(2rem, 4.4vw, 3rem);
+  --text-display-xl--line-height: 1.08;
+  --text-display-xl--letter-spacing: -0.02em;
+  --text-display-lg: clamp(1.75rem, 3.2vw, 2.25rem);
+  --text-display-lg--line-height: 1.17;
+  --text-display-lg--letter-spacing: -0.01em;
+  --text-display-md: 2rem;
+  --text-display-md--line-height: 1.15;
+  --text-display-md--letter-spacing: -0.01em;
+  --text-display-sm: 1.5rem;
+  --text-display-sm--line-height: 1.2;
+  --text-title-md: 1.25rem;
+  --text-title-md--line-height: 1.35;
+  --text-title-sm: 1.125rem;
+  --text-title-sm--line-height: 1.4;
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+  --text-body--letter-spacing: 0.01em;
+  --text-body-sm: 0.9375rem;
+  --text-body-sm--line-height: 1.5;
+  --text-body-sm--letter-spacing: 0.01em;
+  --text-caption: 0.875rem;
+  --text-caption--line-height: 1.5;
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.08em;
+  --text-button: 0.9375rem;
+  --text-button--line-height: 1;
+  --text-nav: 0.9375rem;
+  --text-nav--line-height: 1.4;
+
+  /* Shape system (§31.9) */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 9999px;
+
+  /* Letter-spacing tokens (§31.43): labels use the text-label token's
+     0.08em; the wider editorial eyebrows and the brand lockup get tokens. */
+  --tracking-label-wide: 0.14em;
+  --tracking-brand: 0.18em;
+
+  /* Elevation (§31.10): minimal, derived from dark neutral opacity */
+  --shadow-elevated: 0 8px 24px rgb(0 0 0 / 0.12);
+  --shadow-drawer: 0 8px 24px rgb(0 0 0 / 0.2);
+}
+
+/* Standard content container (§31.7) */
+@utility container-editorial {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 48px);
+}
+
+@layer base {
+  html {
+    background-color: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Keep overscroll / scrollbar area in the page art-direction tone.
+     The theme itself lives on <html>; viewer and admin surfaces still
+     set their own nested [data-theme] and are unaffected. */
+  html:has(body > [data-theme="dark"]),
+  html[data-theme="dark"] {
+    background-color: #171717;
+  }
+
+  body {
+    /* No background here: the canvas lives on <html>, so the fixed
+       floating-path backdrop can paint above it and below content. */
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    text-autospace: normal;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--text-primary) 16%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--border-strong);
+    outline-offset: 2px;
+  }
+}
+
+/* Theme-aware brand art: correct variant on first paint, no JS involved.
+   The light rules come last so a nested [data-theme="light"] surface
+   (admin) still wins inside a dark <html>. */
+.brand-on-light {
+  display: block;
+}
+.brand-on-dark {
+  display: none;
+}
+[data-theme="dark"] .brand-on-light {
+  display: none;
+}
+[data-theme="dark"] .brand-on-dark {
+  display: block;
+}
+[data-theme="light"] .brand-on-light {
+  display: block;
+}
+[data-theme="light"] .brand-on-dark {
+  display: none;
+}
+
+/* Media gradient (studio request): bottom-up theme fade reaching toward
+   the middle of every public photo and video frame (studio request: 72%
+   of the frame height). */
+@utility media-fade {
+  pointer-events: none;
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 72%;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--bg-deep) 88%, transparent),
+    transparent
+  );
+  /* 0.8 of the 88% gradient reads as the documented 70%; hover lifts it
+     to the full 88% so the cursor position is legible on every card. */
+  opacity: 0.8;
+  transition: opacity 300ms ease-out;
+}
+
+.group:hover .media-fade,
+.group:focus-visible .media-fade {
+  opacity: 1;
+}
+
+/* Color reveal (studio request): grid and card media rest in black and
+   white and hand the photograph its color back on hover or keyboard
+   focus. Filter only, so it stays composited and cheap; the global
+   reduced-motion block below removes the transition for users who ask. */
+.media-color-reveal {
+  filter: grayscale(1);
+  transition: filter 480ms ease-out;
+}
+
+.media-color-reveal:hover,
+.media-guard:hover .media-color-reveal,
+.media-guard:focus-within .media-color-reveal,
+.group:hover .media-color-reveal,
+.group:focus-visible .media-color-reveal {
+  filter: grayscale(0);
+}
+
+/* Skeleton loading state (studio request): a quiet bone surface with a
+   slow shimmer sweep across media frames and admin lists. The sweep is
+   transform-only so it stays composited, and the reduced-motion block
+   below freezes it for users who ask. */
+@keyframes skeleton-sweep {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.skeleton-bone {
+  position: relative;
+  overflow: hidden;
+  background-color: color-mix(in srgb, var(--text-primary) 7%, transparent);
+}
+
+.skeleton-bone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translate3d(-100%, 0, 0);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--text-primary) 10%, transparent),
+    transparent
+  );
+  animation: skeleton-sweep 1.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Floating paths backdrop: transform-only drift so the fixed SVG is
+   composited and never repaints per frame (scroll performance).
+   The reduced-motion block below stops it for users who ask. */
+@keyframes floating-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-1.4%, -1%, 0) scale(1.015);
+  }
+  100% {
+    transform: translate3d(1.1%, 1.2%, 0) scale(1.01);
+  }
+}
+
+@utility paths-drift {
+  will-change: transform;
+  animation: floating-drift 80s ease-in-out infinite alternate;
+}
+
+/* Media protection (studio request): images never receive pointer or
+   long-press gestures directly and the transparent shield absorbs context
+   menus. Deterrent only, the web cannot fully prevent copying. */
+@utility media-guard {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+@utility media-shield {
+  position: absolute;
+  inset: 0;
+  cursor: inherit;
+}
+
+/* Smooth theme switch through the View Transitions API (progressive:
+   the toggle falls back to an instant swap where unsupported). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 280ms;
+  animation-timing-function: ease-out;
+}
+
+/* Motion is decorative: respect the user's reduced-motion preference (§31.25) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.01ms !important;
+  }
+}

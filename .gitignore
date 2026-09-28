@@ -38,5 +38,18 @@ next-env.d.ts
 # design working material (skill packages + references), not app code
 /ocassio-project-brainstorming/
 
+# local-only material: design references and agent tooling stay on the
+# workstation; the deployed app does not need any of it
+/ocassio-project-reference/
+/AGENTS.md
+/.agent/
+/.agents/
+/.claude/
+/.codex/
+/.cursor/
+/.ngodingpakeai/
+/.ngodingpakeaiignore
+/skills-lock.json
+
 # local SQLite database (rebuild with: bun run db:migrate)
 /data/

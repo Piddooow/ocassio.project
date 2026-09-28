@@ -1,5 +1,7 @@
 # Ocassio.Project
 
+**Live:** https://ocassio-project.vercel.app · **Deployment guide:** [DEPLOYMENT.md](./DEPLOYMENT.md)
+
 **Ocassio.Project** is a professional photography and visual storytelling web application founded by **Yehuda Alfa**, a photographer focused on capturing meaningful moments through photography and film.
 
 The platform is designed as more than a traditional photography portfolio. It acts as a complete digital presence for Ocassio.Project, allowing visitors to discover Yehuda’s work, understand the services offered, explore previous and ongoing projects, review pricing and workflow information, and submit project inquiries directly through the website.

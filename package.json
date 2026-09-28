@@ -11,6 +11,7 @@
     "verify:backend": "bun scripts/verify-backend.mjs",
     "verify:api": "bun scripts/verify-api.mjs",
     "verify:responsive": "bun scripts/verify-responsive.mjs",
+    "verify:deploy": "bun scripts/verify-deploy.mjs",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "bun scripts/db-migrate.mjs",
     "db:seed": "bun scripts/seed-journal.mjs && bun scripts/seed-legal.mjs && bun scripts/seed-studio.mjs && bun scripts/seed-team.mjs && bun scripts/seed-services.mjs && bun scripts/seed-projects.mjs && bun scripts/seed-settings.mjs",

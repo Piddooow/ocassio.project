@@ -125,6 +125,7 @@ export function JournalBrowser({ articles }: JournalBrowserProps) {
         <MediaMasonry
           items={shown}
           label="Journal articles"
+          revealKey={`${filter}:${limit}`}
           columnsClassName="columns-1 sm:columns-2 lg:columns-3"
           itemClassName="journal-item"
           getKey={(article) => article.slug}

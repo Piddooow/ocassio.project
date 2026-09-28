@@ -17,13 +17,21 @@ interface MediaMasonryProps<T> {
   className?: string;
   itemClassName?: string;
   label?: string;
+  /**
+   * Change this value to replay the entrance for the current set (filter
+   * grids pass the active filter). It must NOT be the items array: the
+   * router refresh after a filter click delivers new array identities
+   * with the same content, which would replay the entrance twice.
+   */
+  revealKey?: string | number;
 }
 
 /**
  * Masonry grid with the shared photograph entrance (see media-reveal).
  * CSS columns pack the varying-ratio frames; every item reveals exactly
- * once per item-set change, so a filter click re-reveals the new set and
- * scrolling never replays a card that already played.
+ * once per revealKey change, so a filter click re-reveals the new set and
+ * scrolling never replays a card that already played. Prop churn from a
+ * router refresh never replays anything.
  */
 export function MediaMasonry<T>({
   items,
@@ -34,11 +42,12 @@ export function MediaMasonry<T>({
   className,
   itemClassName,
   label,
+  revealKey,
 }: MediaMasonryProps<T>) {
   const scope = useRef<HTMLDivElement>(null);
 
   useMediaReveal(scope, {
-    dependencies: [items],
+    dependencies: revealKey === undefined ? [] : [revealKey],
     from: animateFrom,
     selector: "[data-masonry-item]",
   });

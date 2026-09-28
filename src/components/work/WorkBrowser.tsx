@@ -126,6 +126,7 @@ export function WorkBrowser({
           <MediaMasonry
             items={visible}
             label="Portfolio projects"
+            revealKey={filter}
             getKey={(project) => project.slug}
             renderItem={(project, index) => (
               <ProjectCard project={project} index={index} />

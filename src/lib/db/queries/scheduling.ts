@@ -25,7 +25,7 @@ export async function publishDueScheduledContent(
 ): Promise<AutoPublishSummary> {
   const now = new Date();
 
-  const flippedArticles = database
+  const flippedArticleRows = await database
     .update(articles)
     .set({ status: "published", updatedAt: now })
     .where(
@@ -36,9 +36,10 @@ export async function publishDueScheduledContent(
       ),
     )
     .returning({ id: articles.id })
-    .all().length;
+    .all();
+  const flippedArticles = flippedArticleRows.length;
 
-  const flippedLegalPages = database
+  const flippedLegalRows = await database
     .update(legalPages)
     .set({ status: "published", updatedAt: now })
     .where(
@@ -49,7 +50,8 @@ export async function publishDueScheduledContent(
       ),
     )
     .returning({ id: legalPages.id })
-    .all().length;
+    .all();
+  const flippedLegalPages = flippedLegalRows.length;
 
   return { articles: flippedArticles, legalPages: flippedLegalPages };
 }

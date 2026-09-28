@@ -42,9 +42,12 @@ export function publicRecognitionConditions() {
   return eq(recognition.status, "published");
 }
 
-function variantsByAssetId(database: QueryDatabase, assetIds: number[]) {
+async function variantsByAssetId(
+  database: QueryDatabase,
+  assetIds: number[],
+): Promise<Map<number, { width: number; url: string }[]>> {
   const variantRows = assetIds.length
-    ? database
+    ? await database
         .select({
           assetId: mediaVariants.assetId,
           width: mediaVariants.width,
@@ -86,7 +89,7 @@ export interface PublicStudioAbout {
 export async function getPublicStudioAbout(
   database: QueryDatabase = defaultDb,
 ): Promise<PublicStudioAbout | null> {
-  const row = database
+  const row = await database
     .select({
       heading: studioAbout.heading,
       body: studioAbout.body,
@@ -97,10 +100,10 @@ export async function getPublicStudioAbout(
     .leftJoin(mediaAssets, eq(studioAbout.supportingMediaId, mediaAssets.id))
     .orderBy(asc(studioAbout.id))
     .limit(1)
-    .all()[0];
+    .get();
 
   if (!row) return null;
-  const variants = variantsByAssetId(
+  const variants = await variantsByAssetId(
     database,
     row.assetId === null ? [] : [row.assetId],
   );
@@ -124,7 +127,7 @@ export interface PublicTeamMember {
 export async function listPublicTeamMembers(
   database: QueryDatabase = defaultDb,
 ): Promise<PublicTeamMember[]> {
-  const rows = database
+  const rows = await database
     .select({
       id: teamMembers.id,
       name: teamMembers.name,
@@ -140,7 +143,7 @@ export async function listPublicTeamMembers(
     .orderBy(asc(teamMembers.sortOrder), asc(teamMembers.id))
     .all();
 
-  const variants = variantsByAssetId(
+  const variants = await variantsByAssetId(
     database,
     rows
       .map((row) => row.assetId)
@@ -174,7 +177,7 @@ export async function listPublishedClients(
   const conditions = [publicClientConditions()];
   if (options.featuredOnly) conditions.push(eq(clients.featured, true));
 
-  const rows = database
+  const rows = await database
     .select({
       id: clients.id,
       name: clients.name,
@@ -190,7 +193,7 @@ export async function listPublishedClients(
     .orderBy(asc(clients.sortOrder), asc(clients.id))
     .all();
 
-  const variants = variantsByAssetId(
+  const variants = await variantsByAssetId(
     database,
     rows
       .map((row) => row.assetId)
@@ -222,7 +225,7 @@ export interface PublicRecognitionEntry {
 export async function listPublishedRecognition(
   database: QueryDatabase = defaultDb,
 ): Promise<PublicRecognitionEntry[]> {
-  return database
+  return await database
     .select({
       id: recognition.id,
       title: recognition.title,

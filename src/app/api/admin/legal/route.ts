@@ -10,7 +10,7 @@ import { listAllLegalPages } from "@/lib/db/queries/legal-admin";
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
-  const denied = requireAdmin(request, { roles: EDITOR_ROLES });
+  const denied = await requireAdmin(request, { roles: EDITOR_ROLES });
   if (denied) return denied;
 
   const pages = await listAllLegalPages();

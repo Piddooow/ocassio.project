@@ -16,7 +16,7 @@ import {
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
-  const denied = requireAdmin(request, { roles: EDITOR_ROLES });
+  const denied = await requireAdmin(request, { roles: EDITOR_ROLES });
   if (denied) return denied;
 
   const settings = await getSiteSettingsRow();
@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function PATCH(request: NextRequest) {
-  const denied = requireAdmin(request, { roles: EDITOR_ROLES });
+  const denied = await requireAdmin(request, { roles: EDITOR_ROLES });
   if (denied) return denied;
 
   let body: unknown;

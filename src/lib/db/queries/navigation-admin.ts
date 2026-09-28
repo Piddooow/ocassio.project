@@ -71,7 +71,7 @@ export function validateNavigationInput(
 }
 
 export async function listAllNavigation(database: QueryDatabase = defaultDb) {
-  return database
+  return await database
     .select()
     .from(navigationItems)
     .orderBy(asc(navigationItems.sortOrder), asc(navigationItems.id))
@@ -80,7 +80,7 @@ export async function listAllNavigation(database: QueryDatabase = defaultDb) {
 
 /** Public menu: visible rows in display order; empty means "use default". */
 export async function listPublicNavigation(database: QueryDatabase = defaultDb) {
-  return database
+  return await database
     .select({
       label: navigationItems.label,
       href: navigationItems.href,
@@ -95,25 +95,25 @@ export async function getNavigationRowById(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(navigationItems)
     .where(eq(navigationItems.id, id))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 export async function createNavigationItem(
   input: NavigationInput,
   database: QueryDatabase = defaultDb,
 ) {
-  const latest = database
+  const latest = await database
     .select({ sortOrder: navigationItems.sortOrder })
     .from(navigationItems)
     .orderBy(desc(navigationItems.sortOrder))
     .limit(1)
-    .all()[0];
-  return database
+    .get();
+  return await database
     .insert(navigationItems)
     .values({
       label: input.label,
@@ -123,7 +123,7 @@ export async function createNavigationItem(
       updatedAt: new Date(),
     })
     .returning()
-    .all()[0];
+    .get();
 }
 
 export async function updateNavigationItem(
@@ -136,12 +136,12 @@ export async function updateNavigationItem(
   if (patch.href !== undefined) values.href = patch.href;
   if (patch.visible !== undefined) values.visible = patch.visible;
 
-  return database
+  return await database
     .update(navigationItems)
     .set(values)
     .where(eq(navigationItems.id, id))
     .returning()
-    .all()[0];
+    .get();
 }
 
 /** Swaps display order with the neighbour above or below. */
@@ -161,12 +161,12 @@ export async function moveNavigationItem(
   }
   const current = rows[index];
   const neighbour = rows[targetIndex];
-  database
+  await database
     .update(navigationItems)
     .set({ sortOrder: neighbour.sortOrder })
     .where(eq(navigationItems.id, current.id))
     .run();
-  database
+  await database
     .update(navigationItems)
     .set({ sortOrder: current.sortOrder })
     .where(eq(navigationItems.id, neighbour.id))
@@ -178,9 +178,9 @@ export async function deleteNavigationItem(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .delete(navigationItems)
     .where(eq(navigationItems.id, id))
     .returning()
-    .all()[0];
+    .get();
 }

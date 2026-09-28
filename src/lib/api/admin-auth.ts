@@ -34,7 +34,7 @@ export function readSessionCookie(request: Request): string | null {
 }
 
 /** The signed-in user for a request, or null. Used by session reads. */
-export function getSessionUser(request: Request): User | null {
+export async function getSessionUser(request: Request): Promise<User | null> {
   const token = readSessionCookie(request);
   if (!token) return null;
   return getSessionUserByToken(token);
@@ -77,10 +77,10 @@ export function requireAdminToken(request: Request): NextResponse | null {
  * user session whose role is allowed for the module. Returns a response
  * to short-circuit with, or null when the request may proceed.
  */
-export function requireAdmin(
+export async function requireAdmin(
   request: Request,
   options?: { roles?: readonly AdminRole[] },
-): NextResponse | null {
+): Promise<NextResponse | null> {
   const expected = process.env.OCASSIO_ADMIN_TOKEN;
   const header = request.headers.get("authorization") ?? "";
   const bearer = header.startsWith("Bearer ") ? header.slice(7) : "";
@@ -103,7 +103,7 @@ export function requireAdmin(
     return null;
   }
 
-  const user = getSessionUser(request);
+  const user = await getSessionUser(request);
   if (!user) {
     return unauthorized(
       "Unauthorized: sign in to the Admin CMS or present a service token.",

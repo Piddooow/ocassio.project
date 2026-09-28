@@ -277,7 +277,7 @@ export type AdminArticleListRow = {
 export async function listAllArticles(
   database: QueryDatabase = defaultDb,
 ): Promise<AdminArticleListRow[]> {
-  return database
+  return await database
     .select(LIST_COLUMNS)
     .from(articles)
     .leftJoin(journalCategories, eq(articles.categoryId, journalCategories.id))
@@ -285,8 +285,10 @@ export async function listAllArticles(
     .all();
 }
 
-export function listJournalCategoryOptions(database: QueryDatabase = defaultDb) {
-  return database
+export async function listJournalCategoryOptions(
+  database: QueryDatabase = defaultDb,
+) {
+  return await database
     .select({
       id: journalCategories.id,
       name: journalCategories.name,
@@ -301,31 +303,31 @@ export async function getArticleRowById(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(articles)
     .where(eq(articles.id, id))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 export async function findArticleBySlug(
   slug: string,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(articles)
     .where(eq(articles.slug, slug))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 export async function getArticleBlocks(
   articleId: number,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(articleBlocks)
     .where(eq(articleBlocks.articleId, articleId))
@@ -346,7 +348,7 @@ export async function getArticleDetail(
   const article = await getArticleRowById(id, database);
   if (!article) return null;
   const category = article.categoryId
-    ? database
+    ? await database
         .select({
           id: journalCategories.id,
           name: journalCategories.name,
@@ -355,7 +357,7 @@ export async function getArticleDetail(
         .from(journalCategories)
         .where(eq(journalCategories.id, article.categoryId))
         .limit(1)
-        .all()[0] ?? null
+        .get() ?? null
     : null;
   const blocks = await getArticleBlocks(id, database);
   return { article, category, blocks };
@@ -367,13 +369,13 @@ type ArticleResult =
   | { ok: true; detail: ArticleDetail }
   | { ok: false; status: 409 | 422; issues: string[] };
 
-function insertBlocks(
+async function insertBlocks(
   articleId: number,
   blocks: ArticleBlockInput[],
   database: QueryDatabase,
-) {
-  blocks.forEach((block, index) => {
-    database
+): Promise<void> {
+  for (const [index, block] of blocks.entries()) {
+    await database
       .insert(articleBlocks)
       .values({
         articleId,
@@ -384,19 +386,19 @@ function insertBlocks(
         referenceProjectId: block.referenceProjectId,
       })
       .run();
-  });
+  }
 }
 
 export async function createArticle(
   input: ArticleInput,
   database: QueryDatabase = defaultDb,
 ): Promise<ArticleResult> {
-  const category = database
+  const category = await database
     .select({ id: journalCategories.id })
     .from(journalCategories)
     .where(eq(journalCategories.slug, input.categorySlug))
     .limit(1)
-    .all()[0];
+    .get();
   if (!category) {
     return {
       ok: false,
@@ -414,7 +416,7 @@ export async function createArticle(
   }
 
   const now = new Date();
-  const row = database
+  const row = await database
     .insert(articles)
     .values({
       title: input.title,
@@ -433,7 +435,7 @@ export async function createArticle(
       updatedAt: now,
     })
     .returning()
-    .all()[0];
+    .get();
 
   if (input.blocks?.length) {
     insertBlocks(row.id, input.blocks, database);
@@ -472,12 +474,12 @@ export async function updateArticle(
 
   let categoryId: number | undefined;
   if (patch.categorySlug !== undefined) {
-    const category = database
+    const category = await database
       .select({ id: journalCategories.id })
       .from(journalCategories)
       .where(eq(journalCategories.slug, patch.categorySlug))
       .limit(1)
-      .all()[0];
+      .get();
     if (!category) {
       return {
         ok: false,
@@ -509,7 +511,7 @@ export async function updateArticle(
   database.update(articles).set(values).where(eq(articles.id, id)).run();
 
   if (patch.blocks !== undefined) {
-    database
+    await database
       .delete(articleBlocks)
       .where(eq(articleBlocks.articleId, id))
       .run();
@@ -613,7 +615,7 @@ export async function applyArticleAction(
   }
 
   const resolved = statusForAction(action, publishAt);
-  const updated = database
+  const updated = await database
     .update(articles)
     .set({
       status: resolved.status,
@@ -622,7 +624,7 @@ export async function applyArticleAction(
     })
     .where(eq(articles.id, id))
     .returning()
-    .all()[0];
+    .get();
 
   return { ok: true, row: updated };
 }

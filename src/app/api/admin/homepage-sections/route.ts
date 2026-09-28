@@ -17,7 +17,7 @@ import {
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
-  const denied = requireAdmin(request, { roles: EDITOR_ROLES });
+  const denied = await requireAdmin(request, { roles: EDITOR_ROLES });
   if (denied) return denied;
 
   const sections = await listHomepageSections();
@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function PUT(request: NextRequest) {
-  const denied = requireAdmin(request, { roles: EDITOR_ROLES });
+  const denied = await requireAdmin(request, { roles: EDITOR_ROLES });
   if (denied) return denied;
 
   let body: unknown;

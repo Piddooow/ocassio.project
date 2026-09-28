@@ -42,9 +42,12 @@ export function publicPricingConditions() {
   );
 }
 
-function variantsByAssetId(database: QueryDatabase, assetIds: number[]) {
+async function variantsByAssetId(
+  database: QueryDatabase,
+  assetIds: number[],
+): Promise<Map<number, { width: number; url: string }[]>> {
   const variantRows = assetIds.length
-    ? database
+    ? await database
         .select({
           assetId: mediaVariants.assetId,
           width: mediaVariants.width,
@@ -90,7 +93,7 @@ export interface PublicServiceSummary {
 export async function listPublishedServices(
   database: QueryDatabase = defaultDb,
 ): Promise<PublicServiceSummary[]> {
-  const rows = database
+  const rows = await database
     .select({
       id: services.id,
       name: services.name,
@@ -107,7 +110,7 @@ export async function listPublishedServices(
     .orderBy(asc(services.sortOrder), asc(services.id))
     .all();
 
-  const variants = variantsByAssetId(
+  const variants = await variantsByAssetId(
     database,
     rows
       .map((row) => row.assetId)
@@ -154,14 +157,14 @@ export async function getPublishedServiceBySlug(
   const summary = summaries.find((service) => service.slug === slug);
   if (!summary) return null;
 
-  const detailRow = database
+  const detailRow = await database
     .select()
     .from(serviceDetails)
     .where(eq(serviceDetails.serviceId, summary.id))
     .limit(1)
-    .all()[0];
+    .get();
 
-  const pricingRows = database
+  const pricingRows = await database
     .select({
       id: pricing.id,
       packageName: pricing.packageName,
@@ -180,7 +183,7 @@ export async function getPublishedServiceBySlug(
     .orderBy(asc(pricing.sortOrder), asc(pricing.id))
     .all();
 
-  const projectRows = database
+  const projectRows = await database
     .select({ projectSlug: serviceProjectRelations.projectSlug })
     .from(serviceProjectRelations)
     .where(eq(serviceProjectRelations.serviceId, summary.id))
@@ -190,7 +193,7 @@ export async function getPublishedServiceBySlug(
     )
     .all();
 
-  const faqRows = database
+  const faqRows = await database
     .select({
       id: faq.id,
       question: faq.question,
@@ -239,7 +242,7 @@ export async function listPublishedPricing(
   const conditions = [publicPricingConditions()];
   if (options.serviceSlug) conditions.push(eq(services.slug, options.serviceSlug));
 
-  return database
+  return await database
     .select({
       id: pricing.id,
       serviceId: services.id,

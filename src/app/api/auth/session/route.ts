@@ -10,7 +10,7 @@ import { toPublicUser } from "@/lib/auth/users";
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
-  const user = getSessionUser(request);
+  const user = await getSessionUser(request);
   return NextResponse.json({
     data: { user: user ? toPublicUser(user) : null },
   });

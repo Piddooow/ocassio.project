@@ -10,7 +10,7 @@ import { listMediaAssets } from "@/lib/db/queries/media-admin";
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
-  const denied = requireAdmin(request, { roles: MEDIA_ROLES });
+  const denied = await requireAdmin(request, { roles: MEDIA_ROLES });
   if (denied) return denied;
 
   const typeParam = request.nextUrl.searchParams.get("type");

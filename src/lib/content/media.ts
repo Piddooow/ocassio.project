@@ -35,11 +35,53 @@ export interface ProjectMedia {
   videos: VideoAsset[];
 }
 
-const PROJECT_MEDIA = (manifest as { projects: ProjectMedia[] }).projects;
-const STUDIO_MEDIA = (manifest as { studio?: PhotoAsset[] }).studio ?? [];
-const JOURNAL_MEDIA = (manifest as { journal?: PhotoAsset[] }).journal ?? [];
-const FOOTER_AVATARS =
-  (manifest as { footerAvatars?: PhotoAsset[] }).footerAvatars ?? [];
+const MEDIA_BASE = (process.env.NEXT_PUBLIC_MEDIA_BASE_URL ?? "").replace(
+  /\/+$/,
+  "",
+);
+
+/**
+ * Prefixes site-relative media paths with the deployment's media host
+ * (Vercel Blob) when NEXT_PUBLIC_MEDIA_BASE_URL is configured; local
+ * development keeps the public-folder paths untouched.
+ */
+function mediaUrl(url: string): string {
+  if (!MEDIA_BASE || !url.startsWith("/")) return url;
+  return `${MEDIA_BASE}${url}`;
+}
+
+function withMediaBase(photo: PhotoAsset): PhotoAsset {
+  return {
+    ...photo,
+    variants: Object.fromEntries(
+      Object.entries(photo.variants).map(([token, url]) => [
+        token,
+        mediaUrl(url),
+      ]),
+    ),
+  };
+}
+
+const PROJECT_MEDIA = ((manifest as { projects?: ProjectMedia[] }).projects ?? []).map(
+  (project) => ({
+    ...project,
+    photos: project.photos.map(withMediaBase),
+    videos: project.videos.map((video) => ({
+      ...video,
+      src: mediaUrl(video.src),
+      poster: video.poster ? mediaUrl(video.poster) : null,
+    })),
+  }),
+);
+const STUDIO_MEDIA = ((manifest as { studio?: PhotoAsset[] }).studio ?? []).map(
+  withMediaBase,
+);
+const JOURNAL_MEDIA = (
+  (manifest as { journal?: PhotoAsset[] }).journal ?? []
+).map(withMediaBase);
+const FOOTER_AVATARS = (
+  (manifest as { footerAvatars?: PhotoAsset[] }).footerAvatars ?? []
+).map(withMediaBase);
 
 export function getProjectMedia(slug: string): ProjectMedia | undefined {
   return PROJECT_MEDIA.find((project) => project.slug === slug);

@@ -17,10 +17,10 @@ import { validateUserCreate } from "@/lib/auth/user-validation";
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
-  const denied = requireAdmin(request, { roles: OWNER_ROLES });
+  const denied = await requireAdmin(request, { roles: OWNER_ROLES });
   if (denied) return denied;
 
-  const users = listUsers();
+  const users = await listUsers();
   return NextResponse.json({
     data: users,
     meta: { total: users.length },
@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const denied = requireAdmin(request, { roles: OWNER_ROLES });
+  const denied = await requireAdmin(request, { roles: OWNER_ROLES });
   if (denied) return denied;
 
   let body: unknown;
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  if (findUserByEmail(validated.value.email)) {
+  if (await findUserByEmail(validated.value.email)) {
     return NextResponse.json(
       { error: "Validation failed.", issues: ["email is already in use."] },
       { status: 400 },

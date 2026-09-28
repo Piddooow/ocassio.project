@@ -112,7 +112,7 @@ export function validateHomepageSections(
 export async function listHomepageSections(
   database: QueryDatabase = defaultDb,
 ): Promise<HomepageSectionState[]> {
-  const rows = database
+  const rows = await database
     .select()
     .from(homepageSections)
     .orderBy(asc(homepageSections.sortOrder), asc(homepageSections.id))
@@ -156,10 +156,11 @@ export async function applyHomepageSections(
   const visibleByKey = new Map(
     payload.sections.map((section) => [section.key, section.visible]),
   );
-  database.transaction((tx) => {
-    tx.delete(homepageSections).run();
-    payload.order.forEach((key, index) => {
-      tx.insert(homepageSections)
+  await database.transaction(async (tx) => {
+    await tx.delete(homepageSections).run();
+    for (const [index, key] of payload.order.entries()) {
+      await tx
+        .insert(homepageSections)
         .values({
           sectionKey: key,
           sortOrder: index,
@@ -167,7 +168,7 @@ export async function applyHomepageSections(
           updatedAt: new Date(),
         })
         .run();
-    });
+    }
   });
   return listHomepageSections(database);
 }

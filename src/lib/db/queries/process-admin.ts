@@ -88,7 +88,7 @@ export function validateProcessStepInput(
 export async function listAllProcessSteps(
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(processSteps)
     .orderBy(asc(processSteps.sortOrder), asc(processSteps.id))
@@ -99,19 +99,19 @@ export async function getProcessStepById(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(processSteps)
     .where(eq(processSteps.id, id))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 export async function createProcessStep(
   input: ProcessStepInput,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .insert(processSteps)
     .values({
       stepNumber: input.stepNumber,
@@ -121,7 +121,7 @@ export async function createProcessStep(
       status: input.status,
     })
     .returning()
-    .all()[0];
+    .get();
 }
 
 export async function updateProcessStep(
@@ -136,22 +136,22 @@ export async function updateProcessStep(
   if (patch.sortOrder !== undefined) values.sortOrder = patch.sortOrder;
   if (patch.status !== undefined) values.status = patch.status;
 
-  return database
+  return await database
     .update(processSteps)
     .set(values)
     .where(eq(processSteps.id, id))
     .returning()
-    .all()[0];
+    .get();
 }
 
 export async function deleteProcessStep(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  const deleted = database
+  const deleted = await database
     .delete(processSteps)
     .where(eq(processSteps.id, id))
     .returning({ id: processSteps.id })
-    .all()[0];
+    .get();
   return Boolean(deleted);
 }

@@ -23,7 +23,7 @@ export async function createSession(
   database: QueryDatabase = defaultDb,
 ): Promise<string> {
   const token = `${randomUUID()}.${randomUUID()}`;
-  database
+  await database
     .insert(sessions)
     .values({
       id: hashSessionToken(token),
@@ -36,15 +36,15 @@ export async function createSession(
 
 /**
  * Validates a raw cookie token: unexpired session and an active user.
- * Synchronous so the route guards can run without ceremony; expired
- * rows are cleaned on sight.
+ * Async now that the SQLite driver is libSQL (Turso); expired rows are
+ * cleaned on sight.
  */
-export function getSessionUserByToken(
+export async function getSessionUserByToken(
   token: string,
   database: QueryDatabase = defaultDb,
-): User | null {
+): Promise<User | null> {
   const id = hashSessionToken(token);
-  const row = database
+  const row = await database
     .select({
       sessionId: sessions.id,
       expiresAt: sessions.expiresAt,
@@ -54,16 +54,16 @@ export function getSessionUserByToken(
     .innerJoin(users, eq(sessions.userId, users.id))
     .where(eq(sessions.id, id))
     .limit(1)
-    .all()[0];
+    .get();
 
   if (!row) return null;
   if (row.expiresAt.getTime() <= Date.now()) {
-    database.delete(sessions).where(eq(sessions.id, id)).run();
+    await database.delete(sessions).where(eq(sessions.id, id)).run();
     return null;
   }
   if (row.user.status !== "active") {
     /* Disabled accounts lose their sessions immediately. */
-    database.delete(sessions).where(eq(sessions.id, id)).run();
+    await database.delete(sessions).where(eq(sessions.id, id)).run();
     return null;
   }
   return row.user;
@@ -73,16 +73,20 @@ export async function deleteSessionByToken(
   token: string,
   database: QueryDatabase = defaultDb,
 ): Promise<void> {
-  database.delete(sessions).where(eq(sessions.id, hashSessionToken(token))).run();
+  await database
+    .delete(sessions)
+    .where(eq(sessions.id, hashSessionToken(token)))
+    .run();
 }
 
 /** Housekeeping: removes expired sessions; returns how many went. */
 export async function pruneExpiredSessions(
   database: QueryDatabase = defaultDb,
 ): Promise<number> {
-  return database
+  const rows = await database
     .delete(sessions)
     .where(lte(sessions.expiresAt, new Date()))
     .returning({ id: sessions.id })
-    .all().length;
+    .all();
+  return rows.length;
 }

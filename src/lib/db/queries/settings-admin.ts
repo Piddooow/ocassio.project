@@ -247,12 +247,12 @@ export function validateSiteSettingsInput(raw: unknown): ValidationResult {
 export async function getSiteSettingsRow(
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(siteSettings)
     .orderBy(asc(siteSettings.id))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 /** Merges a global-meta patch over the stored identity fields. */
@@ -307,7 +307,7 @@ export async function upsertSiteSettings(
 ) {
   const existing = await getSiteSettingsRow(database);
   if (!existing) {
-    return database
+    return await database
       .insert(siteSettings)
       .values({
         contactEmail: patch.contactEmail ?? null,
@@ -319,7 +319,7 @@ export async function upsertSiteSettings(
           : null,
       })
       .returning()
-      .all()[0];
+      .get();
   }
 
   const values: Record<string, unknown> = { updatedAt: new Date() };
@@ -331,10 +331,10 @@ export async function upsertSiteSettings(
     values.globalMeta = mergeGlobalMeta(existing.globalMeta, patch.globalMeta);
   }
 
-  return database
+  return await database
     .update(siteSettings)
     .set(values)
     .where(eq(siteSettings.id, existing.id))
     .returning()
-    .all()[0];
+    .get();
 }

@@ -21,7 +21,7 @@ export async function recordActivity(
   database: QueryDatabase = defaultDb,
 ): Promise<void> {
   try {
-    database
+    await database
       .insert(activityLog)
       .values({
         actorEmail: entry.actorEmail ?? null,
@@ -41,7 +41,7 @@ export async function listRecentActivity(
   database: QueryDatabase = defaultDb,
 ) {
   const safeLimit = Math.min(Math.max(limit, 1), 50);
-  return database
+  return await database
     .select()
     .from(activityLog)
     .orderBy(desc(activityLog.createdAt), desc(activityLog.id))

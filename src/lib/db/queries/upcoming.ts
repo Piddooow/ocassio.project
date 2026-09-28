@@ -41,7 +41,7 @@ export function publicNowConditions(nowIso: string = new Date().toISOString()) {
 export async function listPublicNowEntries(
   database: QueryDatabase = defaultDb,
 ): Promise<PublicNowEntry[]> {
-  const rows = database
+  const rows = await database
     .select({
       id: upcomingProjects.id,
       title: upcomingProjects.title,
@@ -63,7 +63,7 @@ export async function listPublicNowEntries(
     .map((row) => row.assetId)
     .filter((id): id is number => id !== null);
   const variantRows = assetIds.length
-    ? database
+    ? await database
         .select({
           assetId: mediaVariants.assetId,
           width: mediaVariants.width,

@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const user = findUserByEmail(email);
+  const user = await findUserByEmail(email);
   const passwordOk = user
     ? await verifyPassword(password, user.passwordHash)
     : false;
@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
   }
 
   const token = await createSession(user.id);
-  markUserLogin(user.id);
+  await markUserLogin(user.id);
 
   const response = NextResponse.json({
     data: { user: toPublicUser(user) },

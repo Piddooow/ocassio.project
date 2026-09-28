@@ -27,7 +27,7 @@ export interface PublicProcessStep {
 export async function listPublicProcessSteps(
   database: QueryDatabase = defaultDb,
 ): Promise<PublicProcessStep[]> {
-  return database
+  return await database
     .select({
       id: processSteps.id,
       stepNumber: processSteps.stepNumber,

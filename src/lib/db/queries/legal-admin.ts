@@ -115,7 +115,7 @@ export function validateLegalUpdate(raw: unknown): LegalValidation {
 export async function listAllLegalPages(
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(legalPages)
     .orderBy(asc(legalPages.slug))
@@ -126,12 +126,12 @@ export async function getLegalPageRow(
   slug: string,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(legalPages)
     .where(eq(legalPages.slug, slug))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 export async function updateLegalPage(
@@ -145,12 +145,12 @@ export async function updateLegalPage(
   if (patch.updatedDate !== undefined) values.updatedDate = patch.updatedDate;
   if (patch.status !== undefined) values.status = patch.status;
 
-  return database
+  return await database
     .update(legalPages)
     .set(values)
     .where(eq(legalPages.slug, slug))
     .returning()
-    .all()[0];
+    .get();
 }
 
 /* ---------------- Publish workflow (§24, §11 gate) ---------------- */
@@ -226,12 +226,12 @@ export async function applyLegalAction(
     updatedAt: new Date(),
   };
 
-  const updated = database
+  const updated = await database
     .update(legalPages)
     .set(values)
     .where(eq(legalPages.id, row.id))
     .returning()
-    .all()[0];
+    .get();
 
   return { ok: true, row: updated };
 }

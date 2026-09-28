@@ -30,7 +30,7 @@ export async function PATCH(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
-  const denied = requireAdmin(request, { roles: OWNER_ROLES });
+  const denied = await requireAdmin(request, { roles: OWNER_ROLES });
   if (denied) return denied;
 
   const { id: rawId } = await params;
@@ -42,7 +42,7 @@ export async function PATCH(
     );
   }
 
-  const existing = findUserById(id);
+  const existing = await findUserById(id);
   if (!existing) {
     return NextResponse.json(
       { error: `User not found: ${id}.` },
@@ -71,7 +71,7 @@ export async function PATCH(
   const patch = validated.value;
 
   if (patch.email !== undefined && patch.email !== existing.email) {
-    const clash = findUserByEmail(patch.email);
+    const clash = await findUserByEmail(patch.email);
     if (clash && clash.id !== id) {
       return NextResponse.json(
         { error: "Validation failed.", issues: ["email is already in use."] },
@@ -83,7 +83,7 @@ export async function PATCH(
   const issues = lastOwnerLockoutIssues(
     existing,
     patch,
-    countOtherActiveOwners(id),
+    await countOtherActiveOwners(id),
   );
   if (issues.length > 0) {
     return NextResponse.json(

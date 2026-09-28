@@ -98,7 +98,7 @@ export async function recordVersion(
   snapshot: unknown,
   database: QueryDatabase = defaultDb,
 ): Promise<VersionRecord> {
-  const latest = database
+  const latest = await database
     .select({ versionNo: versionHistory.versionNo })
     .from(versionHistory)
     .where(
@@ -109,9 +109,9 @@ export async function recordVersion(
     )
     .orderBy(desc(versionHistory.versionNo))
     .limit(1)
-    .all()[0];
+    .get();
 
-  return database
+  return await database
     .insert(versionHistory)
     .values({
       entityType,
@@ -120,7 +120,7 @@ export async function recordVersion(
       snapshot,
     })
     .returning()
-    .all()[0];
+    .get();
 }
 
 /** Newest first version list for one entity. */
@@ -129,7 +129,7 @@ export async function listVersions(
   entityId: number,
   database: QueryDatabase = defaultDb,
 ): Promise<VersionMeta[]> {
-  return database
+  return await database
     .select(VERSION_META_COLUMNS)
     .from(versionHistory)
     .where(
@@ -146,12 +146,12 @@ export async function getVersionById(
   id: number,
   database: QueryDatabase = defaultDb,
 ): Promise<VersionRecord | undefined> {
-  return database
+  return await database
     .select()
     .from(versionHistory)
     .where(eq(versionHistory.id, id))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 export type RestoreResult =

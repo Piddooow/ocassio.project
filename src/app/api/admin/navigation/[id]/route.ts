@@ -25,7 +25,7 @@ export async function PATCH(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
-  const denied = requireAdmin(request, { roles: EDITOR_ROLES });
+  const denied = await requireAdmin(request, { roles: EDITOR_ROLES });
   if (denied) return denied;
 
   const { id: rawId } = await params;
@@ -77,7 +77,7 @@ export async function DELETE(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
-  const denied = requireAdmin(request, { roles: EDITOR_ROLES });
+  const denied = await requireAdmin(request, { roles: EDITOR_ROLES });
   if (denied) return denied;
 
   const { id: rawId } = await params;

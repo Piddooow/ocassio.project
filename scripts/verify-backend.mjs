@@ -2167,23 +2167,23 @@ const editorUser = await createUser(
   },
   db,
 );
-const publicUsers = listUsers(db);
+const publicUsers = await listUsers(db);
 record(
   "users: create, find, and list never leak hashes",
-  findUserByEmail("owner-one@example.com", db)?.id === ownerUser.id &&
+  (await findUserByEmail("owner-one@example.com", db))?.id === ownerUser.id &&
     publicUsers.length === 2 &&
     !("passwordHash" in (publicUsers[0] ?? {})),
   JSON.stringify(publicUsers.map((user) => user.email)),
 );
 record(
   "users: last-owner counting ignores other roles",
-  countOtherActiveOwners(ownerUser.id, db) === 0 &&
-    countOtherActiveOwners(editorUser.id, db) === 1,
+  (await countOtherActiveOwners(ownerUser.id, db)) === 0 &&
+    (await countOtherActiveOwners(editorUser.id, db)) === 1,
 );
 await updateUser(editorUser.id, { status: "disabled" }, db);
 record(
   "users: updates apply status",
-  findUserById(editorUser.id, db)?.status === "disabled",
+  (await findUserById(editorUser.id, db))?.status === "disabled",
 );
 
 const lockoutIssues = lastOwnerLockoutIssues(
@@ -2211,16 +2211,17 @@ record(
 const sessionToken = await createSession(ownerUser.id, db);
 record(
   "sessions: a fresh token resolves to its active user",
-  getSessionUserByToken(sessionToken, db)?.id === ownerUser.id,
+  (await getSessionUserByToken(sessionToken, db))?.id === ownerUser.id,
 );
 record(
   "sessions: disabled users cannot hold a session",
-  getSessionUserByToken(await createSession(editorUser.id, db), db) === null,
+  (await getSessionUserByToken(await createSession(editorUser.id, db), db)) ===
+    null,
 );
 await deleteSessionByToken(sessionToken, db);
 record(
   "sessions: sign-out removes the session",
-  getSessionUserByToken(sessionToken, db) === null,
+  (await getSessionUserByToken(sessionToken, db)) === null,
 );
 
 const expiredToken = "expired-token-for-tests";
@@ -2229,7 +2230,7 @@ sqlite
   .run(hashSessionToken(expiredToken), ownerUser.id, Date.now() - 1000);
 record(
   "sessions: expired sessions are pruned on sight",
-  getSessionUserByToken(expiredToken, db) === null &&
+  (await getSessionUserByToken(expiredToken, db)) === null &&
     sqlite.query("SELECT COUNT(*) AS count FROM sessions").get().count === 0,
 );
 

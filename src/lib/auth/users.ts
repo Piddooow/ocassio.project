@@ -1,4 +1,5 @@
 import { asc, eq, ne, sql } from "drizzle-orm";
+import { hash as argonHash, verify as argonVerify } from "@node-rs/argon2";
 import { db as defaultDb } from "@/lib/db/client";
 import { users } from "@/lib/db/schema";
 import { USER_ROLES, USER_ROLE_LABEL, type UserRole } from "./roles";
@@ -7,7 +8,9 @@ import type { User } from "@/lib/db/schema";
 
 /**
  * User records for the Admin CMS (§27, PRD §26.2). Passwords are hashed
- * with Bun.password (argon2id) and never leave this module.
+ * with argon2id (@node-rs/argon2) and never leave this module. Existing
+ * hashes stay valid: Bun.password and @node-rs/argon2 both write and read
+ * the standard PHC argon2id format.
  */
 
 export { USER_ROLES, USER_ROLE_LABEL };
@@ -16,14 +19,14 @@ export type { UserRole };
 export const MIN_PASSWORD_LENGTH = 10;
 
 export async function hashPassword(password: string): Promise<string> {
-  return Bun.password.hash(password);
+  return argonHash(password);
 }
 
 export async function verifyPassword(
   password: string,
   hash: string,
 ): Promise<boolean> {
-  return Bun.password.verify(password, hash);
+  return argonVerify(hash, password);
 }
 
 /** The shape that may leave the server: no password hash, ever. */
@@ -62,32 +65,34 @@ const PUBLIC_COLUMNS = {
   updatedAt: users.updatedAt,
 };
 
-export function findUserByEmail(
+export async function findUserByEmail(
   email: string,
   database: QueryDatabase = defaultDb,
-): User | undefined {
-  return database
+): Promise<User | undefined> {
+  return await database
     .select()
     .from(users)
     .where(eq(users.email, email.trim().toLowerCase()))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
-export function findUserById(
+export async function findUserById(
   id: number,
   database: QueryDatabase = defaultDb,
-): User | undefined {
-  return database
+): Promise<User | undefined> {
+  return await database
     .select()
     .from(users)
     .where(eq(users.id, id))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
-export function listUsers(database: QueryDatabase = defaultDb): PublicUser[] {
-  return database.select(PUBLIC_COLUMNS).from(users).orderBy(asc(users.id)).all();
+export async function listUsers(
+  database: QueryDatabase = defaultDb,
+): Promise<PublicUser[]> {
+  return await database.select(PUBLIC_COLUMNS).from(users).orderBy(asc(users.id)).all();
 }
 
 export interface UserCreateInput {
@@ -102,7 +107,7 @@ export async function createUser(
   database: QueryDatabase = defaultDb,
 ): Promise<User> {
   const passwordHash = await hashPassword(input.password);
-  return database
+  return await database
     .insert(users)
     .values({
       name: input.name,
@@ -111,7 +116,7 @@ export async function createUser(
       role: input.role,
     })
     .returning()
-    .all()[0];
+    .get();
 }
 
 export interface UserUpdateInput {
@@ -136,20 +141,20 @@ export async function updateUser(
     values.passwordHash = await hashPassword(patch.password);
   }
 
-  return database
+  return await database
     .update(users)
     .set(values)
     .where(eq(users.id, id))
     .returning()
-    .all()[0];
+    .get();
 }
 
-export function markUserLogin(
+export async function markUserLogin(
   id: number,
   database: QueryDatabase = defaultDb,
-): void {
+): Promise<void> {
   const now = new Date();
-  database
+  await database
     .update(users)
     .set({ lastLoginAt: now, updatedAt: now })
     .where(eq(users.id, id))
@@ -157,17 +162,18 @@ export function markUserLogin(
 }
 
 /** Owner-lockout protection (§27): at least one active owner must remain. */
-export function countOtherActiveOwners(
+export async function countOtherActiveOwners(
   id: number,
   database: QueryDatabase = defaultDb,
-): number {
-  return database
+): Promise<number> {
+  const row = await database
     .select({ count: sql<number>`COUNT(*)` })
     .from(users)
     .where(
       sql`${users.role} = 'owner' AND ${users.status} = 'active' AND ${ne(users.id, id)}`,
     )
-    .all()[0].count;
+    .get();
+  return row?.count ?? 0;
 }
 
 /**

@@ -16,7 +16,7 @@ import {
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
-  const denied = requireAdmin(request, { roles: EDITOR_ROLES });
+  const denied = await requireAdmin(request, { roles: EDITOR_ROLES });
   if (denied) return denied;
 
   const searchParams = request.nextUrl.searchParams;

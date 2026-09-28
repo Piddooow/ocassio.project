@@ -51,7 +51,7 @@ export async function listPublishingQueue(
   const status = QUEUE_STATUS[queue];
   const items: PublishingQueueItem[] = [];
 
-  const articleRows = database
+  const articleRows = await database
     .select({
       id: articles.id,
       title: articles.title,
@@ -75,7 +75,7 @@ export async function listPublishingQueue(
     });
   }
 
-  const legalRows = database
+  const legalRows = await database
     .select({
       id: legalPages.id,
       title: legalPages.title,
@@ -99,7 +99,7 @@ export async function listPublishingQueue(
     });
   }
 
-  const serviceRows = database
+  const serviceRows = await database
     .select({
       id: services.id,
       name: services.name,
@@ -122,7 +122,7 @@ export async function listPublishingQueue(
     });
   }
 
-  const pricingRows = database
+  const pricingRows = await database
     .select({
       id: pricing.id,
       packageName: pricing.packageName,
@@ -144,7 +144,7 @@ export async function listPublishingQueue(
     });
   }
 
-  const faqRows = database
+  const faqRows = await database
     .select({
       id: faq.id,
       question: faq.question,
@@ -166,7 +166,7 @@ export async function listPublishingQueue(
     });
   }
 
-  const teamRows = database
+  const teamRows = await database
     .select({
       id: teamMembers.id,
       name: teamMembers.name,
@@ -188,7 +188,7 @@ export async function listPublishingQueue(
     });
   }
 
-  const clientRows = database
+  const clientRows = await database
     .select({
       id: clients.id,
       name: clients.name,
@@ -210,7 +210,7 @@ export async function listPublishingQueue(
     });
   }
 
-  const recognitionRows = database
+  const recognitionRows = await database
     .select({
       id: recognition.id,
       title: recognition.title,
@@ -260,21 +260,22 @@ export async function publishingQueueCounts(
     { table: recognition, status: recognition.status },
   ] as const;
 
-  const countFor = (status: string) =>
-    tables.reduce(
-      (sum, entry) =>
-        sum +
-        database
-          .select({ id: entry.table.id })
-          .from(entry.table)
-          .where(eq(entry.status, status as "draft"))
-          .all().length,
-      0,
-    );
+  const countFor = async (status: string) => {
+    let total = 0;
+    for (const entry of tables) {
+      const rows = await database
+        .select({ id: entry.table.id })
+        .from(entry.table)
+        .where(eq(entry.status, status as "draft"))
+        .all();
+      total += rows.length;
+    }
+    return total;
+  };
 
   return {
-    drafts: countFor("draft"),
-    scheduled: countFor("scheduled"),
-    published: countFor("published"),
+    drafts: await countFor("draft"),
+    scheduled: await countFor("scheduled"),
+    published: await countFor("published"),
   };
 }

@@ -258,7 +258,7 @@ export function validateProjectInput(
 /* ---------------- Reads ---------------- */
 
 export async function listAllProjects(database: QueryDatabase = defaultDb) {
-  return database
+  return await database
     .select({
       id: projects.id,
       title: projects.title,
@@ -284,31 +284,31 @@ export async function getProjectRowById(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(projects)
     .where(eq(projects.id, id))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 export async function findProjectBySlug(
   slug: string,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(projects)
     .where(eq(projects.slug, slug))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 export async function getProjectMediaRows(
   projectId: number,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(projectMedia)
     .where(eq(projectMedia.projectId, projectId))
@@ -333,18 +333,21 @@ export async function getProjectAdminDetail(
 
 /* ---------------- Mutations ---------------- */
 
-function replaceMedia(
+async function replaceMedia(
   projectId: number,
   mediaIds: number[],
   database: QueryDatabase,
-) {
-  database.delete(projectMedia).where(eq(projectMedia.projectId, projectId)).run();
-  mediaIds.forEach((mediaId, index) => {
-    database
+): Promise<void> {
+  await database
+    .delete(projectMedia)
+    .where(eq(projectMedia.projectId, projectId))
+    .run();
+  for (const [index, mediaId] of mediaIds.entries()) {
+    await database
       .insert(projectMedia)
       .values({ projectId, mediaId, sortOrder: index })
       .run();
-  });
+  }
 }
 
 function columnValues(input: ProjectUpdateInput) {
@@ -389,7 +392,7 @@ export async function createProject(
     };
   }
 
-  const row = database
+  const row = await database
     .insert(projects)
     .values({
       title: input.title,
@@ -413,7 +416,7 @@ export async function createProject(
       updatedAt: new Date(),
     })
     .returning()
-    .all()[0];
+    .get();
 
   if (input.mediaIds?.length) {
     replaceMedia(row.id, input.mediaIds, database);
@@ -453,7 +456,7 @@ export async function updateProject(
     }
   }
 
-  database
+  await database
     .update(projects)
     .set(columnValues(patch))
     .where(eq(projects.id, id))
@@ -558,7 +561,7 @@ export async function applyProjectAction(
   }
 
   const resolved = statusForAction(action, publishAt);
-  const updated = database
+  const updated = await database
     .update(projects)
     .set({
       status: resolved.status,
@@ -567,7 +570,7 @@ export async function applyProjectAction(
     })
     .where(eq(projects.id, id))
     .returning()
-    .all()[0];
+    .get();
 
   return { ok: true, row: updated };
 }

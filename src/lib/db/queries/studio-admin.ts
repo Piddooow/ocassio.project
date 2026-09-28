@@ -187,12 +187,12 @@ export function validateStudioAboutInput(
 }
 
 export async function getStudioAboutRow(database: QueryDatabase = defaultDb) {
-  return database
+  return await database
     .select()
     .from(studioAbout)
     .orderBy(asc(studioAbout.id))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 /**
@@ -206,7 +206,7 @@ export async function upsertStudioAbout(
 ) {
   const existing = await getStudioAboutRow(database);
   if (!existing) {
-    return database
+    return await database
       .insert(studioAbout)
       .values({
         heading: input.heading as string,
@@ -214,7 +214,7 @@ export async function upsertStudioAbout(
         supportingMediaId: input.supportingMediaId ?? null,
       })
       .returning()
-      .all()[0];
+      .get();
   }
 
   const values: Record<string, unknown> = { updatedAt: new Date() };
@@ -223,12 +223,12 @@ export async function upsertStudioAbout(
   if (input.supportingMediaId !== undefined)
     values.supportingMediaId = input.supportingMediaId;
 
-  return database
+  return await database
     .update(studioAbout)
     .set(values)
     .where(eq(studioAbout.id, existing.id))
     .returning()
-    .all()[0];
+    .get();
 }
 
 /* ---------------- Team members ---------------- */
@@ -304,7 +304,7 @@ export function validateTeamMemberInput(
 }
 
 export async function listAllTeamMembers(database: QueryDatabase = defaultDb) {
-  return database
+  return await database
     .select()
     .from(teamMembers)
     .orderBy(asc(teamMembers.sortOrder), asc(teamMembers.id))
@@ -315,19 +315,19 @@ export async function getTeamMemberById(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(teamMembers)
     .where(eq(teamMembers.id, id))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 export async function createTeamMember(
   input: TeamMemberInput,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .insert(teamMembers)
     .values({
       name: input.name,
@@ -339,7 +339,7 @@ export async function createTeamMember(
       visibility: input.visibility,
     })
     .returning()
-    .all()[0];
+    .get();
 }
 
 export async function updateTeamMember(
@@ -356,23 +356,23 @@ export async function updateTeamMember(
   if (patch.status !== undefined) values.status = patch.status;
   if (patch.visibility !== undefined) values.visibility = patch.visibility;
 
-  return database
+  return await database
     .update(teamMembers)
     .set(values)
     .where(eq(teamMembers.id, id))
     .returning()
-    .all()[0];
+    .get();
 }
 
 export async function deleteTeamMember(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  const deleted = database
+  const deleted = await database
     .delete(teamMembers)
     .where(eq(teamMembers.id, id))
     .returning({ id: teamMembers.id })
-    .all()[0];
+    .get();
   return Boolean(deleted);
 }
 
@@ -435,7 +435,7 @@ export function validateStudioClientInput(
 }
 
 export async function listAllClients(database: QueryDatabase = defaultDb) {
-  return database
+  return await database
     .select()
     .from(clients)
     .orderBy(asc(clients.sortOrder), asc(clients.id))
@@ -446,19 +446,19 @@ export async function getClientById(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(clients)
     .where(eq(clients.id, id))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 export async function createClient(
   input: StudioClientInput,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .insert(clients)
     .values({
       name: input.name,
@@ -469,7 +469,7 @@ export async function createClient(
       status: input.status,
     })
     .returning()
-    .all()[0];
+    .get();
 }
 
 export async function updateClient(
@@ -485,23 +485,23 @@ export async function updateClient(
   if (patch.sortOrder !== undefined) values.sortOrder = patch.sortOrder;
   if (patch.status !== undefined) values.status = patch.status;
 
-  return database
+  return await database
     .update(clients)
     .set(values)
     .where(eq(clients.id, id))
     .returning()
-    .all()[0];
+    .get();
 }
 
 export async function deleteClient(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  const deleted = database
+  const deleted = await database
     .delete(clients)
     .where(eq(clients.id, id))
     .returning({ id: clients.id })
-    .all()[0];
+    .get();
   return Boolean(deleted);
 }
 
@@ -596,7 +596,7 @@ export function validateRecognitionInput(
 }
 
 export async function listAllRecognition(database: QueryDatabase = defaultDb) {
-  return database
+  return await database
     .select()
     .from(recognition)
     .orderBy(
@@ -611,19 +611,19 @@ export async function getRecognitionById(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(recognition)
     .where(eq(recognition.id, id))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 export async function createRecognition(
   input: RecognitionInput,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .insert(recognition)
     .values({
       title: input.title,
@@ -636,7 +636,7 @@ export async function createRecognition(
       status: input.status,
     })
     .returning()
-    .all()[0];
+    .get();
 }
 
 export async function updateRecognition(
@@ -655,22 +655,22 @@ export async function updateRecognition(
   if (patch.sortOrder !== undefined) values.sortOrder = patch.sortOrder;
   if (patch.status !== undefined) values.status = patch.status;
 
-  return database
+  return await database
     .update(recognition)
     .set(values)
     .where(eq(recognition.id, id))
     .returning()
-    .all()[0];
+    .get();
 }
 
 export async function deleteRecognition(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  const deleted = database
+  const deleted = await database
     .delete(recognition)
     .where(eq(recognition.id, id))
     .returning({ id: recognition.id })
-    .all()[0];
+    .get();
   return Boolean(deleted);
 }

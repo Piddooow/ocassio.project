@@ -21,12 +21,12 @@ export async function getPublicLegalPage(
   slug: string,
 ): Promise<PublicLegalPage | undefined> {
   await publishDueScheduledContent(defaultDb);
-  const row = defaultDb
+  const row = await defaultDb
     .select()
     .from(legalPages)
     .where(eq(legalPages.slug, slug))
     .limit(1)
-    .all()[0];
+    .get();
 
   if (!row || row.status !== "published") return undefined;
 

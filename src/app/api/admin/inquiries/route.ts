@@ -14,7 +14,7 @@ const DEFAULT_LIMIT = 20;
 const MAX_LIMIT = 50;
 
 export async function GET(request: NextRequest) {
-  const denied = requireAdmin(request, { roles: SALES_ROLES });
+  const denied = await requireAdmin(request, { roles: SALES_ROLES });
   if (denied) return denied;
 
   const searchParams = request.nextUrl.searchParams;

@@ -75,11 +75,11 @@ export async function listFaqByIds(
   database: QueryDatabase = defaultDb,
 ) {
   if (ids.length === 0) return [];
-  return database.select().from(faq).where(inArray(faq.id, ids)).all();
+  return await database.select().from(faq).where(inArray(faq.id, ids)).all();
 }
 
 export async function listAllFaq(database: QueryDatabase = defaultDb) {
-  return database
+  return await database
     .select()
     .from(faq)
     .orderBy(asc(faq.sortOrder), asc(faq.id))
@@ -90,19 +90,19 @@ export async function getFaqById(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(faq)
     .where(eq(faq.id, id))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 export async function createFaq(
   input: FaqInput,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .insert(faq)
     .values({
       question: input.question,
@@ -111,7 +111,7 @@ export async function createFaq(
       status: input.status,
     })
     .returning()
-    .all()[0];
+    .get();
 }
 
 export async function updateFaq(
@@ -125,22 +125,22 @@ export async function updateFaq(
   if (patch.sortOrder !== undefined) values.sortOrder = patch.sortOrder;
   if (patch.status !== undefined) values.status = patch.status;
 
-  return database
+  return await database
     .update(faq)
     .set(values)
     .where(eq(faq.id, id))
     .returning()
-    .all()[0];
+    .get();
 }
 
 export async function deleteFaq(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  const deleted = database
+  const deleted = await database
     .delete(faq)
     .where(eq(faq.id, id))
     .returning({ id: faq.id })
-    .all()[0];
+    .get();
   return Boolean(deleted);
 }

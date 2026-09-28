@@ -29,7 +29,7 @@ async function hydrateProjects(
 ): Promise<Project[]> {
   const ids = rows.map((row) => row.id);
   const mediaRows = ids.length
-    ? database
+    ? await database
         .select({
           projectId: projectMedia.projectId,
           mediaId: projectMedia.mediaId,
@@ -42,7 +42,7 @@ async function hydrateProjects(
 
   const mediaIds = [...new Set(mediaRows.map((row) => row.mediaId))];
   const assets = mediaIds.length
-    ? database
+    ? await database
         .select({
           id: mediaAssets.id,
           filename: mediaAssets.filename,
@@ -57,7 +57,7 @@ async function hydrateProjects(
   const assetById = new Map(assets.map((asset) => [asset.id, asset]));
 
   const variants = mediaIds.length
-    ? database
+    ? await database
         .select({
           assetId: mediaVariants.assetId,
           url: mediaVariants.url,
@@ -128,7 +128,7 @@ async function hydrateProjects(
 export async function listPublishedProjects(
   database: QueryDatabase = defaultDb,
 ): Promise<Project[]> {
-  const rows = database
+  const rows = await database
     .select()
     .from(projects)
     .where(publicProjectConditions())
@@ -142,12 +142,14 @@ export async function getPublishedProjectBySlug(
   slug: string,
   database: QueryDatabase = defaultDb,
 ): Promise<Project | undefined> {
-  const row = database
-    .select()
-    .from(projects)
-    .where(and(eq(projects.slug, slug), publicProjectConditions()))
-    .limit(1)
-    .all()[0];
+  const row = (
+    await database
+      .select()
+      .from(projects)
+      .where(and(eq(projects.slug, slug), publicProjectConditions()))
+      .limit(1)
+      .all()
+  )[0];
   if (!row) return undefined;
   const hydrated = await hydrateProjects([row], database);
   return hydrated[0];

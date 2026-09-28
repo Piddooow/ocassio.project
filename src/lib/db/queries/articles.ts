@@ -66,13 +66,13 @@ export function publicArticleConditions() {
   );
 }
 
-export function findJournalCategoryBySlug(slug: string) {
-  return db
+export async function findJournalCategoryBySlug(slug: string) {
+  return await db
     .select({ id: journalCategories.id, name: journalCategories.name })
     .from(journalCategories)
     .where(eq(journalCategories.slug, slug))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 const LIST_COLUMNS = {
@@ -100,10 +100,12 @@ type ArticleListRow = {
 };
 
 /** Adds computed reading time (from real block text) to list rows. */
-function hydrateListItems(rows: ArticleListRow[]): PublicArticleListItem[] {
+async function hydrateListItems(
+  rows: ArticleListRow[],
+): Promise<PublicArticleListItem[]> {
   const ids = rows.map((row) => row.id);
   const blockTexts = ids.length
-    ? db
+    ? await db
         .select({
           articleId: articleBlocks.articleId,
           textContent: articleBlocks.textContent,
@@ -148,7 +150,7 @@ export async function listPublicArticles({
     ? and(visibility, eq(journalCategories.slug, categorySlug))
     : visibility;
 
-  const rows = db
+  const rows = await db
     .select(LIST_COLUMNS)
     .from(articles)
     .leftJoin(journalCategories, eq(articles.categoryId, journalCategories.id))
@@ -158,14 +160,15 @@ export async function listPublicArticles({
     .offset(offset)
     .all();
 
-  const total = db
+  const totalRow = await db
     .select({ count: sql<number>`COUNT(*)` })
     .from(articles)
     .leftJoin(journalCategories, eq(articles.categoryId, journalCategories.id))
     .where(where)
-    .all()[0].count;
+    .get();
+  const total = totalRow?.count ?? 0;
 
-  return { items: hydrateListItems(rows), total };
+  return { items: await hydrateListItems(rows), total };
 }
 
 /**
@@ -178,17 +181,17 @@ export async function listRelatedArticles(
   limit: number,
 ): Promise<PublicArticleListItem[] | undefined> {
   await publishDueScheduledContent();
-  const current = db
+  const current = await db
     .select({ id: articles.id, categoryId: articles.categoryId })
     .from(articles)
     .where(and(eq(articles.slug, slug), publicArticleConditions()))
     .limit(1)
-    .all()[0];
+    .get();
 
   if (!current) return undefined;
 
   const sameCategory = current.categoryId
-    ? db
+    ? await db
         .select(LIST_COLUMNS)
         .from(articles)
         .leftJoin(
@@ -208,11 +211,11 @@ export async function listRelatedArticles(
     : [];
 
   if (sameCategory.length >= limit) {
-    return hydrateListItems(sameCategory);
+    return await hydrateListItems(sameCategory);
   }
 
   const excludeIds = [current.id, ...sameCategory.map((row) => row.id)];
-  const fill = db
+  const fill = await db
     .select(LIST_COLUMNS)
     .from(articles)
     .leftJoin(journalCategories, eq(articles.categoryId, journalCategories.id))
@@ -226,7 +229,7 @@ export async function listRelatedArticles(
     .limit(limit - sameCategory.length)
     .all();
 
-  return hydrateListItems([...sameCategory, ...fill]);
+  return await hydrateListItems([...sameCategory, ...fill]);
 }
 
 /** A single published + public article with its ordered body blocks. */
@@ -234,7 +237,7 @@ export async function getPublicArticleBySlug(
   slug: string,
 ): Promise<PublicArticleDetail | undefined> {
   await publishDueScheduledContent();
-  const row = db
+  const row = await db
     .select({
       id: articles.id,
       title: articles.title,
@@ -248,11 +251,11 @@ export async function getPublicArticleBySlug(
     .leftJoin(journalCategories, eq(articles.categoryId, journalCategories.id))
     .where(and(eq(articles.slug, slug), publicArticleConditions()))
     .limit(1)
-    .all()[0];
+    .get();
 
   if (!row) return undefined;
 
-  const blockRows = db
+  const blockRows = await db
     .select({
       id: articleBlocks.id,
       type: articleBlocks.blockType,

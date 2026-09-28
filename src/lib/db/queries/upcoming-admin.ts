@@ -167,7 +167,7 @@ export function validateUpcomingInput(
 }
 
 export async function listAllUpcomingEntries(database: QueryDatabase = defaultDb) {
-  return database
+  return await database
     .select()
     .from(upcomingProjects)
     .orderBy(asc(upcomingProjects.sortOrder), asc(upcomingProjects.id))
@@ -178,7 +178,7 @@ export async function createUpcomingEntry(
   input: UpcomingInput,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .insert(upcomingProjects)
     .values({
       title: input.title,
@@ -192,7 +192,7 @@ export async function createUpcomingEntry(
       sortOrder: input.sortOrder,
     })
     .returning()
-    .all()[0];
+    .get();
 }
 
 export async function updateUpcomingEntry(
@@ -213,23 +213,23 @@ export async function updateUpcomingEntry(
   if (patch.sortOrder !== undefined) values.sortOrder = patch.sortOrder;
   values.updatedAt = new Date();
 
-  return database
+  return await database
     .update(upcomingProjects)
     .set(values)
     .where(eq(upcomingProjects.id, id))
     .returning()
-    .all()[0];
+    .get();
 }
 
 export async function deleteUpcomingEntry(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  const deleted = database
+  const deleted = await database
     .delete(upcomingProjects)
     .where(eq(upcomingProjects.id, id))
     .returning({ id: upcomingProjects.id })
-    .all()[0];
+    .get();
   return Boolean(deleted);
 }
 
@@ -237,10 +237,10 @@ export async function getUpcomingEntryById(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(upcomingProjects)
     .where(eq(upcomingProjects.id, id))
     .limit(1)
-    .all()[0];
+    .get();
 }

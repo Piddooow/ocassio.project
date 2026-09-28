@@ -17,7 +17,7 @@ export async function PATCH(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> },
 ) {
-  const denied = requireAdmin(request, { roles: SALES_ROLES });
+  const denied = await requireAdmin(request, { roles: SALES_ROLES });
   if (denied) return denied;
 
   const { id: rawId } = await params;

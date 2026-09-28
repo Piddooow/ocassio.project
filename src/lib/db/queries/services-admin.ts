@@ -283,7 +283,7 @@ export function validateServiceInput(
 }
 
 export async function listAllServices(database: QueryDatabase = defaultDb) {
-  return database
+  return await database
     .select()
     .from(services)
     .orderBy(asc(services.sortOrder), asc(services.id))
@@ -294,36 +294,36 @@ export async function getServiceById(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(services)
     .where(eq(services.id, id))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 export async function findServiceBySlug(
   slug: string,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(services)
     .where(eq(services.slug, slug))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 export async function getServiceDetailsRow(
   serviceId: number,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(serviceDetails)
     .where(eq(serviceDetails.serviceId, serviceId))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 /** Service plus its 1:1 detail row (admin view). */
@@ -348,7 +348,7 @@ async function upsertServiceDetails(
 ) {
   const existing = await getServiceDetailsRow(serviceId, database);
   if (!existing) {
-    return database
+    return await database
       .insert(serviceDetails)
       .values({
         serviceId,
@@ -356,9 +356,9 @@ async function upsertServiceDetails(
         deliverables: details.deliverables,
       })
       .returning()
-      .all()[0];
+      .get();
   }
-  return database
+  return await database
     .update(serviceDetails)
     .set({
       bodyBlocks: details.bodyBlocks,
@@ -367,14 +367,14 @@ async function upsertServiceDetails(
     })
     .where(eq(serviceDetails.serviceId, serviceId))
     .returning()
-    .all()[0];
+    .get();
 }
 
 export async function createService(
   input: ServiceInput,
   database: QueryDatabase = defaultDb,
 ) {
-  const created = database
+  const created = await database
     .insert(services)
     .values({
       name: input.name,
@@ -389,7 +389,7 @@ export async function createService(
       status: input.status,
     })
     .returning()
-    .all()[0];
+    .get();
 
   if (input.details) {
     await upsertServiceDetails(created.id, input.details, database);
@@ -417,12 +417,12 @@ export async function updateService(
   if (patch.sortOrder !== undefined) values.sortOrder = patch.sortOrder;
   if (patch.status !== undefined) values.status = patch.status;
 
-  const updated = database
+  const updated = await database
     .update(services)
     .set(values)
     .where(eq(services.id, id))
     .returning()
-    .all()[0];
+    .get();
 
   if (updated && patch.details) {
     await upsertServiceDetails(id, patch.details, database);
@@ -434,11 +434,11 @@ export async function deleteService(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  const deleted = database
+  const deleted = await database
     .delete(services)
     .where(eq(services.id, id))
     .returning({ id: services.id })
-    .all()[0];
+    .get();
   return Boolean(deleted);
 }
 
@@ -565,7 +565,7 @@ export function validatePricingInput(
 }
 
 export async function listAllPricing(database: QueryDatabase = defaultDb) {
-  return database
+  return await database
     .select()
     .from(pricing)
     .orderBy(asc(pricing.sortOrder), asc(pricing.id))
@@ -576,19 +576,19 @@ export async function getPricingById(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select()
     .from(pricing)
     .where(eq(pricing.id, id))
     .limit(1)
-    .all()[0];
+    .get();
 }
 
 export async function createPricing(
   input: PricingEntryInput,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .insert(pricing)
     .values({
       serviceId: input.serviceId,
@@ -603,7 +603,7 @@ export async function createPricing(
       status: input.status,
     })
     .returning()
-    .all()[0];
+    .get();
 }
 
 export async function updatePricing(
@@ -623,23 +623,23 @@ export async function updatePricing(
   if (patch.sortOrder !== undefined) values.sortOrder = patch.sortOrder;
   if (patch.status !== undefined) values.status = patch.status;
 
-  return database
+  return await database
     .update(pricing)
     .set(values)
     .where(eq(pricing.id, id))
     .returning()
-    .all()[0];
+    .get();
 }
 
 export async function deletePricing(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  const deleted = database
+  const deleted = await database
     .delete(pricing)
     .where(eq(pricing.id, id))
     .returning({ id: pricing.id })
-    .all()[0];
+    .get();
   return Boolean(deleted);
 }
 
@@ -725,7 +725,7 @@ export async function listServiceProjectRelations(
   serviceId: number,
   database: QueryDatabase = defaultDb,
 ): Promise<string[]> {
-  return database
+  const rows = await database
     .select({ projectSlug: serviceProjectRelations.projectSlug })
     .from(serviceProjectRelations)
     .where(eq(serviceProjectRelations.serviceId, serviceId))
@@ -733,8 +733,8 @@ export async function listServiceProjectRelations(
       asc(serviceProjectRelations.sortOrder),
       asc(serviceProjectRelations.id),
     )
-    .all()
-    .map((row) => row.projectSlug);
+    .all();
+  return rows.map((row) => row.projectSlug);
 }
 
 /** Replaces the whole selected-work list for a service. */
@@ -743,12 +743,12 @@ export async function replaceServiceProjectRelations(
   slugs: string[],
   database: QueryDatabase = defaultDb,
 ): Promise<string[]> {
-  database
+  await database
     .delete(serviceProjectRelations)
     .where(eq(serviceProjectRelations.serviceId, serviceId))
     .run();
   if (slugs.length > 0) {
-    database
+    await database
       .insert(serviceProjectRelations)
       .values(
         slugs.map((slug, index) => ({
@@ -766,13 +766,13 @@ export async function listServiceFaqRelations(
   serviceId: number,
   database: QueryDatabase = defaultDb,
 ): Promise<number[]> {
-  return database
+  const rows = await database
     .select({ faqId: serviceFaqRelations.faqId })
     .from(serviceFaqRelations)
     .where(eq(serviceFaqRelations.serviceId, serviceId))
     .orderBy(asc(serviceFaqRelations.sortOrder), asc(serviceFaqRelations.id))
-    .all()
-    .map((row) => row.faqId);
+    .all();
+  return rows.map((row) => row.faqId);
 }
 
 /** Replaces the whole related-FAQ list for a service. */
@@ -781,12 +781,12 @@ export async function replaceServiceFaqRelations(
   faqIds: number[],
   database: QueryDatabase = defaultDb,
 ): Promise<number[]> {
-  database
+  await database
     .delete(serviceFaqRelations)
     .where(eq(serviceFaqRelations.serviceId, serviceId))
     .run();
   if (faqIds.length > 0) {
-    database
+    await database
       .insert(serviceFaqRelations)
       .values(
         faqIds.map((faqId, index) => ({

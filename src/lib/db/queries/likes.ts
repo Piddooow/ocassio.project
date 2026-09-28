@@ -28,7 +28,7 @@ export async function getLikeState(
   visitorId: string | null,
   database: QueryDatabase = defaultDb,
 ): Promise<LikeState> {
-  const count = database
+  const countRow = await database
     .select({ count: sql<number>`COUNT(*)` })
     .from(likes)
     .where(
@@ -37,11 +37,12 @@ export async function getLikeState(
         eq(likes.entitySlug, entitySlug),
       ),
     )
-    .all()[0].count;
+    .get();
+  const count = countRow?.count ?? 0;
 
   const liked = visitorId
     ? Boolean(
-        database
+        await database
           .select({ id: likes.id })
           .from(likes)
           .where(
@@ -52,7 +53,7 @@ export async function getLikeState(
             ),
           )
           .limit(1)
-          .all()[0],
+          .get(),
       )
     : false;
 
@@ -65,7 +66,7 @@ export async function toggleLike(
   visitorId: string,
   database: QueryDatabase = defaultDb,
 ): Promise<LikeState> {
-  const existing = database
+  const existing = await database
     .select({ id: likes.id })
     .from(likes)
     .where(
@@ -76,12 +77,12 @@ export async function toggleLike(
       ),
     )
     .limit(1)
-    .all()[0];
+    .get();
 
   if (existing) {
     database.delete(likes).where(eq(likes.id, existing.id)).run();
   } else {
-    database
+    await database
       .insert(likes)
       .values({ entityType, entitySlug, visitorId })
       .run();

@@ -36,7 +36,7 @@ export async function GET(request: NextRequest) {
   if (!Number.isInteger(offset) || offset < 0) {
     return badRequest("offset must be an integer of 0 or more.");
   }
-  if (categorySlug && !findJournalCategoryBySlug(categorySlug)) {
+  if (categorySlug && !(await findJournalCategoryBySlug(categorySlug))) {
     return badRequest(`Unknown category slug: ${categorySlug}.`);
   }
 

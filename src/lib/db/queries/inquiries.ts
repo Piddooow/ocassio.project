@@ -42,7 +42,7 @@ export async function createInquiry(
   input: InquiryInput,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .insert(inquiries)
     .values({
       fullName: input.fullName,
@@ -66,7 +66,7 @@ export async function createInquiry(
       status: inquiries.status,
       createdAt: inquiries.createdAt,
     })
-    .all()[0];
+    .get();
 }
 
 /**
@@ -106,7 +106,7 @@ export async function listInquiryQueue(
 ): Promise<{ items: InquiryQueueItem[]; total: number }> {
   const where = status ? eq(inquiries.status, status) : undefined;
 
-  const rows = database
+  const rows = await database
     .select()
     .from(inquiries)
     .where(where)
@@ -115,11 +115,12 @@ export async function listInquiryQueue(
     .offset(offset)
     .all();
 
-  const total = database
+  const totalRow = await database
     .select({ count: sql<number>`COUNT(*)` })
     .from(inquiries)
     .where(where)
-    .all()[0].count;
+    .get();
+  const total = totalRow?.count ?? 0;
 
   return {
     items: rows.map((row) => ({
@@ -154,7 +155,7 @@ export async function updateInquiryStatus(
   status: InquiryStatus,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .update(inquiries)
     .set({ status, updatedAt: new Date() })
     .where(and(eq(inquiries.id, id)))
@@ -163,17 +164,17 @@ export async function updateInquiryStatus(
       status: inquiries.status,
       updatedAt: inquiries.updatedAt,
     })
-    .all()[0];
+    .get();
 }
 
 export async function getInquiryById(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .select({ id: inquiries.id })
     .from(inquiries)
     .where(eq(inquiries.id, id))
     .limit(1)
-    .all()[0];
+    .get();
 }

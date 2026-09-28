@@ -50,7 +50,7 @@ export async function listMediaAssets(
     conditions.push(like(mediaAssets.filename, `%${filters.search.trim()}%`));
   }
 
-  const rows = database
+  const rows = await database
     .select({
       id: mediaAssets.id,
       filename: mediaAssets.filename,
@@ -70,7 +70,7 @@ export async function listMediaAssets(
 
   const ids = rows.map((row) => row.id);
   const variants = ids.length
-    ? database
+    ? await database
         .select({
           assetId: mediaVariants.assetId,
           url: mediaVariants.url,
@@ -108,14 +108,14 @@ export async function getMediaAssetDetail(
   id: number,
   database: QueryDatabase = defaultDb,
 ) {
-  const asset = database
+  const asset = await database
     .select()
     .from(mediaAssets)
     .where(eq(mediaAssets.id, id))
     .limit(1)
-    .all()[0];
+    .get();
   if (!asset) return null;
-  const variants = database
+  const variants = await database
     .select()
     .from(mediaVariants)
     .where(eq(mediaVariants.assetId, id))
@@ -141,12 +141,12 @@ export async function updateMediaAsset(
   if (patch.usageState !== undefined) values.usageState = patch.usageState;
   if (Object.keys(values).length === 0) return undefined;
 
-  return database
+  return await database
     .update(mediaAssets)
     .set(values)
     .where(eq(mediaAssets.id, id))
     .returning()
-    .all()[0];
+    .get();
 }
 
 /** The §20 "Used in" audit across every referencing module. */
@@ -156,14 +156,14 @@ export async function mediaUsageLabels(
 ): Promise<string[]> {
   const labels: string[] = [];
 
-  const usedServices = database
+  const usedServices = await database
     .select({ slug: services.slug })
     .from(services)
     .where(eq(services.supportingMediaId, id))
     .all();
   for (const service of usedServices) labels.push(`Service: ${service.slug}`);
 
-  const usedArticles = database
+  const usedArticles = await database
     .select({ slug: articles.slug })
     .from(articles)
     .where(
@@ -172,33 +172,33 @@ export async function mediaUsageLabels(
     .all();
   for (const article of usedArticles) labels.push(`Article: ${article.slug}`);
 
-  const usedNow = database
+  const usedNow = await database
     .select({ title: upcomingProjects.title })
     .from(upcomingProjects)
     .where(eq(upcomingProjects.mediaId, id))
     .all();
   for (const entry of usedNow) labels.push(`Now: ${entry.title}`);
 
-  const usedTeam = database
+  const usedTeam = await database
     .select({ name: teamMembers.name })
     .from(teamMembers)
     .where(eq(teamMembers.photoMediaId, id))
     .all();
   for (const member of usedTeam) labels.push(`Team: ${member.name}`);
 
-  const usedClients = database
+  const usedClients = await database
     .select({ name: clients.name })
     .from(clients)
     .where(eq(clients.logoMediaId, id))
     .all();
   for (const client of usedClients) labels.push(`Client: ${client.name}`);
 
-  const about = database
+  const about = await database
     .select({ id: studioAbout.id })
     .from(studioAbout)
     .where(eq(studioAbout.supportingMediaId, id))
     .limit(1)
-    .all()[0];
+    .get();
   if (about) labels.push("Studio About");
 
   return labels;
@@ -211,12 +211,12 @@ export async function deleteMediaAssetGuarded(
   | { ok: true }
   | { ok: false; status: 404 | 409; issues: string[] }
 > {
-  const existing = database
+  const existing = await database
     .select({ id: mediaAssets.id })
     .from(mediaAssets)
     .where(eq(mediaAssets.id, id))
     .limit(1)
-    .all()[0];
+    .get();
   if (!existing) {
     return { ok: false, status: 404, issues: [`Asset not found: ${id}.`] };
   }
@@ -255,7 +255,7 @@ export async function createAssetWithVariants(
   variants: OptimizedVariant[],
   database: QueryDatabase = defaultDb,
 ) {
-  const asset = database
+  const asset = await database
     .insert(mediaAssets)
     .values({
       filename: input.filename,
@@ -269,20 +269,22 @@ export async function createAssetWithVariants(
       usageState: "used",
     })
     .returning()
-    .all()[0];
+    .get();
 
-  const rows = variants.map((variant) =>
-    database
-      .insert(mediaVariants)
-      .values({
-        assetId: asset.id,
-        format: variant.format,
-        url: variant.url,
-        width: variant.width,
-        height: variant.height,
-      })
-      .returning()
-      .all()[0],
+  const rows = await Promise.all(
+    variants.map((variant) =>
+      database
+        .insert(mediaVariants)
+        .values({
+          assetId: asset.id,
+          format: variant.format,
+          url: variant.url,
+          width: variant.width,
+          height: variant.height,
+        })
+        .returning()
+        .get(),
+    ),
   );
 
   return { asset, variants: rows };
@@ -293,14 +295,14 @@ export async function getAssetWithVariants(
   assetId: number,
   database: QueryDatabase = defaultDb,
 ) {
-  const asset = database
+  const asset = await database
     .select()
     .from(mediaAssets)
     .where(eq(mediaAssets.id, assetId))
     .limit(1)
-    .all()[0];
+    .get();
   if (!asset) return null;
-  const variants = database
+  const variants = await database
     .select()
     .from(mediaVariants)
     .where(eq(mediaVariants.assetId, assetId))
@@ -323,12 +325,12 @@ export async function setEntryMedia(
   assetId: number | null,
   database: QueryDatabase = defaultDb,
 ) {
-  return database
+  return await database
     .update(upcomingProjects)
     .set({ mediaId: assetId, updatedAt: new Date() })
     .where(eq(upcomingProjects.id, entryId))
     .returning()
-    .all()[0];
+    .get();
 }
 
 /** Re-exported so upload routes keep one import source (§20). */

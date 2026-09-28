@@ -25,12 +25,12 @@ export interface PublicSiteSettings {
 export async function getPublicSiteSettings(
   database: QueryDatabase = defaultDb,
 ): Promise<PublicSiteSettings | null> {
-  const row = database
+  const row = await database
     .select()
     .from(siteSettings)
     .orderBy(asc(siteSettings.id))
     .limit(1)
-    .all()[0];
+    .get();
   if (!row) return null;
 
   return {

@@ -1,6 +1,5 @@
-import { mkdir, rm, writeFile } from "node:fs/promises";
-import { join } from "node:path";
 import { randomUUID } from "node:crypto";
+import { deleteStoredFile, saveStorageOnlyFile } from "./storage";
 
 /**
  * Inquiry attachment pipeline (§6.13): PDF, JPG, JPEG, or PNG up to
@@ -95,10 +94,10 @@ export async function storeInquiryAttachment({
 
   const token = randomUUID().replace(/-/g, "");
   const storedName = `${token}-${sanitizeFilename(filename)}`;
-  const storageKey = join(ATTACHMENT_STORAGE_DIR, storedName);
-
-  await mkdir(ATTACHMENT_STORAGE_DIR, { recursive: true });
-  await writeFile(storageKey, buffer);
+  const storageKey = await saveStorageOnlyFile(
+    `uploads/inquiries/${storedName}`,
+    buffer,
+  );
 
   return {
     filename: storedName,
@@ -109,5 +108,5 @@ export async function storeInquiryAttachment({
 }
 
 export async function removeInquiryAttachment(storageKey: string) {
-  await rm(storageKey, { force: true });
+  await deleteStoredFile(storageKey);
 }

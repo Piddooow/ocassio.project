@@ -25,7 +25,7 @@ export interface PublicFaqEntry {
 export async function listPublishedFaq(
   database: QueryDatabase = defaultDb,
 ): Promise<PublicFaqEntry[]> {
-  return database
+  return await database
     .select({
       id: faq.id,
       question: faq.question,

@@ -30,6 +30,15 @@ export async function generateMetadata(): Promise<Metadata> {
       template: `%s · ${GLOBAL_SETTINGS.studioName}`,
     },
     description: seo?.description ?? GLOBAL_SETTINGS.defaultSeo.description,
+    // Brand mark as the site icon: SVG first (crisp at any size), PNG
+    // fallback for browsers without SVG favicon support.
+    icons: {
+      icon: [
+        { url: "/icon.svg?v=2", type: "image/svg+xml" },
+        { url: "/icon.png?v=2", type: "image/png", sizes: "512x512" },
+      ],
+      apple: [{ url: "/apple-icon.png?v=2", sizes: "180x180", type: "image/png" }],
+    },
     ...(socialImage ? { openGraph: { images: [socialImage] } } : {}),
   };
 }

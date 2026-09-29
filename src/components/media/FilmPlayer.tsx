@@ -251,10 +251,8 @@ export function FilmTheater({ videos, initialIndex, onClose }: TheaterProps) {
             type="button"
             onClick={() => stepIndex(-1)}
             disabled={atStart}
-            className={`min-h-11 text-button font-medium transition-colors ${
-              atStart
-                ? "cursor-default text-muted opacity-30"
-                : "text-secondary hover:text-primary"
+            className={`min-h-11 text-button font-medium text-secondary transition-colors hover:text-primary${
+              atStart ? " invisible" : ""
             }`}
           >
             ← Previous film
@@ -266,10 +264,8 @@ export function FilmTheater({ videos, initialIndex, onClose }: TheaterProps) {
             type="button"
             onClick={() => stepIndex(1)}
             disabled={atEnd}
-            className={`min-h-11 text-button font-medium transition-colors ${
-              atEnd
-                ? "cursor-default text-muted opacity-30"
-                : "text-secondary hover:text-primary"
+            className={`min-h-11 text-button font-medium text-secondary transition-colors hover:text-primary${
+              atEnd ? " invisible" : ""
             }`}
           >
             Next film →

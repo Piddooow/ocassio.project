@@ -212,11 +212,9 @@ export function PhotoViewer({
   const current = photos[index];
   if (!current) return null;
 
-  const navClass = (disabled: boolean) =>
-    `flex min-h-11 min-w-11 shrink-0 items-center justify-center self-center rounded-pill transition-colors ${
-      disabled
-        ? "cursor-default text-muted opacity-30"
-        : "text-secondary hover:bg-surface-hover hover:text-primary"
+  const navClass = (unavailable: boolean) =>
+    `flex min-h-11 min-w-11 shrink-0 items-center justify-center self-center rounded-pill text-secondary transition-colors hover:bg-surface-hover hover:text-primary${
+      unavailable ? " invisible" : ""
     }`;
 
   const viewer = (
@@ -252,7 +250,6 @@ export function PhotoViewer({
 
       <div className="flex min-h-0 flex-1 items-stretch justify-center gap-2 px-4 pb-6 lg:gap-6 lg:px-8">
         <button
-          data-viewer-chrome
           type="button"
           onClick={() => step(-1)}
           disabled={atStart}
@@ -293,7 +290,6 @@ export function PhotoViewer({
           </div>
         </div>
         <button
-          data-viewer-chrome
           type="button"
           onClick={() => step(1)}
           disabled={atEnd}
@@ -310,7 +306,12 @@ export function PhotoViewer({
       >
         <p className="text-caption text-muted">{current.file}</p>
         <p className="text-label uppercase tracking-label-wide text-muted">
-          Use ← → to move · Esc to close
+          {atStart
+            ? "Use → to move"
+            : atEnd
+              ? "Use ← to move"
+              : "Use ← → to move"}{" "}
+          · Esc to close
         </p>
       </div>
     </div>

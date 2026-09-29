@@ -1032,13 +1032,19 @@ function wire(page, tag) {
     (await page.locator("[data-photo-viewer]").count()) === 1,
   );
   const counterBefore = Number(galleryCounter.slice(0, 2));
-  const prevControl = page.getByRole("button", { name: "Previous photograph" });
-  const nextControl = page.getByRole("button", { name: "Next photograph" });
+  const prevControl = page.locator(
+    '[data-photo-viewer] button[aria-label="Previous photograph"]',
+  );
+  const nextControl = page.locator(
+    '[data-photo-viewer] button[aria-label="Next photograph"]',
+  );
   record(
-    "viewer: the first photograph has no previous control",
+    "viewer: the first photograph hides the previous control",
     counterBefore === 1 &&
       (await prevControl.isDisabled()) &&
-      (await nextControl.isEnabled()),
+      !(await prevControl.isVisible()) &&
+      (await nextControl.isEnabled()) &&
+      (await nextControl.isVisible()),
     `counter=${counterBefore}`,
   );
   await page.keyboard.press("ArrowLeft");
@@ -1095,13 +1101,19 @@ function wire(page, tag) {
   const lastCounter = (
     (await page.locator("[data-viewer-counter]").textContent()) ?? ""
   ).trim();
-  const lastPrev = page.getByRole("button", { name: "Previous photograph" });
-  const lastNext = page.getByRole("button", { name: "Next photograph" });
+  const lastPrev = page.locator(
+    '[data-photo-viewer] button[aria-label="Previous photograph"]',
+  );
+  const lastNext = page.locator(
+    '[data-photo-viewer] button[aria-label="Next photograph"]',
+  );
   record(
-    "viewer: the last photograph has no next control",
+    "viewer: the last photograph hides the next control",
     /^50 \/ 50$/.test(lastCounter) &&
       (await lastNext.isDisabled()) &&
-      (await lastPrev.isEnabled()),
+      !(await lastNext.isVisible()) &&
+      (await lastPrev.isEnabled()) &&
+      (await lastPrev.isVisible()),
     lastCounter,
   );
   await page.keyboard.press("ArrowRight");
@@ -1230,11 +1242,17 @@ function wire(page, tag) {
     .getByRole("button", { name: /^Play / })
     .click();
   await page.waitForTimeout(900);
-  const filmPrev = page.getByRole("button", { name: /Previous film/ });
-  const filmNext = page.getByRole("button", { name: /Next film/ });
+  const filmPrev = page.locator("[data-film-theater] button", {
+    hasText: "Previous film",
+  });
+  const filmNext = page.locator("[data-film-theater] button", {
+    hasText: "Next film",
+  });
   record(
-    "theater: the first cut has no previous control",
-    (await filmPrev.isDisabled()) && (await filmNext.isEnabled()),
+    "theater: the first cut hides the previous control",
+    (await filmPrev.isDisabled()) &&
+      !(await filmPrev.isVisible()) &&
+      (await filmNext.isVisible()),
   );
   for (let step = 0; step < 4; step += 1) {
     await filmNext.click();
@@ -1248,10 +1266,11 @@ function wire(page, tag) {
       .textContent()
   )?.trim();
   record(
-    "theater: stepping stops at the last cut (no wrap)",
+    "theater: the last cut hides the next control (no wrap)",
     filmCounter === "5 / 5" &&
       (await filmNext.isDisabled()) &&
-      (await filmPrev.isEnabled()),
+      !(await filmNext.isVisible()) &&
+      (await filmPrev.isVisible()),
     filmCounter ?? "no counter",
   );
   await page.keyboard.press("Escape");

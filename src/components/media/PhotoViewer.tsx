@@ -18,8 +18,14 @@ interface PhotoViewerProps {
 /**
  * Full-screen photo viewer (§31.17, §16): opens the largest variant at its
  * original ratio, GSAP open/close choreography, keyboard navigation
- * (Esc / arrows), focus restore, adjacent preloading, reduced-motion
- * support, and the studio's copy deterrents.
+ * (Esc / arrows), focus restore, reduced-motion support, and the studio's
+ * copy deterrents.
+ *
+ * Stepping never waits: the neighbouring frames are preloaded and decoded,
+ * and the current frame stays on screen until the next one is ready, so a
+ * step is a single soft slide with no skeleton and no blank frame. The
+ * first photograph has no previous control and the last has no next
+ * control (no wrap-around).
  */
 export function PhotoViewer({
   photos,
@@ -31,12 +37,17 @@ export function PhotoViewer({
   const overlayRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
-  const [loaded, setLoaded] = useState(false);
+  /** Sources already decoded in this session, so swaps paint instantly. */
+  const decodedRef = useRef<Set<string>>(new Set());
+  const directionRef = useRef<1 | -1>(1);
+  const firstFrameRef = useRef(true);
+  const [shownSrc, setShownSrc] = useState(() =>
+    photos[index] ? largestVariant(photos[index]) : "",
+  );
+  const [shownReady, setShownReady] = useState(false);
 
-  // Every step shows its own skeleton until the frame has decoded.
-  useEffect(() => {
-    setLoaded(false);
-  }, [index]);
+  const atStart = index === 0;
+  const atEnd = index === photos.length - 1;
 
   const close = useCallback(() => {
     const overlay = overlayRef.current;
@@ -58,14 +69,81 @@ export function PhotoViewer({
     });
   }, [onClose]);
 
+  /** One step, clamped: the ends never wrap around. */
   const step = useCallback(
     (delta: 1 | -1) => {
-      onIndex((index + delta + photos.length) % photos.length);
+      const next = index + delta;
+      if (next < 0 || next >= photos.length) return;
+      directionRef.current = delta;
+      onIndex(next);
     },
     [index, onIndex, photos.length],
   );
 
-  // Open choreography, overlay fades, content settles in from a soft scale.
+  // Warm the neighbours (and their neighbours) so a step has nothing to wait
+  // for. Clamped to the real list, so nothing outside it is fetched.
+  useEffect(() => {
+    const warm = (url: string) => {
+      if (!url || decodedRef.current.has(url)) return;
+      const image = new Image();
+      image.src = url;
+      const ready = image.decode ? image.decode() : Promise.resolve();
+      ready
+        .then(() => decodedRef.current.add(url))
+        .catch(() => {});
+    };
+    for (const offset of [0, 1, -1, 2, -2]) {
+      const neighbour = photos[index + offset];
+      if (neighbour) warm(largestVariant(neighbour));
+    }
+  }, [index, photos]);
+
+  // Resolve the frame to paint: decoded sources swap immediately, otherwise
+  // the current frame stays visible until the next one is ready.
+  useEffect(() => {
+    const current = photos[index];
+    if (!current) return;
+    const url = largestVariant(current);
+    if (url === shownSrc && shownReady) return;
+
+    let cancelled = false;
+    const commit = () => {
+      if (cancelled) return;
+      const isSwap = url !== shownSrc && !firstFrameRef.current;
+      setShownSrc(url);
+      setShownReady(true);
+      if (isSwap && !prefersReducedMotion()) {
+        gsap.fromTo(
+          contentRef.current,
+          { autoAlpha: 0.4, x: 18 * directionRef.current },
+          {
+            autoAlpha: 1,
+            x: 0,
+            duration: 0.28,
+            ease: "power2.out",
+            overwrite: true,
+          },
+        );
+      }
+      firstFrameRef.current = false;
+    };
+
+    if (decodedRef.current.has(url)) {
+      commit();
+      return;
+    }
+
+    const image = new Image();
+    image.src = url;
+    const ready = image.decode ? image.decode() : Promise.resolve();
+    ready.then(commit).catch(commit);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [index, photos, shownSrc, shownReady]);
+
+  // Open choreography: overlay, frame and chrome settle in exactly once.
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
@@ -101,18 +179,8 @@ export function PhotoViewer({
       });
       return () => mm.revert();
     },
-    { dependencies: [index], scope: overlayRef, revertOnUpdate: true },
+    { scope: overlayRef },
   );
-
-  // Preload neighbouring frames so stepping through feels instant.
-  useEffect(() => {
-    for (const offset of [1, -1, 2]) {
-      const neighbour = photos[(index + offset + photos.length) % photos.length];
-      if (!neighbour) continue;
-      const image = new Image();
-      image.src = largestVariant(neighbour);
-    }
-  }, [index, photos]);
 
   // Keyboard + scroll lock while the viewer is open.
   useEffect(() => {
@@ -143,6 +211,13 @@ export function PhotoViewer({
 
   const current = photos[index];
   if (!current) return null;
+
+  const navClass = (disabled: boolean) =>
+    `flex min-h-11 min-w-11 shrink-0 items-center justify-center self-center rounded-pill transition-colors ${
+      disabled
+        ? "cursor-default text-muted opacity-30"
+        : "text-secondary hover:bg-surface-hover hover:text-primary"
+    }`;
 
   const viewer = (
     <div
@@ -180,8 +255,9 @@ export function PhotoViewer({
           data-viewer-chrome
           type="button"
           onClick={() => step(-1)}
+          disabled={atStart}
           aria-label="Previous photograph"
-          className="flex min-h-11 min-w-11 shrink-0 items-center justify-center self-center rounded-pill text-secondary transition-colors hover:bg-surface-hover hover:text-primary"
+          className={navClass(atStart)}
         >
           ←
         </button>
@@ -197,20 +273,22 @@ export function PhotoViewer({
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={largestVariant(current)}
+                src={shownSrc}
                 alt=""
                 width={current.width}
                 height={current.height}
                 draggable={false}
-                onLoad={() => setLoaded(true)}
-                onError={() => setLoaded(true)}
-                className={`max-h-[78dvh] w-auto max-w-full object-contain transition-opacity duration-500 ease-out ${
-                  loaded ? "opacity-100" : "opacity-0"
+                onLoad={() => setShownReady(true)}
+                onError={() => setShownReady(true)}
+                className={`max-h-[78dvh] w-auto max-w-full object-contain ${
+                  shownReady
+                    ? "opacity-100"
+                    : "opacity-0 transition-opacity duration-500 ease-out"
                 }`}
                 decoding="async"
               />
               <span aria-hidden data-media-shield className="media-shield" />
-              {!loaded ? <MediaSkeleton /> : null}
+              {!shownReady ? <MediaSkeleton /> : null}
             </div>
           </div>
         </div>
@@ -218,8 +296,9 @@ export function PhotoViewer({
           data-viewer-chrome
           type="button"
           onClick={() => step(1)}
+          disabled={atEnd}
           aria-label="Next photograph"
-          className="flex min-h-11 min-w-11 shrink-0 items-center justify-center self-center rounded-pill text-secondary transition-colors hover:bg-surface-hover hover:text-primary"
+          className={navClass(atEnd)}
         >
           →
         </button>

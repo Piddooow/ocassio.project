@@ -76,7 +76,8 @@ export function TopNav({
               className="shrink-0"
               imgClassName="h-7 w-7 object-contain"
             />
-            <span className="truncate text-label font-semibold uppercase tracking-brand">
+            {/* Phones show only the mark: the lockup text truncates there. */}
+            <span className="hidden truncate text-label font-semibold uppercase tracking-brand sm:inline">
               {SITE.name}
             </span>
           </Link>

@@ -49,11 +49,46 @@ export function FilmTheater({ videos, initialIndex, onClose }: TheaterProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const firstStepRef = useRef(true);
   const video = videos[index];
+  const atStart = index === 0;
+  const atEnd = index === videos.length - 1;
 
   // Each cut starts buffering again, and the skeleton fades out on play.
   useEffect(() => {
     setBuffering(true);
+  }, [index]);
+
+  /** One step, clamped: the ends never wrap around. */
+  const stepIndex = (delta: 1 | -1) => {
+    const next = index + delta;
+    if (next < 0 || next >= videos.length) return;
+    setIndex(next);
+  };
+
+  // Warm the neighbouring cuts (poster + metadata) so a switch shows the
+  // next poster immediately and playback starts without a cold fetch.
+  useEffect(() => {
+    for (const neighbour of [videos[index - 1], videos[index + 1]]) {
+      if (neighbour?.poster) {
+        const image = new Image();
+        image.src = neighbour.poster;
+      }
+    }
+  }, [index, videos]);
+
+  // A soft step transition; the open choreography already owns the first.
+  useEffect(() => {
+    if (firstStepRef.current) {
+      firstStepRef.current = false;
+      return;
+    }
+    if (prefersReducedMotion()) return;
+    gsap.fromTo(
+      contentRef.current,
+      { autoAlpha: 0.4, y: 10 },
+      { autoAlpha: 1, y: 0, duration: 0.3, ease: EASE.out, overwrite: true },
+    );
   }, [index]);
 
   const close = useCallback(() => {
@@ -175,15 +210,36 @@ export function FilmTheater({ videos, initialIndex, onClose }: TheaterProps) {
                 onWaiting={() => setBuffering(true)}
                 className="max-h-[82dvh] w-full bg-background-deep"
               />
-              <span
-                aria-hidden
-                data-film-buffering
-                className={`pointer-events-none absolute inset-0 flex items-center justify-center transition-opacity duration-500 ease-out ${
-                  buffering ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <MediaSkeleton />
-              </span>
+              {/* With a poster the frame is already there, so the bone
+                  surface is only needed for posterless cuts. */}
+              {video.poster ? null : (
+                <span
+                  aria-hidden
+                  data-film-buffering
+                  className={`pointer-events-none absolute inset-0 flex items-center justify-center transition-opacity duration-500 ease-out ${
+                    buffering ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <MediaSkeleton />
+                </span>
+              )}
+              {[videos[index - 1], videos[index + 1]]
+                .filter((neighbour): neighbour is VideoAsset =>
+                  Boolean(neighbour),
+                )
+                .map((neighbour) => (
+                  // Hidden metadata warm-up for a cold next/previous cut.
+                  <video
+                    key={neighbour.id}
+                    src={neighbour.src}
+                    preload="metadata"
+                    muted
+                    playsInline
+                    aria-hidden
+                    tabIndex={-1}
+                    className="pointer-events-none absolute left-0 top-0 h-px w-px opacity-0"
+                  />
+                ))}
             </div>
           </div>
         </div>
@@ -193,10 +249,13 @@ export function FilmTheater({ videos, initialIndex, onClose }: TheaterProps) {
         <div className="container-editorial flex items-center justify-between gap-4 pb-5">
           <button
             type="button"
-            onClick={() =>
-              setIndex((index - 1 + videos.length) % videos.length)
-            }
-            className="min-h-11 text-button font-medium text-secondary transition-colors hover:text-primary"
+            onClick={() => stepIndex(-1)}
+            disabled={atStart}
+            className={`min-h-11 text-button font-medium transition-colors ${
+              atStart
+                ? "cursor-default text-muted opacity-30"
+                : "text-secondary hover:text-primary"
+            }`}
           >
             ← Previous film
           </button>
@@ -205,8 +264,13 @@ export function FilmTheater({ videos, initialIndex, onClose }: TheaterProps) {
           </p>
           <button
             type="button"
-            onClick={() => setIndex((index + 1) % videos.length)}
-            className="min-h-11 text-button font-medium text-secondary transition-colors hover:text-primary"
+            onClick={() => stepIndex(1)}
+            disabled={atEnd}
+            className={`min-h-11 text-button font-medium transition-colors ${
+              atEnd
+                ? "cursor-default text-muted opacity-30"
+                : "text-secondary hover:text-primary"
+            }`}
           >
             Next film →
           </button>

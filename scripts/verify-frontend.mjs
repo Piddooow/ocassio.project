@@ -1032,14 +1032,33 @@ function wire(page, tag) {
     (await page.locator("[data-photo-viewer]").count()) === 1,
   );
   const counterBefore = Number(galleryCounter.slice(0, 2));
+  const prevControl = page.getByRole("button", { name: "Previous photograph" });
+  const nextControl = page.getByRole("button", { name: "Next photograph" });
+  record(
+    "viewer: the first photograph has no previous control",
+    counterBefore === 1 &&
+      (await prevControl.isDisabled()) &&
+      (await nextControl.isEnabled()),
+    `counter=${counterBefore}`,
+  );
+  await page.keyboard.press("ArrowLeft");
+  await page.waitForTimeout(250);
+  const counterAtStart = Number(
+    ((await page.locator("[data-viewer-counter]").textContent()) ?? "00").slice(0, 2),
+  );
+  record(
+    "viewer: ArrowLeft at the first photograph stays put",
+    counterAtStart === 1,
+    `-> ${counterAtStart}`,
+  );
   await page.keyboard.press("ArrowRight");
   await page.waitForTimeout(300);
   const counterAfter = Number(
     ((await page.locator("[data-viewer-counter]").textContent()) ?? "00").slice(0, 2),
   );
   record(
-    "viewer: arrow keys navigate",
-    counterAfter === (counterBefore === 50 ? 1 : counterBefore + 1),
+    "viewer: arrow keys step forward without wrapping",
+    counterAfter === counterBefore + 1,
     `${counterBefore} -> ${counterAfter}`,
   );
   await page.getByRole("button", { name: "Close" }).click();
@@ -1064,6 +1083,39 @@ function wire(page, tag) {
         () => document.activeElement?.closest("[data-gallery-item]") !== null,
       )),
   );
+
+  /* The last photograph offers no next control and never wraps. */
+  const lastTile = page
+    .locator('[data-section="gallery"] [data-gallery-item]')
+    .last();
+  await lastTile.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(500);
+  await lastTile.click();
+  await page.waitForTimeout(900);
+  const lastCounter = (
+    (await page.locator("[data-viewer-counter]").textContent()) ?? ""
+  ).trim();
+  const lastPrev = page.getByRole("button", { name: "Previous photograph" });
+  const lastNext = page.getByRole("button", { name: "Next photograph" });
+  record(
+    "viewer: the last photograph has no next control",
+    /^50 \/ 50$/.test(lastCounter) &&
+      (await lastNext.isDisabled()) &&
+      (await lastPrev.isEnabled()),
+    lastCounter,
+  );
+  await page.keyboard.press("ArrowRight");
+  await page.waitForTimeout(250);
+  const lastAfter = (
+    (await page.locator("[data-viewer-counter]").textContent()) ?? ""
+  ).trim();
+  record(
+    "viewer: ArrowRight at the last photograph stays put",
+    lastAfter === lastCounter,
+    `${lastCounter} -> ${lastAfter}`,
+  );
+  await page.getByRole("button", { name: "Close" }).click();
+  await page.waitForTimeout(700);
 
   /* ---------------- Film detail + theater ---------------- */
   await page.goto(`${BASE}/work/tere-and-chris`, { waitUntil: "load" });
@@ -1170,6 +1222,40 @@ function wire(page, tag) {
     "theater: Escape closes the player",
     (await page.locator("[data-film-theater]").count()) === 0,
   );
+
+  /* Theatre stepping: no wrap, the ends disable their control. */
+  await page
+    .locator("[data-film-item]")
+    .first()
+    .getByRole("button", { name: /^Play / })
+    .click();
+  await page.waitForTimeout(900);
+  const filmPrev = page.getByRole("button", { name: /Previous film/ });
+  const filmNext = page.getByRole("button", { name: /Next film/ });
+  record(
+    "theater: the first cut has no previous control",
+    (await filmPrev.isDisabled()) && (await filmNext.isEnabled()),
+  );
+  for (let step = 0; step < 4; step += 1) {
+    await filmNext.click();
+    await page.waitForTimeout(400);
+  }
+  const filmCounter = (
+    await page
+      .locator("[data-film-theater]")
+      .getByText(/^\d+ \/ 5$/)
+      .first()
+      .textContent()
+  )?.trim();
+  record(
+    "theater: stepping stops at the last cut (no wrap)",
+    filmCounter === "5 / 5" &&
+      (await filmNext.isDisabled()) &&
+      (await filmPrev.isEnabled()),
+    filmCounter ?? "no counter",
+  );
+  await page.keyboard.press("Escape");
+  await page.waitForTimeout(600);
 
   /* Hero-opened theater must anchor to the viewport, not the hero wrapper. */
   await page.getByRole("button", { name: /^Play / }).first().click();
